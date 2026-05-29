@@ -72,20 +72,16 @@ Features: `about`, `projects`, `experience`, `skills`, `contact`.
 
 ---
 
-## Phase 6 — Project case studies
+## Phase 6 — Project case studies (complete)
 
 **Goal:** Projects prove impact, not just existence.
 
-**Deliverables**
-
-- Content: problem → role → **outcomes with metrics** per project
-- Schema: optional `image`, `role`, `outcomes[]`, `year`, `domain`
-- Thumbnail on every project card; **featured** visual treatment
+- Content: problem → role → outcomes with metrics per project
+- Schema: `image`, `imageAlt`, `role`, `outcomes[]`, `year`, `domain`, `flagship`
+- Thumbnail on every project card; featured + flagship visual treatment
 - Detail page: hero image, metrics strip, long-form body, live + repo CTAs
-- One **flagship** case study (richest content + best visual)
-- E2E: detail page covers image + outcomes when present
-
-**Out of scope:** Video embeds, interactive demos, per-project WebGL
+- Flagship case study: `orbital-telemetry`
+- [ADR 0012](decisions/0012-project-case-studies.md)
 
 **Done when:** All projects have images + at least one metric; featured work is obvious; detail pages read as case studies.
 

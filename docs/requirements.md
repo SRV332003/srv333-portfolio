@@ -6,7 +6,7 @@
 - **FR-2**: Navigation and CTAs read from content; no hardcoded copy in feature components.
 - **FR-3**: Space-themed visual identity via design tokens and shadcn semantic CSS variables.
 - **FR-4**: shadcn/ui used for interactive primitives (button, sheet, tabs, badge, separator, form controls).
-- **FR-5**: Project grid on home with All/Featured tabs; `/projects/:slug` detail pages with body copy, tech badges, and external CTAs.
+- **FR-5**: Project grid on home with All/Featured tabs; `/projects/:slug` detail pages with hero image, case-study metadata (role, year, domain), outcomes metrics strip, body copy, tech badges, and external CTAs; every project has thumbnail + at least one outcome (see ADR 0012).
 - **FR-6**: Contact form with client Zod validation opens `mailto:` link (no backend).
 - **FR-7**: Mobile sheet navigation on small viewports; closes on link click.
 - **FR-8**: Full-page animated starfield with pointer repulsion, horizontal background parallax, and scroll parallax; static fallback when `prefers-reduced-motion: reduce`. Hero text does not move (see ADR 0007).

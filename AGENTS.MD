@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Interactive space-themed portfolio. Phase 5: identity clarity (role line, avatar, resume, openTo).
+Interactive space-themed portfolio. Phase 6: project case studies (thumbnails, outcomes, flagship detail).
 
 ## Commands
 
@@ -51,8 +51,9 @@ npx shadcn@latest add <component>  # new UI primitive (see ADR 0005)
 8. Experience content/dates/UI? Read [ADR 0009](docs/decisions/0009-experience-content-presentation.md)
 9. 3D / scene3d? Read [ADR 0010](docs/decisions/0010-scene3d-performance.md); use `.cursor/skills/add-3d-scene/`
 10. Identity / resume / avatar? Read [ADR 0011](docs/decisions/0011-identity-content-presentation.md)
-11. Non-obvious choice not covered by ADRs? Add ADR in `docs/decisions/`
-12. `npm run typecheck` before done
+11. Project case studies / outcomes? Read [ADR 0012](docs/decisions/0012-project-case-studies.md)
+12. Non-obvious choice not covered by ADRs? Add ADR in `docs/decisions/`
+13. `npm run typecheck` before done
 
 ## Boundaries
 

@@ -27,7 +27,7 @@ test.describe('Projects', () => {
     ).toBeVisible()
     await expect(
       page.getByText(
-        'Built a mission-control dashboard that ingests telemetry streams from multiple satellite buses',
+        'Mission operators lacked a unified view of satellite health across multiple buses',
       ),
     ).toBeVisible()
     await expect(page.getByRole('button', { name: 'Live demo' })).toBeVisible()
@@ -42,6 +42,42 @@ test.describe('Projects', () => {
 
     await expect(page.getByRole('heading', { name: 'Project not found' })).toBeVisible()
     await expect(page.getByRole('link', { name: 'Return home' })).toBeVisible()
+  })
+})
+
+test.describe('Phase 6 case studies', () => {
+  test('project cards show thumbnails on home grid', async ({ page }) => {
+    await page.goto('/#projects')
+
+    const orbitalCard = page.getByRole('link', { name: 'View Orbital Telemetry Console' })
+    await expect(orbitalCard).toBeVisible()
+    await expect(
+      page.getByAltText('Orbital Telemetry Console dashboard showing satellite health metrics'),
+    ).toBeVisible()
+  })
+
+  test('flagship card spans wider grid on large viewports', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 })
+    await page.goto('/#projects')
+
+    const flagshipItem = page
+      .getByRole('link', { name: 'View Orbital Telemetry Console' })
+      .locator('xpath=ancestor::li[1]')
+    await expect(flagshipItem).toHaveClass(/lg:col-span-2/)
+  })
+
+  test('detail page shows hero image, meta, and outcomes', async ({ page }) => {
+    await page.goto('/projects/orbital-telemetry')
+
+    await expect(
+      page.getByAltText('Orbital Telemetry Console dashboard showing satellite health metrics'),
+    ).toBeVisible()
+    await expect(page.getByText('Mission operations · 2024 · Lead frontend engineer')).toBeVisible()
+    const outcomesStrip = page.locator('dl').filter({ hasText: 'Anomaly detection latency' })
+    await expect(outcomesStrip.getByText('<2s', { exact: true })).toBeVisible()
+    await expect(outcomesStrip.getByText('Anomaly detection latency')).toBeVisible()
+    await expect(outcomesStrip.getByText('40%', { exact: true })).toBeVisible()
+    await expect(outcomesStrip.getByText('Faster operator response')).toBeVisible()
   })
 })
 

@@ -47,6 +47,11 @@ export const aboutContentSchema = z.object({
   body: z.array(z.string()),
 })
 
+export const projectOutcomeSchema = z.object({
+  value: z.string(),
+  label: z.string(),
+})
+
 export const projectSchema = z.object({
   title: z.string(),
   slug: z.string(),
@@ -55,7 +60,14 @@ export const projectSchema = z.object({
   tech: z.array(z.string()),
   href: z.string().url().optional(),
   repo: z.string().url().optional(),
-  featured: z.boolean().default(false),
+  featured: z.boolean(),
+  image: z.string().optional(),
+  imageAlt: z.string().optional(),
+  role: z.string().optional(),
+  year: z.number().int().min(2000).max(2100).optional(),
+  domain: z.string().optional(),
+  outcomes: z.array(projectOutcomeSchema).min(1).optional(),
+  flagship: z.boolean(),
 })
 
 const monthYearSchema = z
@@ -107,6 +119,14 @@ export const portfolioSchema = z
     message: 'resumeUrl must be a site-relative path',
     path: ['meta', 'resumeUrl'],
   })
+  .refine(
+    (data) =>
+      data.projects.every((p) => p.image && (p.outcomes?.length ?? 0) >= 1),
+    {
+      message: 'Every project must include image and at least one outcome',
+      path: ['projects'],
+    },
+  )
 
 export type Portfolio = z.infer<typeof portfolioSchema>
 export type SiteMeta = z.infer<typeof siteMetaSchema>
@@ -114,6 +134,7 @@ export type NavItem = z.infer<typeof navItemSchema>
 export type HeroContent = z.infer<typeof heroContentSchema>
 export type AboutContent = z.infer<typeof aboutContentSchema>
 export type Project = z.infer<typeof projectSchema>
+export type ProjectOutcome = z.infer<typeof projectOutcomeSchema>
 export type Experience = z.infer<typeof experienceSchema>
 export type SkillGroup = z.infer<typeof skillGroupSchema>
 export type ContactContent = z.infer<typeof contactContentSchema>

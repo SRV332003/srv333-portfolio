@@ -48,10 +48,17 @@ Array of `{ label, href }` for anchor or route links. Nav order prioritizes Proj
 | Field | Description |
 |-------|-------------|
 | `title`, `slug`, `summary` | Required |
-| `body` | array of paragraphs (min 1) for `/projects/:slug` detail page |
+| `body` | array of paragraphs (min 1) for `/projects/:slug` detail page; `body[0]` should state the problem |
 | `tech` | string array |
 | `href`, `repo` | optional URLs |
-| `featured` | boolean for tab filter and grid highlight |
+| `featured` | Required boolean for tab filter and card highlight |
+| `image` | Site-relative path (e.g. `/assets/projects/orbital-telemetry.png`) — required for demo portfolio |
+| `imageAlt` | Optional hero/thumbnail alt text |
+| `role` | Optional contributor role |
+| `year` | Optional ship year (integer, e.g. `2024`) |
+| `domain` | Optional problem space (e.g. `Mission operations`) |
+| `outcomes` | Optional array of `{ value, label }` metrics — min 1 required for demo portfolio |
+| `flagship` | Required boolean; one richest case study spans wider on home grid |
 
 Loaders: `getProjectBySlug(slug)`, `getAllProjectSlugs()`.
 

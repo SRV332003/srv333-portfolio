@@ -1,0 +1,30 @@
+import type { ProjectOutcome } from '@/content'
+import { cn } from '@/lib/utils'
+
+type ProjectOutcomesStripProps = {
+  outcomes: ProjectOutcome[]
+  className?: string
+}
+
+export function ProjectOutcomesStrip({ outcomes, className }: ProjectOutcomesStripProps) {
+  return (
+    <dl
+      className={cn(
+        'grid gap-4 sm:grid-cols-2 md:grid-cols-3',
+        className,
+      )}
+    >
+      {outcomes.map((outcome) => (
+        <div
+          key={`${outcome.value}-${outcome.label}`}
+          className="rounded-lg border border-border/50 bg-card/40 px-4 py-3 backdrop-blur-sm"
+        >
+          <dt className="text-2xl font-bold tracking-tight text-primary md:text-3xl">
+            {outcome.value}
+          </dt>
+          <dd className="mt-1 text-sm text-muted-foreground">{outcome.label}</dd>
+        </div>
+      ))}
+    </dl>
+  )
+}

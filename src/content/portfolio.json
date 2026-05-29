@@ -51,9 +51,21 @@
       "title": "Orbital Telemetry Console",
       "slug": "orbital-telemetry",
       "summary": "Real-time satellite health dashboard with anomaly detection and operator playbooks.",
+      "role": "Lead frontend engineer",
+      "year": 2024,
+      "domain": "Mission operations",
+      "image": "/assets/projects/orbital-telemetry.png",
+      "imageAlt": "Orbital Telemetry Console dashboard showing satellite health metrics",
+      "outcomes": [
+        { "value": "<2s", "label": "Anomaly detection latency" },
+        { "value": "40%", "label": "Faster operator response" },
+        { "value": "40+", "label": "Daily active operators" }
+      ],
+      "flagship": true,
       "body": [
-        "Built a mission-control dashboard that ingests telemetry streams from multiple satellite buses and surfaces anomaly scores in under two seconds.",
-        "Operators use configurable playbooks to acknowledge, escalate, or auto-remediate common failure modes without leaving the console."
+        "Mission operators lacked a unified view of satellite health across multiple buses — alerts were scattered across tools, slowing incident response during critical windows.",
+        "I led frontend architecture for a real-time dashboard ingesting WebSocket telemetry streams, surfacing anomaly scores with configurable operator playbooks for acknowledge, escalate, and auto-remediate flows.",
+        "The console became the primary operator surface for 40+ users, cutting mean incident response time by 40% and establishing patterns reused across ground-system products."
       ],
       "tech": ["React", "WebSocket", "PostgreSQL", "Grafana"],
       "href": "https://example.com/orbital",
@@ -63,9 +75,21 @@
       "title": "Nebula Design System",
       "slug": "nebula-ds",
       "summary": "Accessible component library themed for dark environments and mission-critical UIs.",
+      "role": "Design system lead",
+      "year": 2023,
+      "domain": "Platform UX",
+      "image": "/assets/projects/nebula-ds.png",
+      "imageAlt": "Nebula Design System component library preview",
+      "outcomes": [
+        { "value": "3", "label": "Product teams adopted" },
+        { "value": "AA", "label": "WCAG target met" },
+        { "value": "60+", "label": "Documented components" }
+      ],
+      "flagship": false,
       "body": [
-        "Designed and documented a token-driven component library optimized for low-light control rooms and high-contrast readability.",
-        "Shipped Storybook workflows and accessibility checklists adopted by three product teams."
+        "Three product teams were shipping inconsistent UIs in low-light control rooms — accessibility gaps and ad-hoc styling slowed delivery and increased operator error risk.",
+        "I designed and documented a token-driven component library with Storybook workflows, contrast checklists, and dark-environment readability as first-class requirements.",
+        "Nebula became the shared foundation for mission-critical interfaces, adopted by three teams and reducing duplicate UI work across ground-system products."
       ],
       "tech": ["TypeScript", "Storybook", "Tailwind"],
       "repo": "https://github.com/example/nebula-ds",
@@ -75,9 +99,21 @@
       "title": "Launch Pad CI",
       "slug": "launch-pad-ci",
       "summary": "Pipeline orchestration templates for multi-stage deploys with rollback guardrails.",
+      "role": "Platform engineer",
+      "year": 2022,
+      "domain": "Developer infrastructure",
+      "image": "/assets/projects/launch-pad-ci.png",
+      "imageAlt": "Launch Pad CI pipeline orchestration workflow",
+      "outcomes": [
+        { "value": "35%", "label": "Fewer failed deploys" },
+        { "value": "12", "label": "Services standardized" },
+        { "value": "1-click", "label": "Rollback paths" }
+      ],
+      "flagship": false,
       "body": [
-        "Created reusable GitHub Actions templates with staged deploy gates, automated smoke tests, and one-click rollback paths.",
-        "Reduced failed production deploys by standardizing pre-flight checks across services."
+        "Services deployed with inconsistent CI gates — failed production releases were common and rollbacks required manual coordination across teams.",
+        "I created reusable GitHub Actions templates with staged deploy gates, automated smoke tests, and one-click rollback paths integrated into existing service repos.",
+        "Standardized pre-flight checks across 12 services reduced failed production deploys by 35% and gave teams a shared playbook for safe releases."
       ],
       "tech": ["Go", "GitHub Actions", "Docker"],
       "repo": "https://github.com/example/launch-pad-ci",
