@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "name": "Nova Chen",
+    "title": "Nova Chen — Spacecraft Software Engineer",
+    "description": "Building reliable systems for exploration — from ground control UIs to orbital telemetry pipelines.",
+    "ogImage": "/assets/og-placeholder.png",
+    "social": [
+      { "label": "GitHub", "href": "https://github.com" },
+      { "label": "LinkedIn", "href": "https://linkedin.com" },
+      { "label": "Email", "href": "mailto:nova@example.com" }
+    ]
+  },
+  "nav": [
+    { "label": "Home", "href": "#hero" },
+    { "label": "About", "href": "#about" },
+    { "label": "Projects", "href": "#projects" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "eyebrow": "Mission control for curious builders",
+    "headline": "Engineering software that orbits the impossible.",
+    "subheadline": "Full-stack developer focused on resilient systems, immersive interfaces, and tools that help teams ship under pressure.",
+    "primaryCta": {
+      "label": "View missions",
+      "href": "#projects"
+    },
+    "secondaryCta": {
+      "label": "Open channel",
+      "href": "#contact"
+    }
+  },
+  "about": {
+    "title": "About",
+    "body": [
+      "I design and ship software where failure modes matter — telemetry dashboards, mission simulators, and developer platforms used in high-stakes environments.",
+      "When I'm not coding, I'm sketching star maps, contributing to open-source observability tools, and mentoring engineers entering aerospace-adjacent tech."
+    ]
+  },
+  "projects": [
+    {
+      "title": "Orbital Telemetry Console",
+      "slug": "orbital-telemetry",
+      "summary": "Real-time satellite health dashboard with anomaly detection and operator playbooks.",
+      "tech": ["React", "WebSocket", "PostgreSQL", "Grafana"],
+      "href": "https://example.com/orbital",
+      "featured": true
+    },
+    {
+      "title": "Nebula Design System",
+      "slug": "nebula-ds",
+      "summary": "Accessible component library themed for dark environments and mission-critical UIs.",
+      "tech": ["TypeScript", "Storybook", "Tailwind"],
+      "repo": "https://github.com/example/nebula-ds",
+      "featured": true
+    },
+    {
+      "title": "Launch Pad CI",
+      "slug": "launch-pad-ci",
+      "summary": "Pipeline orchestration templates for multi-stage deploys with rollback guardrails.",
+      "tech": ["Go", "GitHub Actions", "Docker"],
+      "repo": "https://github.com/example/launch-pad-ci",
+      "featured": false
+    }
+  ],
+  "experience": [
+    {
+      "role": "Senior Software Engineer",
+      "company": "Stellar Dynamics",
+      "period": "2022 — Present",
+      "description": "Led ground-system UI modernization and reduced incident response time by 40%."
+    },
+    {
+      "role": "Software Engineer",
+      "company": "Astra Labs",
+      "period": "2019 — 2022",
+      "description": "Built simulation tooling and APIs for pre-flight validation workflows."
+    }
+  ],
+  "skills": [
+    {
+      "category": "Frontend",
+      "items": ["React", "TypeScript", "WebGL", "Tailwind CSS"]
+    },
+    {
+      "category": "Backend",
+      "items": ["Node.js", "Go", "PostgreSQL", "Redis"]
+    },
+    {
+      "category": "Ops",
+      "items": ["Docker", "Kubernetes", "Observability", "CI/CD"]
+    }
+  ],
+  "contact": {
+    "title": "Establish contact",
+    "email": "nova@example.com",
+    "message": "Open to mission-critical product work, consulting, and speaking on resilient systems."
+  }
+}

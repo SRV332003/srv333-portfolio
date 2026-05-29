@@ -1,0 +1,12 @@
+---
+description: Tailwind and design token styling
+globs: "**/*.{tsx,css}"
+alwaysApply: false
+---
+
+# Tailwind styling
+
+- Use space tokens from `src/styles/tokens.css` via CSS variables.
+- Prefer shadcn semantic utilities: `bg-background`, `text-primary`, `border-border`.
+- **No** raw hex/rgb in TSX unless adding a new token in `tokens.css`.
+- Marketing layout: `src/shared/ui/`. Interactive primitives: `src/components/ui/`.

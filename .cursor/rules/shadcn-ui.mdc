@@ -1,0 +1,13 @@
+---
+description: shadcn/ui component rules
+globs: "src/components/ui/**"
+alwaysApply: false
+---
+
+# shadcn/ui
+
+- Add components with `npx shadcn@latest add <name>` only.
+- Files must live under `src/components/ui/`.
+- Minimize edits to generated files; prefer CVA variants or wrappers in `features/`.
+- Do not use shadcn Card as hero or primary brand layout.
+- Theme through `src/styles/globals.css` token bridge.

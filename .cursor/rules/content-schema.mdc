@@ -1,0 +1,12 @@
+---
+description: Content JSON and Zod schema rules
+globs: "src/content/**"
+alwaysApply: false
+---
+
+# Content layer
+
+- Edit `portfolio.json` and `schema.ts` together when shape changes.
+- Update `docs/content-schema.md` for new fields.
+- `loadPortfolio()` must validate all content via Zod.
+- Do not import React in `schema.ts` or `index.ts`.

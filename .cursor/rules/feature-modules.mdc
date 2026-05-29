@@ -1,0 +1,12 @@
+---
+description: Feature module boundaries
+globs: "src/features/**"
+alwaysApply: false
+---
+
+# Feature modules
+
+- No imports between sibling features.
+- No direct `@radix-ui/*` or `@base-ui/*` — use `@/components/ui/*`.
+- Public exports through `index.ts`.
+- Section UI composes `shared/ui` + shadcn + content from `loadPortfolio()`.

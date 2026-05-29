@@ -1,0 +1,18 @@
+---
+description: Core agent workflow for space portfolio
+alwaysApply: true
+---
+
+# Portfolio core
+
+1. Read root `AGENTS.MD`, then the target module `AGENTS.MD`.
+2. Check `docs/requirements.md` and relevant ADRs before architectural changes.
+3. Keep diffs minimal and scoped to the task.
+4. Marketing copy lives in `src/content/portfolio.json` only.
+5. Run `npm run typecheck` before considering work complete.
+
+## Boundaries
+
+- **Always**: follow `docs/patterns.md`; use `@/` imports
+- **Ask first**: new npm dependencies; new ADRs
+- **Never**: commit secrets; hardcode user-facing strings in features

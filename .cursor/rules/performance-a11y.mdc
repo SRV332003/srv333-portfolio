@@ -1,0 +1,12 @@
+---
+description: Performance and accessibility
+alwaysApply: true
+---
+
+# Performance and a11y
+
+- Respect `prefers-reduced-motion` (see `tokens.css`).
+- Lazy-load 3D and heavy modals in later phases.
+- Use shadcn for dialogs/sheets/forms (focus management).
+- Landmarks: `header`, `main`, `footer`, `section` with labels where needed.
+- Tree-shake: import shadcn components from their file paths, not barrel re-exports of entire library.

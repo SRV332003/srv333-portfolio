@@ -1,0 +1,30 @@
+/* Space theme design tokens — source of truth for cosmic palette */
+
+:root {
+  /* Core palette */
+  --color-void: #050510;
+  --color-nebula: #1a1035;
+  --color-nebula-light: #2d1b4e;
+  --color-star: #e8e6f0;
+  --color-star-dim: #9b95b0;
+  --color-orbit: #6b5ce7;
+  --color-accent: #00d4aa;
+  --color-accent-glow: rgba(0, 212, 170, 0.35);
+
+  /* Typography */
+  --font-display: 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Segoe UI', system-ui, sans-serif;
+
+  /* Spacing scale (reference) */
+  --section-padding-y: 5rem;
+
+  /* Effects */
+  --shadow-glow: 0 0 24px var(--color-accent-glow);
+  --radius-cosmic: 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-duration: 0.01ms;
+  }
+}
