@@ -350,19 +350,11 @@ Each skill: frontmatter `name` + `description`, checklist workflow, links to `do
 - E2E smoke (Playwright) optional
 
 ```mermaid
-gantt
-  title Delivery phases
-  dateFormat YYYY-MM-DD
-  section Phase1
-    Scaffold_docs_rules     :p1, 2026-05-29, 3d
-  section Phase2
-    Canvas_2D_interactivity :p2, after p1, 5d
-  section Phase3
-    Portfolio_sections      :p3, after p2, 7d
-  section Phase4
-    R3F_hybrid_3D           :p4, after p3, 5d
-  section Phase5
-    Polish_deploy           :p5, after p4, 4d
+flowchart LR
+    P1[Phase 1 — Scaffold] --> P2[Phase 2 — Canvas]
+    P2 --> P3[Phase 3 — Sections]
+    P3 --> P4[Phase 4 — R3F]
+    P4 --> P5[Phase 5 — Polish and ship]
 ```
 
 ---
