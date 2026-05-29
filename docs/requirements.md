@@ -7,6 +7,7 @@
 - **FR-3**: Space-themed visual identity via design tokens and shadcn semantic CSS variables.
 - **FR-4**: shadcn/ui used for interactive primitives (buttons now; sheet, dialog, forms in Phase 3).
 - **FR-5**: Future phases: about, projects, experience, skills, contact sections; project detail routes.
+- **FR-6**: Full-page animated starfield with pointer repulsion, horizontal background parallax, and scroll parallax; static fallback when `prefers-reduced-motion: reduce`. Hero text does not move (see ADR 0007).
 
 ## Non-functional requirements
 
@@ -16,7 +17,12 @@
 - **NFR-4 Maintainability**: Feature-folder isolation; content schema versioned with Zod.
 - **NFR-5 Agent-readiness**: `AGENTS.MD` per module; ADRs for architectural decisions; Cursor rules for boundaries.
 - **NFR-6 SEO** (Phase 5): Meta tags, OG image, semantic HTML landmarks.
+- **NFR-7 Canvas**: Cap particles and DPR; pause animation when tab hidden; decorative canvas `aria-hidden`.
 
 ## Out of scope (Phase 1)
 
-- Canvas starfield, R3F 3D, CMS, blog, analytics, contact form backend.
+- R3F 3D, CMS, blog, analytics, contact form backend.
+
+## Out of scope (Phase 2)
+
+- Phase 3 sections, shadcn sheet/dialog, constellation tooltips (Phase 2b optional).

@@ -57,4 +57,19 @@ npx shadcn@latest add <component>
 ## Lazy loading
 
 - Route-level: `React.lazy` for future `/projects/:slug`.
+- Canvas: `StarfieldCanvas` lazy inside `StarfieldBackground`.
 - 3D: dynamic `import()` for `features/scene3d` only (Phase 4).
+
+## Canvas (Phase 2)
+
+- Import backdrop only from `@/features/canvas` (typically `shell/Layout.tsx`).
+- Do not put canvas logic in `shared/ui` or shadcn components.
+- **Interaction model**: see [ADR 0007](decisions/0007-canvas-interaction-ux.md).
+  - Hero text stays fixed (no DOM parallax).
+  - Pointer parallax is **horizontal-only** on star draw positions.
+  - Repulsion/glow on physics layer; parallax on draw layer.
+- Tune in `features/canvas/lib/constants.ts` (`DRIFT_SPEED`, `CANVAS_PARALLAX_*`, `REPULSION_*`).
+
+## Shell chrome
+
+- Header/footer glass styling: [ADR 0007](decisions/0007-canvas-interaction-ux.md) — keep semi-transparent so stars show through.

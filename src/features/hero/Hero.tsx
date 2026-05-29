@@ -7,14 +7,6 @@ export function Hero() {
 
   return (
     <Section id="hero" className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-40"
-        aria-hidden
-        style={{
-          background:
-            'radial-gradient(circle at 20% 30%, color-mix(in srgb, var(--color-orbit) 30%, transparent), transparent 50%), radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--color-accent) 20%, transparent), transparent 45%)',
-        }}
-      />
       <Container className="relative">
         <p className="mb-4 text-sm font-medium tracking-widest text-accent uppercase">
           {hero.eyebrow}

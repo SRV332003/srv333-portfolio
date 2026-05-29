@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Interactive space-themed portfolio. Phase 1: scaffold, content-driven hero, shadcn CTAs, agent harness.
+Interactive space-themed portfolio. Phase 2: full-page canvas starfield, parallax, repulsion, agent harness.
 
 ## Commands
 
@@ -11,6 +11,7 @@ npm run dev        # local dev server
 npm run build      # production build
 npm run typecheck  # TypeScript
 npm run lint       # ESLint
+npm run test:e2e   # Playwright smoke tests
 npx shadcn@latest add <component>  # new UI primitive (see ADR 0005)
 ```
 
@@ -21,6 +22,7 @@ npx shadcn@latest add <component>  # new UI primitive (see ADR 0005)
 | `src/app/` | [src/app/AGENTS.MD](src/app/AGENTS.MD) |
 | `src/content/` | [src/content/AGENTS.MD](src/content/AGENTS.MD) |
 | `src/features/` | [src/features/AGENTS.MD](src/features/AGENTS.MD) |
+| `src/features/canvas/` | [src/features/canvas/AGENTS.MD](src/features/canvas/AGENTS.MD) |
 | `src/shared/` | [src/shared/AGENTS.MD](src/shared/AGENTS.MD) |
 | `src/components/` | [src/components/AGENTS.MD](src/components/AGENTS.MD) |
 | `src/` | [src/AGENTS.MD](src/AGENTS.MD) |
@@ -43,7 +45,9 @@ npx shadcn@latest add <component>  # new UI primitive (see ADR 0005)
 3. Copy change? Edit `portfolio.json` + schema only
 4. New shadcn primitive? Use `.cursor/skills/add-shadcn-component/`
 5. New section? Use `.cursor/skills/add-portfolio-section/`
-6. `npm run typecheck` before done
+6. Canvas/shell UX change? Read [ADR 0007](docs/decisions/0007-canvas-interaction-ux.md)
+7. Non-obvious choice not covered by 0007? Add ADR in `docs/decisions/`
+8. `npm run typecheck` before done
 
 ## Boundaries
 

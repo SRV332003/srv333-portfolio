@@ -1,22 +1,26 @@
 ---
 name: add-2d-effect
-description: Add canvas or CSS 2D space effects in features/canvas. Use in Phase 2 for starfield, parallax, pointer interactions.
+description: Add canvas or CSS 2D space effects in features/canvas. Use for starfield tweaks, new particle behavior, or fallback styling.
 ---
 
-# Add 2D effect (Phase 2 stub)
+# Add 2D effect
 
-## Planned location
+## Before you start
 
-`src/features/canvas/`
+1. Read [ADR 0003](../../docs/decisions/0003-hybrid-visuals.md) and [ADR 0006](../../docs/decisions/0006-canvas-performance.md).
+2. Read [src/features/canvas/AGENTS.MD](../../src/features/canvas/AGENTS.MD).
 
-## Checklist (when implementing)
+## Checklist
 
-1. Read [ADR 0003](../../docs/decisions/0003-hybrid-visuals.md).
-2. Create canvas feature module with `AGENTS.MD`.
-3. Respect `prefers-reduced-motion` — static fallback required.
-4. Do not put canvas logic inside shadcn or `shared/ui`.
-5. Lazy-load heavy canvas code if needed.
+1. Tune behavior in `src/features/canvas/lib/constants.ts` when possible.
+2. Particle logic lives in `lib/stars.ts`; rAF in `hooks/useStarfieldAnimation.ts`.
+3. Respect `prefers-reduced-motion` — update `StarfieldFallback.tsx` if visuals change.
+4. Keep `pointer-events-none` on the background wrapper.
+5. Do not add canvas code to shadcn or `shared/ui`.
+6. Parallax is background-only in `lib/stars.ts` draw step; tune `CANVAS_PARALLAX_*` constants. See [ADR 0007](../../docs/decisions/0007-canvas-interaction-ux.md) before changing parallax axis or hero motion.
+7. Run `npm run typecheck` and `npm run build`.
 
-## Status
+## Adding new canvas layers
 
-Not implemented in Phase 1.
+- Extend `StarfieldCanvas` or add a sibling component lazy-loaded from `StarfieldBackground`.
+- Cap DPR and particle count for mobile.

@@ -8,9 +8,10 @@ Portfolio sections and pages. Each subfolder is a feature module.
 
 | Folder | Role |
 |--------|------|
-| `home/` | `HomePage` composes shell + hero |
-| `shell/` | Layout, Header, Footer |
+| `home/` | `HomePage` composes shell + hero + parallax |
+| `shell/` | Layout, Header, Footer; mounts starfield |
 | `hero/` | Hero section |
+| `canvas/` | 2D starfield background ([AGENTS.MD](canvas/AGENTS.MD)) |
 
 ## Adding a section
 

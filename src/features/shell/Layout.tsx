@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react'
 
+import { StarfieldBackground } from '@/features/canvas'
+
 import { Footer } from './Footer'
 import { Header } from './Header'
 
@@ -9,10 +11,13 @@ type LayoutProps = {
 
 export function Layout({ children }: LayoutProps) {
   return (
-    <div className="flex min-h-screen flex-col">
-      <Header />
-      <main className="flex-1">{children}</main>
-      <Footer />
+    <div className="relative min-h-screen">
+      <StarfieldBackground />
+      <div className="relative z-10 flex min-h-screen flex-col">
+        <Header />
+        <main className="flex flex-1 flex-col">{children}</main>
+        <Footer />
+      </div>
     </div>
   )
 }
