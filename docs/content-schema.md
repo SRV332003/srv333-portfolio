@@ -11,8 +11,10 @@ Run `npm run typecheck` after changes; invalid JSON fails at `loadPortfolio()` v
 | `name` | string | Display name |
 | `title` | string | Document title (future `<title>`) |
 | `description` | string | Meta description |
-| `ogImage` | string? | Open Graph image path |
-| `social` | array | `{ label, href }` footer/header links |
+| `ogImage` | string? | Open Graph image path (Phase 10) |
+| `resumeUrl` | string | Site-relative PDF path (e.g. `/assets/resume.pdf`) — single source for header + hero |
+| `resumeLabel` | string? | Button label; UI default `"Resume"` |
+| `social` | array | `{ label, href }` footer links — use real profile URLs before personal ship |
 
 ## `nav`
 
@@ -24,6 +26,10 @@ Array of `{ label, href }` for anchor or route links. Nav order prioritizes Proj
 |-------|-------------|
 | `title` | Section heading |
 | `subtitle` | Optional supporting line |
+| `avatar` | Required public path (e.g. `/assets/avatar.png`) |
+| `avatarAlt` | Optional image alt text |
+| `location` | Optional (e.g. `Bay Area · Pacific Time`) — About only |
+| `openTo` | Optional availability line — **not** the contact form intro; shown in About as muted prose |
 | `body` | Array of paragraphs |
 
 ## `hero`
@@ -32,6 +38,7 @@ Array of `{ label, href }` for anchor or route links. Nav order prioritizes Proj
 |-------|-------------|
 | `eyebrow` | Small label above headline |
 | `headline` | Main H1 text |
+| `roleLine` | Recruiter-scannable specialty (plain text under H1) |
 | `subheadline` | Supporting paragraph |
 | `primaryCta` | `{ label, href }` |
 | `secondaryCta` | optional second CTA |
@@ -70,4 +77,4 @@ See [ADR 0009](decisions/0009-experience-content-presentation.md) for date forma
 
 ## `contact`
 
-`title`, `email`, `message`.
+`title`, `email`, `message` (form intro — keep distinct from `about.openTo`).

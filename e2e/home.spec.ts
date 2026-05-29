@@ -165,3 +165,37 @@ test.describe('Home page UI', () => {
     })
   })
 })
+
+test.describe('Phase 5 identity', () => {
+  test('shows role line, resume links, and about identity', async ({ page }) => {
+    await page.goto('/')
+
+    await expect(
+      page.getByText('Senior full-stack engineer · mission systems & operator UIs'),
+    ).toBeVisible()
+
+    const banner = page.getByRole('banner')
+    const headerResume = banner.getByRole('button', { name: 'Resume', exact: true })
+    await expect(headerResume).toBeVisible()
+    await expect(headerResume).toHaveAttribute('href', '/assets/resume.pdf')
+
+    const hero = page.locator('#hero')
+    const heroResume = hero.getByRole('button', { name: 'Resume', exact: true })
+    await expect(heroResume).toBeVisible()
+    await expect(heroResume).toHaveAttribute('href', '/assets/resume.pdf')
+
+    const avatar = page.locator('#about img')
+    await expect(avatar).toBeVisible()
+    await expect(avatar).toHaveAttribute('alt', 'Portrait of Nova Chen')
+
+    await expect(page.getByText('Bay Area · Pacific Time')).toBeVisible()
+    await expect(page.getByText(openToText)).toBeVisible()
+
+    await expect(page.getByText(contactIntro)).toBeVisible()
+    expect(openToText).not.toBe(contactIntro)
+  })
+})
+
+const openToText =
+  'Open to full-time product engineering, consulting, and speaking on resilient systems.'
+const contactIntro = 'Send a message — I usually reply within two business days.'

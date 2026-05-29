@@ -11,6 +11,7 @@
 - **FR-7**: Mobile sheet navigation on small viewports; closes on link click.
 - **FR-8**: Full-page animated starfield with pointer repulsion, horizontal background parallax, and scroll parallax; static fallback when `prefers-reduced-motion: reduce`. Hero text does not move (see ADR 0007).
 - **FR-9**: Decorative 3D planet visual in the hero via lazy-loaded React Three Fiber; auto-rotate only, no pointer interaction on meshes (see ADR 0010).
+- **FR-10**: Identity clarity — hero `roleLine`, about avatar/location/openTo, resume from `meta.resumeUrl` in header and hero; no hardcoded identity copy (see ADR 0011).
 
 ## Non-functional requirements
 
@@ -19,7 +20,7 @@
 - **NFR-3 shadcn/a11y**: Use shadcn primitives for focus traps, dialogs, sheets, forms—do not reimplement Radix patterns in features.
 - **NFR-4 Maintainability**: Feature-folder isolation; content schema versioned with Zod.
 - **NFR-5 Agent-readiness**: `AGENTS.MD` per module; ADRs for architectural decisions; Cursor rules for boundaries.
-- **NFR-6 SEO** (Phase 5): Meta tags, OG image, semantic HTML landmarks.
+- **NFR-6 SEO** (Phase 10): Meta tags, OG image, semantic HTML landmarks.
 - **NFR-7 Canvas**: Cap particles and DPR; pause animation when tab hidden; decorative canvas `aria-hidden`.
 - **NFR-8 Scene3D**: Cap DPR (1.5 mobile / 2 desktop); pause rotation when tab hidden; reduced-motion CSS fallback; single mesh per scene in Phase 4.
 
@@ -35,4 +36,4 @@
 
 - Contact backend / Formspree / email API.
 - Project quick-view Dialog (detail route used instead).
-- SEO meta / OG (Phase 5).
+- SEO meta / OG (Phase 10).

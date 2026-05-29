@@ -9,7 +9,7 @@ Global chrome: layout, header, footer. Mounts full-page `StarfieldBackground` (e
 | File | Role |
 |------|------|
 | `Layout.tsx` | `StarfieldBackground` + z-10 content column |
-| `Header.tsx` | Nav + CTA from content; mobile Sheet nav (`md:hidden`) |
+| `Header.tsx` | Nav + CTAs from content; resume from `meta.resumeUrl` (`lg+` desktop); mobile Sheet nav |
 | `Footer.tsx` | Social links from content |
 
 ## Chrome styling
@@ -26,8 +26,8 @@ Do not increase header/footer opacity without updating ADR 0007.
 ## Mobile navigation (Phase 3)
 
 - Hamburger + shadcn `Sheet` visible below `md` breakpoint.
-- Nav links from `loadPortfolio().nav`; sheet closes on link click.
-- See [ADR 0008](../../../docs/decisions/0008-portfolio-sections-routing.md).
+- Nav links from `loadPortfolio().nav`; sheet closes on link click (including resume).
+- See [ADR 0008](../../../docs/decisions/0008-portfolio-sections-routing.md), [ADR 0011](../../../docs/decisions/0011-identity-content-presentation.md).
 
 ## Constraints
 

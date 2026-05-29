@@ -10,6 +10,8 @@ export const siteMetaSchema = z.object({
   title: z.string(),
   description: z.string(),
   ogImage: z.string().optional(),
+  resumeUrl: z.string(),
+  resumeLabel: z.string().optional(),
   social: z.array(socialLinkSchema),
 })
 
@@ -21,6 +23,7 @@ export const navItemSchema = z.object({
 export const heroContentSchema = z.object({
   eyebrow: z.string(),
   headline: z.string(),
+  roleLine: z.string(),
   subheadline: z.string(),
   primaryCta: z.object({
     label: z.string(),
@@ -37,6 +40,10 @@ export const heroContentSchema = z.object({
 export const aboutContentSchema = z.object({
   title: z.string(),
   subtitle: z.string().optional(),
+  avatar: z.string(),
+  avatarAlt: z.string().optional(),
+  location: z.string().optional(),
+  openTo: z.string().optional(),
   body: z.array(z.string()),
 })
 
@@ -85,16 +92,21 @@ export const contactContentSchema = z.object({
   message: z.string(),
 })
 
-export const portfolioSchema = z.object({
-  meta: siteMetaSchema,
-  nav: z.array(navItemSchema),
-  hero: heroContentSchema,
-  about: aboutContentSchema,
-  projects: z.array(projectSchema),
-  experience: z.array(experienceSchema),
-  skills: z.array(skillGroupSchema),
-  contact: contactContentSchema,
-})
+export const portfolioSchema = z
+  .object({
+    meta: siteMetaSchema,
+    nav: z.array(navItemSchema),
+    hero: heroContentSchema,
+    about: aboutContentSchema,
+    projects: z.array(projectSchema),
+    experience: z.array(experienceSchema),
+    skills: z.array(skillGroupSchema),
+    contact: contactContentSchema,
+  })
+  .refine((data) => data.meta.resumeUrl.startsWith('/'), {
+    message: 'resumeUrl must be a site-relative path',
+    path: ['meta', 'resumeUrl'],
+  })
 
 export type Portfolio = z.infer<typeof portfolioSchema>
 export type SiteMeta = z.infer<typeof siteMetaSchema>
@@ -105,3 +117,7 @@ export type Project = z.infer<typeof projectSchema>
 export type Experience = z.infer<typeof experienceSchema>
 export type SkillGroup = z.infer<typeof skillGroupSchema>
 export type ContactContent = z.infer<typeof contactContentSchema>
+
+export function getResumeLabel(meta: SiteMeta): string {
+  return meta.resumeLabel ?? 'Resume'
+}

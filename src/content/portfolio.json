@@ -4,9 +4,11 @@
     "title": "Nova Chen — Spacecraft Software Engineer",
     "description": "Building reliable systems for exploration — from ground control UIs to orbital telemetry pipelines.",
     "ogImage": "/assets/og-placeholder.png",
+    "resumeUrl": "/assets/resume.pdf",
+    "resumeLabel": "Resume",
     "social": [
-      { "label": "GitHub", "href": "https://github.com" },
-      { "label": "LinkedIn", "href": "https://linkedin.com" },
+      { "label": "GitHub", "href": "https://github.com/nova-chen" },
+      { "label": "LinkedIn", "href": "https://linkedin.com/in/nova-chen" },
       { "label": "Email", "href": "mailto:nova@example.com" }
     ]
   },
@@ -21,6 +23,7 @@
   "hero": {
     "eyebrow": "Mission control for curious builders",
     "headline": "Engineering software that orbits the impossible.",
+    "roleLine": "Senior full-stack engineer · mission systems & operator UIs",
     "subheadline": "Full-stack developer focused on resilient systems, immersive interfaces, and tools that help teams ship under pressure.",
     "primaryCta": {
       "label": "View missions",
@@ -34,6 +37,10 @@
   "about": {
     "title": "About",
     "subtitle": "Exploration starts where comfort ends.",
+    "avatar": "/assets/avatar.png",
+    "avatarAlt": "Portrait of Nova Chen",
+    "location": "Bay Area · Pacific Time",
+    "openTo": "Open to full-time product engineering, consulting, and speaking on resilient systems.",
     "body": [
       "I design and ship software where failure modes matter — telemetry dashboards, mission simulators, and developer platforms used in high-stakes environments.",
       "When I'm not coding, I'm sketching star maps, contributing to open-source observability tools, and mentoring engineers entering aerospace-adjacent tech."
@@ -121,6 +128,6 @@
   "contact": {
     "title": "Establish contact",
     "email": "nova@example.com",
-    "message": "Open to mission-critical product work, consulting, and speaking on resilient systems."
+    "message": "Send a message — I usually reply within two business days."
   }
 }

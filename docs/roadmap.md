@@ -59,21 +59,16 @@ Features: `about`, `projects`, `experience`, `skills`, `contact`.
 
 ---
 
-## Phase 5 — Identity & clarity
+## Phase 5 — Identity & clarity (complete)
 
 **Goal:** Visitors know who you are, what you do, and what you want in under 10 seconds.
 
-**Deliverables**
+- Hero `roleLine`; resume from `meta.resumeUrl` in header + hero
+- About avatar, location, `openTo` line; distinct `contact.message`
+- Placeholder assets: `public/assets/avatar.png`, `resume.pdf`
+- [ADR 0011](decisions/0011-identity-content-presentation.md)
 
-- Hero: plain **role line** under headline (recruiter-scannable specialty)
-- About: **avatar/photo**, optional location/timezone, **“Open to …”** line
-- Real social URLs; **resume PDF** link (header or hero)
-- Content schema extensions: `hero.roleLine`, `about.avatar`, `about.openTo`, etc.
-- Light UI: hero hierarchy (eyebrow → headline → role → subhead → CTAs)
-
-**Out of scope:** Project images, planet art pass, SEO meta
-
-**Done when:** Hero is clear to a non-technical recruiter; About feels human; resume + real links work; copy still from `portfolio.json` only.
+**Done when:** Recruiter-scannable hero; About humanized; resume links work; copy from `portfolio.json` only; build + e2e pass.
 
 ---
 

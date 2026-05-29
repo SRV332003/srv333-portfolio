@@ -14,5 +14,5 @@ export function getAllProjectSlugs(): string[] {
   return loadPortfolio().projects.map((project) => project.slug)
 }
 
-export { portfolioSchema } from './schema'
+export { getResumeLabel, portfolioSchema } from './schema'
 export type { Portfolio, Project, Experience } from './schema'

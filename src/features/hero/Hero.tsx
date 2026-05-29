@@ -1,10 +1,13 @@
+import { FileTextIcon } from 'lucide-react'
+
 import { Button } from '@/components/ui/button'
-import { loadPortfolio } from '@/content'
+import { getResumeLabel, loadPortfolio } from '@/content'
 import { HeroPlanetScene } from '@/features/scene3d'
 import { Container, Section } from '@/shared/ui'
 
 export function Hero() {
-  const { hero } = loadPortfolio()
+  const { hero, meta } = loadPortfolio()
+  const resumeLabel = getResumeLabel(meta)
 
   return (
     <Section id="hero" className="relative pt-12 pb-20 md:pt-20 md:pb-28">
@@ -16,7 +19,10 @@ export function Hero() {
           <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-foreground md:text-6xl">
             {hero.headline}
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
+          <p className="mt-4 max-w-2xl text-lg font-medium text-primary md:text-xl">
+            {hero.roleLine}
+          </p>
+          <p className="mt-4 max-w-2xl text-lg text-muted-foreground md:text-xl">
             {hero.subheadline}
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
@@ -37,6 +43,21 @@ export function Hero() {
                 {hero.secondaryCta.label}
               </Button>
             ) : null}
+            <Button
+              nativeButton={false}
+              render={
+                <a
+                  href={meta.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              }
+              variant="ghost"
+              size="lg"
+            >
+              <FileTextIcon className="size-4" aria-hidden />
+              {resumeLabel}
+            </Button>
           </div>
         </div>
         <div className="relative mx-auto w-full md:max-w-none">

@@ -10,11 +10,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import { loadPortfolio } from '@/content'
+import { getResumeLabel, loadPortfolio } from '@/content'
 import { Container } from '@/shared/ui'
 
 export function Header() {
   const { meta, nav, hero } = loadPortfolio()
+  const resumeLabel = getResumeLabel(meta)
   const [mobileOpen, setMobileOpen] = useState(false)
 
   function handleNavClick() {
@@ -23,7 +24,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/30 bg-background/25 backdrop-blur-sm">
-      <Container as="div" className="flex h-16 items-center justify-between">
+      <Container as="div" className="flex h-16 items-center justify-between gap-2">
         <Link
           to="/"
           className="text-sm font-semibold tracking-wide text-foreground"
@@ -42,6 +43,21 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
+          <Button
+            nativeButton={false}
+            render={
+              <a
+                href={meta.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+            }
+            variant="outline"
+            size="sm"
+            className="hidden lg:inline-flex"
+          >
+            {resumeLabel}
+          </Button>
           <Button
             nativeButton={false}
             render={<a href={hero.primaryCta.href} />}
@@ -79,7 +95,22 @@ export function Header() {
                   </a>
                 ))}
               </nav>
-              <div className="px-4 pb-4">
+              <div className="flex flex-col gap-3 px-4 pb-4">
+                <Button
+                  nativeButton={false}
+                  render={
+                    <a
+                      href={meta.resumeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={handleNavClick}
+                    />
+                  }
+                  variant="outline"
+                  className="w-full"
+                >
+                  {resumeLabel}
+                </Button>
                 <Button
                   nativeButton={false}
                   render={<a href={hero.primaryCta.href} onClick={handleNavClick} />}
