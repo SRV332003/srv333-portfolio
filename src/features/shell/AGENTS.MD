@@ -9,7 +9,7 @@ Global chrome: layout, header, footer. Mounts full-page `StarfieldBackground` (e
 | File | Role |
 |------|------|
 | `Layout.tsx` | `StarfieldBackground` + z-10 content column |
-| `Header.tsx` | Nav + CTA from content |
+| `Header.tsx` | Nav + CTA from content; mobile Sheet nav (`md:hidden`) |
 | `Footer.tsx` | Social links from content |
 
 ## Chrome styling
@@ -22,6 +22,12 @@ Glass layers so the starfield remains visible. Rationale: [ADR 0007](../../../do
 | **Footer** | Frosted band (`bg-background/35`), top border, upward shadow, `py-6` — separated from hero without excess height |
 
 Do not increase header/footer opacity without updating ADR 0007.
+
+## Mobile navigation (Phase 3)
+
+- Hamburger + shadcn `Sheet` visible below `md` breakpoint.
+- Nav links from `loadPortfolio().nav`; sheet closes on link click.
+- See [ADR 0008](../../../docs/decisions/0008-portfolio-sections-routing.md).
 
 ## Constraints
 

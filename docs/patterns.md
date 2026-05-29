@@ -56,9 +56,68 @@ npx shadcn@latest add <component>
 
 ## Lazy loading
 
-- Route-level: `React.lazy` for future `/projects/:slug`.
+- Route-level: `React.lazy` for `/projects/:slug` — import `@/features/projects/ProjectDetailPage` directly, **not** from the barrel (`index.ts` omits `ProjectDetailPage` so the home bundle does not pull detail code).
 - Canvas: `StarfieldCanvas` lazy inside `StarfieldBackground`.
 - 3D: dynamic `import()` for `features/scene3d` only (Phase 4).
+
+## Bespoke card pattern (projects + experience)
+
+Shared visual language for section “tiles”:
+
+- Frosted panel: `rounded-xl border border-border/50 bg-card/40 p-6 backdrop-blur-sm`
+- Hover: `hover:border-accent/40 hover:bg-card/60`
+- shadcn `Badge` for tech/skills; **no** shadcn `Card`
+
+See [ADR 0009](decisions/0009-experience-content-presentation.md) for experience timeline specifics.
+
+## Project card grid
+
+- Grid list items use `h-full`; card article uses `h-full flex flex-col` so row heights match.
+- Summary uses `flex-1` to push tag row to the bottom; tag `<ul>` uses `min-h-14` for consistent badge area when tags wrap.
+
+## Stretched link cards
+
+`ProjectCard` makes the entire card clickable without nesting interactive elements:
+
+1. Absolute `Link` with `inset-0` covers the article.
+2. Content wrapper has `pointer-events-none` so clicks pass through to the link.
+3. No nested links inside the card (external URLs live on the detail page only).
+
+```tsx
+<article className="relative ...">
+  <Link to={...} className="absolute inset-0 ..." aria-label={...} />
+  <div className="relative ... pointer-events-none">{/* content */}</div>
+</article>
+```
+
+## Experience section
+
+- Structured dates (`start`/`end` in JSON) formatted as `MMM YYYY` in `features/experience/formatPeriod.ts`.
+- Timeline rail + frosted entry cards; see [ADR 0009](decisions/0009-experience-content-presentation.md).
+
+## Section composition (Phase 3)
+
+- `HomePage` stacks section features; no cross-feature imports between sections.
+- Anchor IDs match `portfolio.json` `nav` (`#about`, `#projects`, `#experience`, `#skills`, `#contact`).
+- Shared headings via `SectionHeading` in `@/shared/ui`.
+- Smooth scroll on `html`; disabled when `prefers-reduced-motion: reduce` ([ADR 0007](decisions/0007-canvas-interaction-ux.md)).
+
+## Project routing
+
+- Cards link to `/projects/:slug`; external `href`/`repo` on detail page only.
+- `getProjectBySlug()` / `getAllProjectSlugs()` in `@/content`.
+- Unknown slug: in-app 404, link home.
+
+## Contact (mailto)
+
+- Zod-validated form in `features/contact/ContactSection`.
+- URL built by `buildMailtoUrl()` in `features/contact/mailto.ts`; valid submit sets `window.location.href`.
+- See [ADR 0008](decisions/0008-portfolio-sections-routing.md).
+
+## Mobile nav
+
+- Header sheet (`md:hidden` trigger); desktop nav unchanged.
+- Close sheet on link click.
 
 ## Canvas (Phase 2)
 

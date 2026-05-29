@@ -43,18 +43,35 @@ export const projectSchema = z.object({
   title: z.string(),
   slug: z.string(),
   summary: z.string(),
+  body: z.array(z.string()).min(1),
   tech: z.array(z.string()),
   href: z.string().url().optional(),
   repo: z.string().url().optional(),
   featured: z.boolean().default(false),
 })
 
-export const experienceSchema = z.object({
-  role: z.string(),
-  company: z.string(),
-  period: z.string(),
-  description: z.string(),
-})
+const monthYearSchema = z
+  .string()
+  .regex(/^\d{4}-(0[1-9]|1[0-2])$/, 'Use YYYY-MM with month 01–12')
+
+export const experienceSchema = z
+  .object({
+    role: z.string(),
+    company: z.string(),
+    start: monthYearSchema,
+    end: z.union([monthYearSchema, z.literal('present')]),
+    description: z.string().optional(),
+    summary: z.string().optional(),
+    highlights: z.array(z.string()).min(1).optional(),
+    skills: z.array(z.string()).optional(),
+  })
+  .refine(
+    (data) =>
+      Boolean(data.description || data.summary || (data.highlights?.length ?? 0) > 0),
+    {
+      message: 'Experience entry must include description, summary, or highlights',
+    },
+  )
 
 export const skillGroupSchema = z.object({
   category: z.string(),

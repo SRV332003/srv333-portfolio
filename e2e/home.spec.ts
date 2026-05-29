@@ -9,6 +9,22 @@ function alphaFromColor(color: string): number {
 }
 
 test.describe('Home page UI', () => {
+  test('renders all portfolio section headings', async ({ page }) => {
+    await page.goto('/')
+
+    await expect(page.locator('#about')).toBeVisible()
+    await expect(page.locator('#projects')).toBeVisible()
+    await expect(page.locator('#experience')).toBeVisible()
+    await expect(page.locator('#skills')).toBeVisible()
+    await expect(page.locator('#contact')).toBeVisible()
+
+    await expect(page.getByRole('heading', { name: 'About', exact: true })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Projects', exact: true })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Experience', exact: true })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Skills', exact: true })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Establish contact' })).toBeVisible()
+  })
+
   test('renders hero, navigation, and starfield layer', async ({ page }) => {
     const consoleErrors: string[] = []
     page.on('console', (msg) => {
@@ -66,7 +82,7 @@ test.describe('Home page UI', () => {
   }) => {
     await page.goto('/')
 
-    const headerStyles = await page.locator('header').evaluate((el) => {
+    const headerStyles = await page.getByRole('banner').evaluate((el) => {
       const style = getComputedStyle(el)
       return {
         backgroundColor: style.backgroundColor,
@@ -100,6 +116,7 @@ test.describe('Home page UI', () => {
     page,
   }) => {
     await page.goto('/')
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
 
     const footer = page.locator('footer')
     await expect(footer).toBeVisible()
@@ -118,7 +135,8 @@ test.describe('Home page UI', () => {
       const innerStyle = getComputedStyle(footerInner)
 
       return {
-        footerAtBottom: Math.abs(footerRect.bottom - window.innerHeight) < 2,
+        footerAtBottom:
+          Math.abs(footerRect.bottom - document.documentElement.scrollHeight) < 2,
         mainAboveFooter: mainRect.bottom <= footerRect.top + 1,
         borderTopWidth: footerStyle.borderTopWidth,
         backgroundColor: footerStyle.backgroundColor,

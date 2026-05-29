@@ -8,6 +8,7 @@ Cross-feature utilities and **marketing** UI (not shadcn primitives).
 
 - `Container` — max-width wrapper
 - `Section` — vertical section spacing
+- `SectionHeading` — consistent section titles (title + optional subtitle)
 
 ## lib/
 

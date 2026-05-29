@@ -2,12 +2,14 @@
 
 ## Functional requirements
 
-- **FR-1**: Single-page home with hero, driven by validated content in `src/content/portfolio.json`.
+- **FR-1**: Single-page home with hero, about, projects, experience, skills, and contact sections, driven by validated content in `src/content/portfolio.json`.
 - **FR-2**: Navigation and CTAs read from content; no hardcoded copy in feature components.
 - **FR-3**: Space-themed visual identity via design tokens and shadcn semantic CSS variables.
-- **FR-4**: shadcn/ui used for interactive primitives (buttons now; sheet, dialog, forms in Phase 3).
-- **FR-5**: Future phases: about, projects, experience, skills, contact sections; project detail routes.
-- **FR-6**: Full-page animated starfield with pointer repulsion, horizontal background parallax, and scroll parallax; static fallback when `prefers-reduced-motion: reduce`. Hero text does not move (see ADR 0007).
+- **FR-4**: shadcn/ui used for interactive primitives (button, sheet, tabs, badge, separator, form controls).
+- **FR-5**: Project grid on home with All/Featured tabs; `/projects/:slug` detail pages with body copy, tech badges, and external CTAs.
+- **FR-6**: Contact form with client Zod validation opens `mailto:` link (no backend).
+- **FR-7**: Mobile sheet navigation on small viewports; closes on link click.
+- **FR-8**: Full-page animated starfield with pointer repulsion, horizontal background parallax, and scroll parallax; static fallback when `prefers-reduced-motion: reduce`. Hero text does not move (see ADR 0007).
 
 ## Non-functional requirements
 
@@ -26,3 +28,9 @@
 ## Out of scope (Phase 2)
 
 - Phase 3 sections, shadcn sheet/dialog, constellation tooltips (Phase 2b optional).
+
+## Out of scope (Phase 3)
+
+- Contact backend / Formspree / email API.
+- Project quick-view Dialog (detail route used instead).
+- SEO meta / OG (Phase 5).

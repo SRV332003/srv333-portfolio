@@ -16,7 +16,7 @@ Run `npm run typecheck` after changes; invalid JSON fails at `loadPortfolio()` v
 
 ## `nav`
 
-Array of `{ label, href }` for anchor or route links.
+Array of `{ label, href }` for anchor or route links. Phase 3 includes `#experience` and `#skills`.
 
 ## `hero`
 
@@ -37,13 +37,28 @@ Array of `{ label, href }` for anchor or route links.
 | Field | Description |
 |-------|-------------|
 | `title`, `slug`, `summary` | Required |
+| `body` | array of paragraphs (min 1) for `/projects/:slug` detail page |
 | `tech` | string array |
 | `href`, `repo` | optional URLs |
-| `featured` | boolean for grid highlight |
+| `featured` | boolean for tab filter and grid highlight |
+
+Loaders: `getProjectBySlug(slug)`, `getAllProjectSlugs()`.
 
 ## `experience`
 
-`role`, `company`, `period`, `description`.
+| Field | Description |
+|-------|-------------|
+| `role`, `company` | Required |
+| `start` | `YYYY-MM` (e.g. `2022-03`) — displayed as `Mar 2022` |
+| `end` | `YYYY-MM` or `"present"` |
+| `summary` | Optional one-line intro under company |
+| `highlights` | Optional bullet list (achievements) |
+| `skills` | Optional tech tags for this role |
+| `description` | Legacy single paragraph (use if no summary/highlights) |
+
+At least one of `description`, `summary`, or `highlights` is required.
+
+See [ADR 0009](decisions/0009-experience-content-presentation.md) for date formatting and per-role vs global skills.
 
 ## `skills`
 

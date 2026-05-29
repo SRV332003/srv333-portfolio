@@ -10,7 +10,7 @@ Single source of portfolio copy and structured data.
 |------|------|
 | `schema.ts` | Zod schemas and exported types |
 | `portfolio.json` | Placeholder / real content |
-| `index.ts` | `loadPortfolio()` — validates on load |
+| `index.ts` | `loadPortfolio()`, `getProjectBySlug()`, `getAllProjectSlugs()` |
 
 ## Workflow
 

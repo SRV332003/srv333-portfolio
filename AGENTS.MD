@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Interactive space-themed portfolio. Phase 2: full-page canvas starfield, parallax, repulsion, agent harness.
+Interactive space-themed portfolio. Phase 3: full portfolio sections, project detail routes, mobile nav, mailto contact.
 
 ## Commands
 
@@ -46,8 +46,10 @@ npx shadcn@latest add <component>  # new UI primitive (see ADR 0005)
 4. New shadcn primitive? Use `.cursor/skills/add-shadcn-component/`
 5. New section? Use `.cursor/skills/add-portfolio-section/`
 6. Canvas/shell UX change? Read [ADR 0007](docs/decisions/0007-canvas-interaction-ux.md)
-7. Non-obvious choice not covered by 0007? Add ADR in `docs/decisions/`
-8. `npm run typecheck` before done
+7. Sections/routing/contact? Read [ADR 0008](docs/decisions/0008-portfolio-sections-routing.md)
+8. Experience content/dates/UI? Read [ADR 0009](docs/decisions/0009-experience-content-presentation.md)
+9. Non-obvious choice not covered by ADRs? Add ADR in `docs/decisions/`
+10. `npm run typecheck` before done
 
 ## Boundaries
 

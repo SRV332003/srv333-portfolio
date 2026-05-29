@@ -14,6 +14,8 @@
     { "label": "Home", "href": "#hero" },
     { "label": "About", "href": "#about" },
     { "label": "Projects", "href": "#projects" },
+    { "label": "Experience", "href": "#experience" },
+    { "label": "Skills", "href": "#skills" },
     { "label": "Contact", "href": "#contact" }
   ],
   "hero": {
@@ -41,6 +43,10 @@
       "title": "Orbital Telemetry Console",
       "slug": "orbital-telemetry",
       "summary": "Real-time satellite health dashboard with anomaly detection and operator playbooks.",
+      "body": [
+        "Built a mission-control dashboard that ingests telemetry streams from multiple satellite buses and surfaces anomaly scores in under two seconds.",
+        "Operators use configurable playbooks to acknowledge, escalate, or auto-remediate common failure modes without leaving the console."
+      ],
       "tech": ["React", "WebSocket", "PostgreSQL", "Grafana"],
       "href": "https://example.com/orbital",
       "featured": true
@@ -49,6 +55,10 @@
       "title": "Nebula Design System",
       "slug": "nebula-ds",
       "summary": "Accessible component library themed for dark environments and mission-critical UIs.",
+      "body": [
+        "Designed and documented a token-driven component library optimized for low-light control rooms and high-contrast readability.",
+        "Shipped Storybook workflows and accessibility checklists adopted by three product teams."
+      ],
       "tech": ["TypeScript", "Storybook", "Tailwind"],
       "repo": "https://github.com/example/nebula-ds",
       "featured": true
@@ -57,6 +67,10 @@
       "title": "Launch Pad CI",
       "slug": "launch-pad-ci",
       "summary": "Pipeline orchestration templates for multi-stage deploys with rollback guardrails.",
+      "body": [
+        "Created reusable GitHub Actions templates with staged deploy gates, automated smoke tests, and one-click rollback paths.",
+        "Reduced failed production deploys by standardizing pre-flight checks across services."
+      ],
       "tech": ["Go", "GitHub Actions", "Docker"],
       "repo": "https://github.com/example/launch-pad-ci",
       "featured": false
@@ -66,14 +80,27 @@
     {
       "role": "Senior Software Engineer",
       "company": "Stellar Dynamics",
-      "period": "2022 — Present",
-      "description": "Led ground-system UI modernization and reduced incident response time by 40%."
+      "start": "2022-03",
+      "end": "present",
+      "summary": "Ground-system UI and incident tooling for mission operations.",
+      "highlights": [
+        "Led UI modernization for the telemetry console used by 40+ operators.",
+        "Reduced mean incident response time by 40% via playbooks and alerting.",
+        "Introduced design-system patterns adopted across three product teams."
+      ],
+      "skills": ["React", "TypeScript", "PostgreSQL", "WebSocket", "Grafana"]
     },
     {
       "role": "Software Engineer",
       "company": "Astra Labs",
-      "period": "2019 — 2022",
-      "description": "Built simulation tooling and APIs for pre-flight validation workflows."
+      "start": "2019-06",
+      "end": "2022-02",
+      "summary": "Simulation tooling and APIs for pre-flight validation workflows.",
+      "highlights": [
+        "Built simulation tooling and APIs for pre-flight validation workflows.",
+        "Delivered test harnesses that cut pre-launch verification cycles by 25%."
+      ],
+      "skills": ["Go", "Node.js", "PostgreSQL", "Docker"]
     }
   ],
   "skills": [

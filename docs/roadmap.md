@@ -15,9 +15,13 @@
 - **Done when**: build passes; stars + repulsion + reduced-motion fallback verified
 - **Optional Phase 2b**: shadcn `tooltip` constellation hotspots
 
-## Phase 3 — Portfolio sections
+## Phase 3 — Portfolio sections (complete)
 
 Features: `about`, `projects`, `experience`, `skills`, `contact`.
+
+- Single-page home with anchor sections; `/projects/:slug` detail routes — [ADR 0008](decisions/0008-portfolio-sections-routing.md)
+- Mobile sheet nav; mailto contact form (no backend)
+- Playwright: `e2e/home.spec.ts`, `e2e/projects.spec.ts`
 
 ### shadcn allowlist (Phase 3)
 
@@ -25,12 +29,13 @@ Features: `about`, `projects`, `experience`, `skills`, `contact`.
 |-----------|-----|
 | `sheet` | Mobile nav |
 | `tabs` | Project filters |
-| `dialog` | Quick-view / contact modal |
 | `input`, `label`, `textarea` | Contact form |
 | `badge` | Tech tags on cards |
-| `separator` | Dense section dividers |
+| `separator` | Experience dividers |
 
-Project cards remain **bespoke** in `features/projects/`.
+Project cards remain **bespoke** in `features/projects/`. Detail route replaces dialog quick-view.
+
+**Done when**: all sections visible; detail:nav works; detail routes; mobile sheet; mailto form; build + e2e pass.
 
 ## Phase 4 — Hybrid 3D
 
