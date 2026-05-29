@@ -25,7 +25,7 @@ After Phase 2 shipped the starfield, UX iteration revealed several issues:
 - **Repulsion** stays on the physics layer (`updateStars`); parallax on the draw layer only.
 - **Smoothed** via lerp in `useStarfieldAnimation` (`CANVAS_PARALLAX_LERP`).
 - **Disabled** when `prefers-reduced-motion: reduce`.
-- **Scroll parallax** remains in `updateStars` but is subtle until Phase 3 adds page height.
+- **No vertical scroll parallax** on the fixed starfield — removed after Phase 3; cumulative `scrollY` offset pushed stars off-screen without recycling display positions (see amendment below).
 
 ### Star drift tuning
 
@@ -57,7 +57,9 @@ All in `src/features/canvas/lib/constants.ts`:
 
 - Do not reintroduce vertical pointer parallax without revisiting drift interaction (see this ADR).
 - Do not move parallax back to hero text — use canvas or a dedicated background layer.
-- Scroll-based parallax will become more noticeable in Phase 3 when sections add scroll height.
+- Repulsion uses **base** position (`baseX`/`baseY`); display snaps to `base + velocity offset` (no overshoot lerp).
+- Viewport resize via **`window` `resize`** only — not `ResizeObserver` on `documentElement` (Phase 3 page height changes caused spurious star resets).
+- Dev diagnostics: `lib/diagnostics.ts` warns when >85% stars off-screen, lerp alpha would exceed 1, or display/base desync.
 - Shell styling changes should stay in `features/shell/`; document rationale here if non-obvious.
 
 ## References

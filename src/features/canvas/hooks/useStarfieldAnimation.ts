@@ -1,6 +1,7 @@
 import { useEffect, useRef, type RefObject } from 'react'
 
 import { readStarfieldColors } from '../lib/colors'
+import { warnStarfieldAnomaly } from '../lib/diagnostics'
 import {
   CANVAS_PARALLAX_FACTOR,
   CANVAS_PARALLAX_LERP,
@@ -46,7 +47,6 @@ export function useStarfieldAnimation({
   const starsRef = useRef<Star[]>([])
   const colorsRef = useRef(readStarfieldColors())
   const sizeRef = useRef({ width: 0, height: 0, dpr: 1 })
-  const scrollYRef = useRef(0)
   const parallaxRef = useRef<ParallaxOffset>({ x: 0, y: 0 })
   const reducedMotionRef = useRef(false)
   const rafRef = useRef<number>(0)
@@ -63,24 +63,21 @@ export function useStarfieldAnimation({
   }, [])
 
   useEffect(() => {
-    const onScroll = () => {
-      scrollYRef.current = window.scrollY
-    }
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
 
     colorsRef.current = readStarfieldColors()
 
-    const resize = () => {
+    const resize = (source: 'init' | 'window-resize') => {
       const dpr = getEffectiveDpr()
       const width = window.innerWidth
       const height = window.innerHeight
+
+      if (width <= 0 || height <= 0) {
+        warnStarfieldAnomaly('resize-invalid-viewport', { width, height, source })
+        return
+      }
+
       sizeRef.current = { width, height, dpr }
 
       canvas.width = Math.floor(width * dpr)
@@ -94,9 +91,9 @@ export function useStarfieldAnimation({
       starsRef.current = createStars(width, height, getStarCount())
     }
 
-    resize()
-    const observer = new ResizeObserver(resize)
-    observer.observe(document.documentElement)
+    resize('init')
+    const onWindowResize = () => resize('window-resize')
+    window.addEventListener('resize', onWindowResize, { passive: true })
 
     const tick = (time: number) => {
       rafRef.current = requestAnimationFrame(tick)
@@ -113,7 +110,10 @@ export function useStarfieldAnimation({
 
       const { width, height } = sizeRef.current
       const ctx = canvas.getContext('2d')
-      if (!ctx || width === 0) return
+      if (!ctx || width === 0 || height === 0) {
+        warnStarfieldAnomaly('tick-skipped-invalid-size', { width, height })
+        return
+      }
 
       const pointer = pointerRef.current ?? {
         x: 0,
@@ -140,14 +140,7 @@ export function useStarfieldAnimation({
         CANVAS_PARALLAX_LERP,
       )
 
-      updateStars(
-        starsRef.current,
-        width,
-        height,
-        scrollYRef.current,
-        pointer,
-        delta,
-      )
+      updateStars(starsRef.current, width, height, pointer, delta)
       drawStars(
         ctx,
         starsRef.current,
@@ -163,7 +156,7 @@ export function useStarfieldAnimation({
 
     return () => {
       cancelAnimationFrame(rafRef.current)
-      observer.disconnect()
+      window.removeEventListener('resize', onWindowResize)
     }
   }, [canvasRef, pointerRef, paused])
 }

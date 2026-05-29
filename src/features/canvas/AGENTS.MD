@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Full-page 2D starfield background: canvas animation, pointer repulsion, scroll parallax, reduced-motion CSS fallback.
+Full-page 2D starfield background: canvas animation, pointer repulsion, horizontal pointer parallax, reduced-motion CSS fallback.
 
 ## Files
 
@@ -15,6 +15,7 @@ Full-page 2D starfield background: canvas animation, pointer repulsion, scroll p
 | `hooks/useStarfieldAnimation.ts` | rAF loop, resize, draw |
 | `lib/stars.ts` | Particle create/update/draw |
 | `lib/constants.ts` | Density, DPR, repulsion tuning |
+| `lib/diagnostics.ts` | Dev-only throttled `[starfield:*]` console warnings |
 | `lib/colors.ts` | Read CSS token colors |
 
 ## Wired from

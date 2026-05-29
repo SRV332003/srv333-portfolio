@@ -6,9 +6,10 @@ import {
   REPULSION_RADIUS,
   REPULSION_STRENGTH,
   RETURN_SPEED,
-  SCROLL_PARALLAX_FACTOR,
+  REPULSION_OFFSET,
 } from './constants'
 import type { StarfieldColors } from './colors'
+import { auditStarfieldHealth, getUncappedLerpAlpha, warnStarfieldAnomaly } from './diagnostics'
 
 export type ParallaxOffset = {
   x: number
@@ -33,6 +34,8 @@ export type PointerState = {
   active: boolean
 }
 
+const OFF_SCREEN_MARGIN = 20
+
 export function getStarCount(): number {
   const mobile =
     typeof window !== 'undefined' &&
@@ -41,6 +44,10 @@ export function getStarCount(): number {
 }
 
 export function createStars(width: number, height: number, count: number): Star[] {
+  if (width <= 0 || height <= 0) {
+    warnStarfieldAnomaly('create-stars-invalid-size', { width, height, count })
+  }
+
   const stars: Star[] = []
   for (let i = 0; i < count; i++) {
     const z = Math.random()
@@ -61,33 +68,69 @@ export function createStars(width: number, height: number, count: number): Star[
   return stars
 }
 
+function recycleStar(star: Star, width: number): void {
+  star.baseY = -OFF_SCREEN_MARGIN
+  star.baseX = Math.random() * width
+  star.y = star.baseY
+  star.x = star.baseX
+  star.vx = 0
+  star.vy = 0
+}
+
+function shouldRecycle(star: Star, width: number, height: number): string | null {
+  if (star.baseY > height + OFF_SCREEN_MARGIN) return 'baseY-below-viewport'
+  if (star.y > height + OFF_SCREEN_MARGIN) return 'displayY-below-viewport'
+  if (star.y < -OFF_SCREEN_MARGIN * 2) return 'displayY-above-viewport'
+  if (star.x < -OFF_SCREEN_MARGIN || star.x > width + OFF_SCREEN_MARGIN) {
+    return 'displayX-offscreen'
+  }
+  return null
+}
+
 export function updateStars(
   stars: Star[],
   width: number,
   height: number,
-  scrollY: number,
   pointer: PointerState,
   delta: number,
 ): void {
-  const scrollOffset = scrollY * SCROLL_PARALLAX_FACTOR
+  const uncappedLerp = getUncappedLerpAlpha(delta, RETURN_SPEED)
+  if (uncappedLerp > 1) {
+    warnStarfieldAnomaly('lerp-overshoot-risk', {
+      uncappedLerp: uncappedLerp.toFixed(3),
+      delta,
+      returnSpeed: RETURN_SPEED,
+      hint: 'Lerp alpha > 1 causes vibration; positions now snap each frame',
+    })
+  }
 
   for (const star of stars) {
     const depthFactor = 0.2 + star.z * 0.8
     star.baseY += DRIFT_SPEED * depthFactor * delta
     star.baseX += Math.sin(star.baseY * 0.002 + star.z * 10) * 0.05 * delta
 
-    if (star.baseY > height + 20) {
-      star.baseY = -20
-      star.baseX = Math.random() * width
+    const recycleReason = shouldRecycle(star, width, height)
+    if (recycleReason) {
+      if (
+        recycleReason === 'displayY-below-viewport' &&
+        star.baseY <= height + OFF_SCREEN_MARGIN
+      ) {
+        warnStarfieldAnomaly('display-offscreen-before-base', {
+          baseY: star.baseY,
+          displayY: star.y,
+          height,
+          hint: 'Repulsion or lerp desync pushed display ahead of drift path',
+        })
+      }
+      recycleStar(star, width)
     }
-    if (star.baseX < -20) star.baseX = width + 20
-    if (star.baseX > width + 20) star.baseX = -20
 
-    const parallaxY = scrollOffset * depthFactor * 60
+    if (star.baseX < -OFF_SCREEN_MARGIN) star.baseX = width + OFF_SCREEN_MARGIN
+    if (star.baseX > width + OFF_SCREEN_MARGIN) star.baseX = -OFF_SCREEN_MARGIN
 
     if (pointer.active) {
-      const dx = star.x - pointer.x
-      const dy = star.y - pointer.y
+      const dx = star.baseX - pointer.x
+      const dy = star.baseY - pointer.y
       const dist = Math.hypot(dx, dy)
       if (dist < REPULSION_RADIUS && dist > 0.1) {
         const force =
@@ -102,12 +145,14 @@ export function updateStars(
     star.vx *= DAMPING
     star.vy *= DAMPING
 
-    const targetX = star.baseX + star.vx * 10
-    const targetY = star.baseY + parallaxY + star.vy * 10
+    const targetX = star.baseX + star.vx * REPULSION_OFFSET
+    const targetY = star.baseY + star.vy * REPULSION_OFFSET
 
-    star.x += (targetX - star.x) * RETURN_SPEED * 60 * delta
-    star.y += (targetY - star.y) * RETURN_SPEED * 60 * delta
+    star.x = targetX
+    star.y = targetY
   }
+
+  auditStarfieldHealth(stars, width, height)
 }
 
 export function drawStars(

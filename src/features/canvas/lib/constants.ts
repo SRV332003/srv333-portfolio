@@ -9,13 +9,14 @@ export const DPR_MAX_MOBILE = 1.5
 export const REPULSION_RADIUS = 120
 export const REPULSION_STRENGTH = 1.2
 export const DAMPING = 0.9
-export const DRIFT_SPEED = 0.21
+export const DRIFT_SPEED = 0.11
+/** Scales repulsion velocity into display offset from base position */
+export const REPULSION_OFFSET = 10
+/** @deprecated Display now snaps to target; kept for diagnostics lerp check */
 export const RETURN_SPEED = 0.02
 
 export const GLOW_RADIUS = 160
 export const GLOW_OPACITY = 0.12
-
-export const SCROLL_PARALLAX_FACTOR = 0.00025
 
 export const CANVAS_PARALLAX_FACTOR = 0.035
 export const CANVAS_PARALLAX_MAX = 32
