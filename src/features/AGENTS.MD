@@ -10,7 +10,8 @@ Portfolio sections and pages. Each subfolder is a feature module.
 |--------|------|
 | `home/` | `HomePage` composes shell + all sections |
 | `shell/` | Layout, Header (desktop + mobile sheet), Footer |
-| `hero/` | Hero section |
+| `hero/` | Hero section + lazy planet accent ([AGENTS.MD](hero/AGENTS.MD)) |
+| `scene3d/` | R3F WebGL scenes ([AGENTS.MD](scene3d/AGENTS.MD)) |
 | `about/` | About section ([AGENTS.MD](about/AGENTS.MD)) |
 | `projects/` | Grid, tabs, detail pages ([AGENTS.MD](projects/AGENTS.MD)) |
 | `experience/` | Experience timeline ([AGENTS.MD](experience/AGENTS.MD)) |

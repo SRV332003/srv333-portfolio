@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Interactive space-themed portfolio. Phase 3: full portfolio sections, project detail routes, mobile nav, mailto contact.
+Interactive space-themed portfolio. Phase 4: hybrid 3D hero accent (single mount), lazy R3F, 2D starfield unchanged.
 
 ## Commands
 
@@ -23,6 +23,7 @@ npx shadcn@latest add <component>  # new UI primitive (see ADR 0005)
 | `src/content/` | [src/content/AGENTS.MD](src/content/AGENTS.MD) |
 | `src/features/` | [src/features/AGENTS.MD](src/features/AGENTS.MD) |
 | `src/features/canvas/` | [src/features/canvas/AGENTS.MD](src/features/canvas/AGENTS.MD) |
+| `src/features/scene3d/` | [src/features/scene3d/AGENTS.MD](src/features/scene3d/AGENTS.MD) |
 | `src/shared/` | [src/shared/AGENTS.MD](src/shared/AGENTS.MD) |
 | `src/components/` | [src/components/AGENTS.MD](src/components/AGENTS.MD) |
 | `src/` | [src/AGENTS.MD](src/AGENTS.MD) |
@@ -48,8 +49,9 @@ npx shadcn@latest add <component>  # new UI primitive (see ADR 0005)
 6. Canvas/shell UX change? Read [ADR 0007](docs/decisions/0007-canvas-interaction-ux.md)
 7. Sections/routing/contact? Read [ADR 0008](docs/decisions/0008-portfolio-sections-routing.md)
 8. Experience content/dates/UI? Read [ADR 0009](docs/decisions/0009-experience-content-presentation.md)
-9. Non-obvious choice not covered by ADRs? Add ADR in `docs/decisions/`
-10. `npm run typecheck` before done
+9. 3D / scene3d? Read [ADR 0010](docs/decisions/0010-scene3d-performance.md); use `.cursor/skills/add-3d-scene/`
+10. Non-obvious choice not covered by ADRs? Add ADR in `docs/decisions/`
+11. `npm run typecheck` before done
 
 ## Boundaries
 

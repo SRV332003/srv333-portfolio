@@ -16,7 +16,15 @@ Run `npm run typecheck` after changes; invalid JSON fails at `loadPortfolio()` v
 
 ## `nav`
 
-Array of `{ label, href }` for anchor or route links. Phase 3 includes `#experience` and `#skills`.
+Array of `{ label, href }` for anchor or route links. Nav order prioritizes Projects after Home.
+
+## `about`
+
+| Field | Description |
+|-------|-------------|
+| `title` | Section heading |
+| `subtitle` | Optional supporting line |
+| `body` | Array of paragraphs |
 
 ## `hero`
 
@@ -27,10 +35,6 @@ Array of `{ label, href }` for anchor or route links. Phase 3 includes `#experie
 | `subheadline` | Supporting paragraph |
 | `primaryCta` | `{ label, href }` |
 | `secondaryCta` | optional second CTA |
-
-## `about`
-
-`title` + `body` (array of paragraphs).
 
 ## `projects`
 

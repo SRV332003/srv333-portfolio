@@ -7,7 +7,7 @@ export function AboutSection() {
   return (
     <Section id="about" ariaLabel="About">
       <Container>
-        <SectionHeading title={about.title} />
+        <SectionHeading title={about.title} subtitle={about.subtitle} />
         <div className="max-w-3xl space-y-4 text-muted-foreground">
           {about.body.map((paragraph) => (
             <p key={paragraph} className="text-base leading-relaxed md:text-lg">

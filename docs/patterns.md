@@ -58,7 +58,15 @@ npx shadcn@latest add <component>
 
 - Route-level: `React.lazy` for `/projects/:slug` — import `@/features/projects/ProjectDetailPage` directly, **not** from the barrel (`index.ts` omits `ProjectDetailPage` so the home bundle does not pull detail code).
 - Canvas: `StarfieldCanvas` lazy inside `StarfieldBackground`.
-- 3D: dynamic `import()` for `features/scene3d` only (Phase 4).
+- 3D: `HeroPlanetScene` lazy via `features/scene3d`; inner `*Inner.tsx` dynamically imported. Use `useInViewport` for future below-the-fold mounts. Wrappers use `data-scene3d="hero"` for tests.
+
+## Scene3D import rules
+
+- WebGL components live only in `src/features/scene3d/`
+- Feature sections (e.g. `hero/`) may import from `@/features/scene3d` barrel
+- **Never** import shadcn or `shared/ui` inside R3F child components
+- **Never** add Canvas to `shell/Layout.tsx` — 3D is opt-in per section ([ADR 0003](decisions/0003-hybrid-visuals.md), [ADR 0010](decisions/0010-scene3d-performance.md))
+- Home uses one hero Canvas; avoid duplicate generic 3D sections before proof-of-work content
 
 ## Bespoke card pattern (projects + experience)
 

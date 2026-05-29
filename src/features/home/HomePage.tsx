@@ -10,8 +10,8 @@ export function HomePage() {
   return (
     <Layout>
       <Hero />
-      <AboutSection />
       <ProjectsSection />
+      <AboutSection />
       <ExperienceSection />
       <SkillsSection />
       <ContactSection />

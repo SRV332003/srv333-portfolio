@@ -19,6 +19,9 @@ test.describe('Home page UI', () => {
     await expect(page.locator('#contact')).toBeVisible()
 
     await expect(page.getByRole('heading', { name: 'About', exact: true })).toBeVisible()
+    await expect(
+      page.getByText('Exploration starts where comfort ends.'),
+    ).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Projects', exact: true })).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Experience', exact: true })).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Skills', exact: true })).toBeVisible()
@@ -45,12 +48,15 @@ test.describe('Home page UI', () => {
 
     await expect(page.getByRole('link', { name: 'Nova Chen' })).toBeVisible()
     await expect(page.getByRole('navigation', { name: 'Main' })).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Projects', exact: true })).toBeVisible()
     await expect(
       page.getByRole('button', { name: 'View missions' }).first(),
     ).toBeVisible()
 
     const starfieldLayer = page.locator('.pointer-events-none.fixed.inset-0')
     await expect(starfieldLayer).toBeVisible()
+
+    await expect(page.locator('[data-scene3d="hero"]')).toBeVisible()
 
     const canvas = page.locator('canvas[aria-hidden="true"]')
     if ((await canvas.count()) > 0) {

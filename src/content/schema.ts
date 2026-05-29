@@ -36,6 +36,7 @@ export const heroContentSchema = z.object({
 
 export const aboutContentSchema = z.object({
   title: z.string(),
+  subtitle: z.string().optional(),
   body: z.array(z.string()),
 })
 
