@@ -14,11 +14,13 @@ Renders the `#about` anchor section from `portfolio.json` `about` content with i
 ## Layout
 
 ```
-md+ grid: [ avatar | title, subtitle, location, openTo, body ]
-mobile:   avatar centered, then stacked text column
+md+ grid: [ avatar + social | location, openTo callout, body ]
+mobile:   avatar centered, social links, then stacked text column
 ```
 
-All copy lives in the right column so heading and body share one left edge.
+- Section wash (`data-section-wash="about"`) — transparent section, no frosted card grid
+- Avatar: primary ring + soft glow; social links from `meta.social` under avatar
+- `openTo`: left-border callout (`data-about-open-to`), not a badge — distinct from `contact.message`
 
 ## Content fields
 

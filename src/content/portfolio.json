@@ -273,6 +273,10 @@
       ]
     }
   ],
+  "skillsSection": {
+    "title": "Skills",
+    "subtitle": "Languages and stacks used in production — from Go microservices to React dashboards."
+  },
   "skills": [
     {
       "category": "Languages",
@@ -280,15 +284,22 @@
     },
     {
       "category": "Backend & data",
-      "items": ["Gin", "FastAPI", "PostgreSQL", "GORM", "Kafka", "AWS SQS", "WebSockets"]
+      "items": ["Gin", "FastAPI", "PostgreSQL", "GORM", "Kafka", "WebSockets"]
     },
     {
-      "category": "Frontend & platform",
-      "items": ["React", "Next.js", "WebRTC", "Linux", "AWS", "Git"]
+      "category": "Frontend",
+      "items": ["React", "Next.js", "WebRTC"]
+    },
+    {
+      "category": "Platform & tools",
+      "items": ["AWS", "AWS SQS", "Linux", "Git"]
     }
   ],
-  "contact": {
+  "contactSection": {
     "title": "Establish contact",
+    "subtitle": "Backend and full-stack roles, collaborations, or questions about my work."
+  },
+  "contact": {
     "email": "srvgarg332003@gmail.com",
     "message": "Send a message — I usually reply within a couple of business days."
   },

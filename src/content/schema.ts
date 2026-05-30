@@ -114,6 +114,8 @@ export const projectsSectionSchema = sectionIntroSchema
 export const experienceSectionSchema = sectionIntroSchema
 export const achievementsSectionSchema = sectionIntroSchema
 export const educationSectionSchema = sectionIntroSchema
+export const skillsSectionSchema = sectionIntroSchema
+export const contactSectionSchema = sectionIntroSchema
 
 export const achievementSchema = z.object({
   title: z.string(),
@@ -137,7 +139,6 @@ export const skillGroupSchema = z.object({
 })
 
 export const contactContentSchema = z.object({
-  title: z.string(),
   email: z.string().email(),
   message: z.string(),
 })
@@ -177,7 +178,9 @@ export const portfolioSchema = z
     achievements: z.array(achievementSchema),
     educationSection: educationSectionSchema,
     education: z.array(educationSchema),
+    skillsSection: skillsSectionSchema,
     skills: z.array(skillGroupSchema),
+    contactSection: contactSectionSchema,
     contact: contactContentSchema,
     missionControl: missionControlSchema,
   })
@@ -209,6 +212,8 @@ export type AchievementsSectionContent = z.infer<typeof achievementsSectionSchem
 export type Achievement = z.infer<typeof achievementSchema>
 export type EducationSectionContent = z.infer<typeof educationSectionSchema>
 export type Education = z.infer<typeof educationSchema>
+export type SkillsSectionContent = z.infer<typeof skillsSectionSchema>
+export type ContactSectionContent = z.infer<typeof contactSectionSchema>
 export type CredibilityBadge = z.infer<typeof credibilityBadgeSchema>
 export type SkillGroup = z.infer<typeof skillGroupSchema>
 export type ContactContent = z.infer<typeof contactContentSchema>

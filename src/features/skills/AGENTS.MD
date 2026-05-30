@@ -2,13 +2,13 @@
 
 ## Purpose
 
-Renders the `#skills` section with category groups and shadcn `Badge` chips.
+Renders the `#skills` section with frosted category cards and outline `Badge` chips.
 
 ## Files
 
 | File | Role |
 |------|------|
-| `SkillsSection.tsx` | Category headings + badge list |
+| `SkillsSection.tsx` | `skillsSection` heading + 2-column grouped badges (no per-category frosted cards) |
 | `index.ts` | Barrel export |
 
 ## Dependencies

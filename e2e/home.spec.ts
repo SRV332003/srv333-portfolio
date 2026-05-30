@@ -30,6 +30,9 @@ test.describe('Home page UI', () => {
     await expect(page.getByRole('heading', { name: 'Education', exact: true })).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Skills', exact: true })).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Establish contact' })).toBeVisible()
+    await expect(
+      page.getByText('Backend and full-stack roles, collaborations'),
+    ).toBeVisible()
   })
 
   test('renders hero, navigation, and starfield layer', async ({ page }) => {
@@ -131,7 +134,7 @@ test.describe('Home page UI', () => {
     page,
   }) => {
     await page.goto('/')
-    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
+    await page.locator('footer').scrollIntoViewIfNeeded()
 
     const footer = page.locator('footer')
     await expect(footer).toBeVisible()
@@ -149,9 +152,12 @@ test.describe('Home page UI', () => {
       const footerStyle = getComputedStyle(footerEl)
       const innerStyle = getComputedStyle(footerInner)
 
+      const footerHtml = footerEl as HTMLElement
+      const footerOffsetEnd = footerHtml.offsetTop + footerHtml.offsetHeight
+      const docEnd = document.documentElement.offsetHeight
+
       return {
-        footerAtBottom:
-          Math.abs(footerRect.bottom - document.documentElement.scrollHeight) < 2,
+        footerAtDocumentEnd: Math.abs(footerOffsetEnd - docEnd) < 4,
         mainAboveFooter: mainRect.bottom <= footerRect.top + 1,
         borderTopWidth: footerStyle.borderTopWidth,
         backgroundColor: footerStyle.backgroundColor,
@@ -161,7 +167,7 @@ test.describe('Home page UI', () => {
     })
 
     expect(layout).not.toBeNull()
-    expect(layout!.footerAtBottom).toBe(true)
+    expect(layout!.footerAtDocumentEnd).toBe(true)
     expect(layout!.mainAboveFooter).toBe(true)
     expect(parseFloat(layout!.borderTopWidth)).toBeGreaterThan(0)
     expect(alphaFromColor(layout!.backgroundColor)).toBeLessThan(0.6)

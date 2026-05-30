@@ -113,13 +113,27 @@ Each achievement: `{ title, organization?, year?, summary }` — rendered as mis
 
 Each entry: `{ degree, institution, start?, end?, summary?, highlights? }` — dates use same `YYYY-MM` format as experience.
 
+## `skillsSection`
+
+| Field | Description |
+|-------|-------------|
+| `title` | Section heading |
+| `subtitle` | Optional supporting line |
+
 ## `skills`
 
-`category` + `items[]` per group.
+`category` + `items[]` per group — open 2-column layout with outline badges (no frosted card per group).
+
+## `contactSection`
+
+| Field | Description |
+|-------|-------------|
+| `title` | Section heading |
+| `subtitle` | Optional supporting line |
 
 ## `contact`
 
-`title`, `email`, `message` (form intro — keep distinct from `about.openTo`).
+`email`, `message` (form hint inside the contact panel — keep distinct from `about.openTo`).
 
 ## `missionControl`
 

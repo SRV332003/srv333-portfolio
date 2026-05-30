@@ -1,0 +1,24 @@
+import { expect, test } from '@playwright/test'
+
+test.describe('About section', () => {
+  test('shows wash, open-to callout, and social links', async ({ page }) => {
+    await page.goto('/#about')
+
+    await expect(page.locator('#about [data-section-wash="about"]')).toBeVisible()
+    await expect(page.locator('#about [data-about-open-to]')).toBeVisible()
+    await expect(page.locator('#about').getByRole('link', { name: 'GitHub' })).toBeVisible()
+    await expect(page.locator('#about').getByRole('link', { name: 'LinkedIn' })).toBeVisible()
+  })
+})
+
+test.describe('Contact section', () => {
+  test('shows section subtitle and frosted form panel', async ({ page }) => {
+    await page.goto('/#contact')
+
+    await expect(
+      page.getByText('Backend and full-stack roles, collaborations'),
+    ).toBeVisible()
+    await expect(page.locator('#contact form')).toBeVisible()
+    await expect(page.getByText('Send a message — I usually reply')).toBeVisible()
+  })
+})

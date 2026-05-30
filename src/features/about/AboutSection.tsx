@@ -6,23 +6,57 @@ export function AboutSection() {
   const avatarAlt = about.avatarAlt ?? `${meta.name} portrait`
 
   return (
-    <Section id="about" ariaLabel="About">
-      <Container>
+    <Section id="about" ariaLabel="About" className="relative overflow-hidden">
+      <div
+        data-section-wash="about"
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_45%_at_20%_50%,color-mix(in_srgb,var(--color-orbit)_10%,transparent),transparent_55%)]"
+      />
+      <Container className="relative">
         <SectionHeading title={about.title} subtitle={about.subtitle} />
-        <div className="grid gap-8 md:grid-cols-[auto_1fr] md:items-start md:gap-10">
-          <img
-            src={about.avatar}
-            alt={avatarAlt}
-            width={128}
-            height={128}
-            className="mx-auto size-24 shrink-0 rounded-full border border-border/50 object-cover md:mx-0 md:size-32"
-          />
+        <div className="grid gap-8 md:grid-cols-[auto_1fr] md:items-start md:gap-10 lg:gap-12">
+          <div className="mx-auto shrink-0 md:mx-0">
+            <div className="relative">
+              <div
+                className="pointer-events-none absolute inset-0 scale-110 rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--color-primary)_18%,transparent),transparent_70%)] blur-md"
+                aria-hidden
+              />
+              <img
+                src={about.avatar}
+                alt={avatarAlt}
+                width={128}
+                height={128}
+                className="relative size-24 rounded-full border border-primary/30 object-cover shadow-[0_0_20px_color-mix(in_srgb,var(--color-primary)_15%,transparent)] md:size-32"
+              />
+            </div>
+            {meta.social.length ? (
+              <ul className="mt-5 flex flex-wrap justify-center gap-x-4 gap-y-2 md:justify-start">
+                {meta.social.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
           <div className="min-w-0">
             {about.location ? (
-              <p className="text-sm text-muted-foreground">{about.location}</p>
+              <p className="text-sm font-medium tracking-wide text-accent uppercase">
+                {about.location}
+              </p>
             ) : null}
             {about.openTo ? (
-              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-foreground/85">
+              <p
+                className="mt-4 max-w-2xl border-l-2 border-primary/40 pl-4 text-sm leading-relaxed text-foreground/90"
+                data-about-open-to
+              >
                 {about.openTo}
               </p>
             ) : null}

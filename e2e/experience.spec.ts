@@ -16,7 +16,7 @@ test.describe('Experience section', () => {
     await page.goto('/#experience')
 
     const presentEntry = page.locator('#experience ol > li').first()
-    await expect(presentEntry.getByText('Omniful')).toBeVisible()
+    await expect(presentEntry.getByText('· Omniful', { exact: true })).toBeVisible()
     await expect(presentEntry.getByText('Current')).toBeVisible()
     await expect(presentEntry.getByText('Jan 2025 — Present')).toBeVisible()
     await expect(presentEntry.locator('article')).toHaveClass(/ring-primary/)

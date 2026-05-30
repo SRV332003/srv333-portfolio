@@ -24,8 +24,16 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
   const imageAlt = project.imageAlt ?? project.title
 
   return (
-    <Section ariaLabel={project.title}>
-      <Container className="max-w-3xl">
+    <Section
+      ariaLabel={project.title}
+      className="relative overflow-hidden py-[var(--section-padding-y)]"
+    >
+      <div
+        data-section-wash="project-detail"
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,color-mix(in_srgb,var(--color-orbit)_10%,transparent),transparent_55%)]"
+      />
+      <Container className="relative max-w-3xl">
         <Link
           to="/#projects"
           className="mb-8 inline-block text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -53,7 +61,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         <ul className="mt-8 flex flex-wrap gap-2">
           {project.tech.map((tech) => (
             <li key={tech}>
-              <Badge variant="secondary">{tech}</Badge>
+              <Badge variant="outline">{tech}</Badge>
             </li>
           ))}
         </ul>
