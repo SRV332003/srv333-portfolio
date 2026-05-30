@@ -286,7 +286,11 @@
         "AWS",
         "Kafka",
         "SQS",
-        "PostgreSQL"
+        "PostgreSQL",
+        "Redis",
+        "GORM",
+        "PL/SQL",
+        "EDA"
       ]
     },
     {
@@ -298,12 +302,14 @@
       "summary": "AI calling pipeline and real-time agent features at an AI startup.",
       "highlights": [
         "Optimized the AI calling pipeline, reducing agent response latency by up to 2 seconds.",
-        "Shipped automatic call transfer and API hits during live AI agent calls."
+        "Shipped automatic call transfer and API hits during live AI agent calls.",
+        "Introduced customizable agent tool interation, enabling dynamic tool calling during conversations."
       ],
       "skills": [
         "Python",
         "FastAPI",
         "WebSockets",
+        "AI Voice Calling",
         "AI Agents"
       ]
     },
@@ -322,7 +328,9 @@
         "React",
         "REST APIs",
         "JavaScript",
-        "Full-stack"
+        "AI Agents",
+        "WebSockets",
+        "Tool Calling"
       ]
     },
     {
@@ -407,6 +415,7 @@
       "summary": "CGPA 8.3",
       "highlights": [
         "Joint Secretary, Manan coding society — workshops and events for 500+ students",
+        "Guitarist, Tarannum music club — performed at university events and local venues",
         "Udacity AI Programming with Python Nanodegree"
       ]
     }
@@ -422,7 +431,8 @@
         "Go",
         "Python",
         "JavaScript",
-        "C/C++"
+        "C/C++",
+        "Java"
       ]
     },
     {
@@ -433,7 +443,13 @@
         "PostgreSQL",
         "GORM",
         "Kafka",
-        "WebSockets"
+        "Redis",
+        "WebSockets",
+        "Prometheus",
+        "Caching",
+        "Event-driven architecture",
+        "Microservices",
+        "System design"
       ]
     },
     {
