@@ -4,13 +4,13 @@ Hero section with headline, role line, CTAs, resume link, and decorative lazy 3D
 
 ## Content
 
-- `hero.roleLine` — between H1 and subheadline; recruiter-scannable
-- Resume from `meta.resumeUrl` + `getResumeLabel(meta)` — not a separate hero href field
-- Hero resume: tertiary `ghost` button with `FileText` icon (header uses `outline`)
+- Resume from `meta.resumeUrl` in header only (not duplicated in hero)
+- `hero.headline` — single tagline under name; keep short
+- `hero.credibilityBadges` — max 3 labels in UI; details via `title` tooltip
 
 ## Hierarchy
 
-`eyebrow → headline → roleLine → subheadline → CTAs (primary, secondary, resume outline)`
+`eyebrow → H1 (meta.name) → headline → credibilityBadges? (≤3) → CTAs (primary + GitHub/LinkedIn from meta.social)`
 
 Primary CTA label aligns with nav ("View projects"); repeated in hero and header (`lg+`) for persistent access.
 

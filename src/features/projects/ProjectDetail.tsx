@@ -44,6 +44,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             project={project}
             className="mb-8"
             frameClassName="rounded-xl"
+            variant="detail"
             loading="eager"
           />
         ) : null}

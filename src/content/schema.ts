@@ -28,8 +28,9 @@ export const credibilityBadgeSchema = z.object({
 export const heroContentSchema = z.object({
   eyebrow: z.string(),
   headline: z.string(),
-  roleLine: z.string(),
-  subheadline: z.string(),
+  roleLine: z.string().optional(),
+  focusAreas: z.array(z.string()).optional(),
+  subheadline: z.string().optional(),
   credibilityBadges: z.array(credibilityBadgeSchema).optional(),
   primaryCta: z.object({
     label: z.string(),

@@ -3,7 +3,7 @@
     "name": "Sourav Garg",
     "title": "Sourav Garg — Software Developer",
     "description": "Backend engineer building Go microservices, inventory sync, and startup products — internships at SeedsAI and Creatvise, full-time at Omniful.",
-    "ogImage": "/assets/og-placeholder.png",
+    "ogImage": "/assets/og.png",
     "resumeUrl": "/assets/resume.pdf",
     "resumeLabel": "Resume",
     "social": [
@@ -14,35 +14,28 @@
   },
   "nav": [
     { "label": "Home", "href": "#hero" },
+    { "label": "Experience", "href": "#experience" },
     { "label": "Projects", "href": "#projects" },
     { "label": "About", "href": "#about" },
-    { "label": "Experience", "href": "#experience" },
-    { "label": "Achievements", "href": "#achievements" },
-    { "label": "Education", "href": "#education" },
     { "label": "Skills", "href": "#skills" },
     { "label": "Contact", "href": "#contact" }
   ],
   "hero": {
-    "eyebrow": "Startup velocity, cosmic ambition",
-    "headline": "Building backend systems that scale under pressure.",
-    "roleLine": "Software developer · Go & Python · Omniful · 1+ years",
-    "subheadline": "Backend engineer at Omniful with startup internships in AI calling and cloud microservices. I ship Go services, sync pipelines, and side projects that real users touch.",
+    "eyebrow": "Backend engineer · startups",
+    "headline": "Backend engineer at Omniful — Go, Python, and systems that scale. I also ship AI side projects when an idea sticks.",
     "credibilityBadges": [
-      { "label": "3★ CodeChef", "detail": "Competitive programming" },
-      { "label": "AWS ML Scholar", "detail": "2023 cohort" }
+      { "label": "Go in production", "detail": "Omniful · WMS & sync" },
+      { "label": "AWS ML Scholar", "detail": "Scholarship · 2023" },
+      { "label": "3★ CodeChef", "detail": "Competitive programming" }
     ],
     "primaryCta": {
       "label": "View projects",
       "href": "#projects"
-    },
-    "secondaryCta": {
-      "label": "Contact",
-      "href": "#contact"
     }
   },
   "projectsSection": {
     "title": "Projects",
-    "subtitle": "Side projects and shipped products — from AI roasts to plagiarism detection and real-time chat."
+    "subtitle": "Side projects and shipped products — some use AI, all were built to ship."
   },
   "about": {
     "title": "About",
@@ -50,7 +43,7 @@
     "avatar": "/assets/avatar.png",
     "avatarAlt": "Portrait of Sourav Garg",
     "location": "Faridabad, India · IST",
-    "openTo": "Open to backend and full-stack engineering roles at product startups and growth-stage teams.",
+    "openTo": "Open to backend engineering roles at product startups and growth-stage teams.",
     "body": [
       "I'm a software developer focused on backend systems at startups — currently at Omniful working on inventory sync, rate limiting, and WMS integrations in Go. Before that I interned at SeedsAI on AI calling pipelines, Creatvise on OAuth2 microservices, Arcadia Hospitality on full-stack features, and Luneblaze on React and QA.",
       "B.Tech in Computer Engineering from YMCA University of Science & Technology (CGPA 8.3). Joint Secretary of Manan, the coding society, where I helped run workshops for 500+ students. Outside work I build projects like Github Roaster, LC Police, and BingeChat."
@@ -60,7 +53,7 @@
       "Clear written communication for async teams — structured logs, PRs, and docs that shorten incident lookup.",
       "Teaching and facilitation — ran Manan workshops and events for 500+ students; patient explaining technical ideas."
     ],
-    "interests": ["Guitar", "Music", "Dance"]
+    "interests": ["Guitar", "Music", "Dance","Philosophy", "Psychology", "Cooking"]
   },
   "projects": [
     {
@@ -320,7 +313,7 @@
   ],
   "contactSection": {
     "title": "Establish contact",
-    "subtitle": "Backend and full-stack roles, collaborations, or questions about my work."
+    "subtitle": "Backend roles, collaborations, or questions about my work."
   },
   "contact": {
     "email": "srvgarg332003@gmail.com",
@@ -330,6 +323,7 @@
     "title": "Mission control",
     "hint": "Press ? for mission control",
     "shortcuts": [
+      { "label": "Experience", "href": "#experience" },
       { "label": "Projects", "href": "#projects" },
       { "label": "Contact", "href": "#contact" },
       { "label": "Resume", "href": "/assets/resume.pdf" }

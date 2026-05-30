@@ -32,9 +32,9 @@ Original space metaphor labels if re-enabled: Launch / Orbit / Dock.
 
 ### Home section order
 
-Hero → Projects → About → Experience → Achievements → Education → Skills → Contact
+Hero → Experience → Projects → About (includes Achievements + Education) → Skills → Contact
 
-Nav includes Achievements and Education anchors.
+Nav: Home, Experience, Projects, About, Skills, Contact.
 
 ### Mission control
 

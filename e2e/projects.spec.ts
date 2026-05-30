@@ -40,13 +40,17 @@ test.describe('Projects', () => {
     await expect(featuredPanel.getByRole('link', { name: 'View Go Music' })).toHaveCount(0)
   })
 
-  test('LC Police card and detail autoplay demo video', async ({ page }) => {
+  test('LC Police card and detail page autoplay demo video', async ({ page }) => {
     await page.goto('/#projects')
 
     const lcCard = page
       .getByRole('link', { name: 'View LC Police' })
       .locator('xpath=ancestor::article[1]')
-    await expect(lcCard.locator('video[data-project-media="video"]')).toBeVisible()
+    const cardVideo = lcCard.locator('video[data-project-media="video"]')
+    await expect(cardVideo).toBeVisible()
+    await expect(cardVideo).toHaveAttribute('src', /lc-police\.mp4/)
+    await expect(cardVideo).toHaveJSProperty('autoplay', true)
+    await expect(cardVideo).toHaveJSProperty('muted', true)
 
     await page.goto('/projects/lc-police')
     await expect(page.getByRole('button', { name: 'Live demo' })).toHaveCount(0)

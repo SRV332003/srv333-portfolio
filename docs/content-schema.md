@@ -40,8 +40,10 @@ Array of `{ label, href }` for anchor or route links. Nav order prioritizes Proj
 |-------|-------------|
 | `eyebrow` | Small label above headline |
 | `headline` | Main H1 text |
-| `roleLine` | Recruiter-scannable specialty (plain text under H1) |
-| `credibilityBadges` | Optional `{ label, detail? }[]` — compact chips under roleLine (Phase 12) |
+| `headline` | Single tagline under `meta.name` (H1 is the person's name in UI) |
+| `roleLine` | Optional legacy field — not rendered when hero is simplified |
+| `focusAreas` | Optional — not rendered in simplified hero |
+| `credibilityBadges` | Optional `{ label, detail? }[]` — up to 3 labels in hero |
 | `subheadline` | Supporting paragraph |
 | `primaryCta` | `{ label, href }` |
 | `secondaryCta` | optional second CTA |
@@ -107,7 +109,7 @@ See [ADR 0009](decisions/0009-experience-content-presentation.md) for date forma
 | `title` | Section heading |
 | `subtitle` | Optional supporting line |
 
-Each achievement: `{ title, organization?, year?, summary }` — rendered as mission-patch cards in `#achievements`.
+Each achievement: `{ title, organization?, year?, summary }` — compact cards inside `#about` (Achievements subsection).
 
 ## `educationSection` / `education` (Phase 12)
 

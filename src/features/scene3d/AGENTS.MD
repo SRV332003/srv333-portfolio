@@ -15,6 +15,7 @@ Lazy-loaded React Three Fiber visuals. All WebGL for the portfolio lives here.
 - Read colors from CSS tokens via `lib/colors.ts` (`accent`, `orbit`, `void`)
 - Cap DPR via `lib/constants.ts`; pause `useFrame` when `document.hidden`
 - Planet, ring, and assembly yaw rotate independently (`PLANET_ROTATION_SPEED`, `RING_ROTATION_SPEED`, `HERO_PLANET_YAW_SPEED`); static tilt on `HeroPlanet` only
+- Planet core uses procedural `createPlanetSurfaceTexture()` + faint wireframe + emissive surface markers so spin is visible on a smooth sphere
 - Mesh budget: planet core (void + orbit emissive) + additive sphere atmosphere + ring + lights — no shadows, no postprocessing (bloom deferred per ADR 0010)
 - Decorative only: `pointer-events-none` on wrappers, no OrbitControls
 - Home page uses **one** WebGL Canvas (hero only); contextual 3D on project routes is future work

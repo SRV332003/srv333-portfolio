@@ -13,15 +13,15 @@ export function HeroPlanetSceneInner() {
       className="h-full w-full"
       camera={{ position: HERO_CAMERA.position, fov: HERO_CAMERA.fov }}
     >
-      <ambientLight intensity={0.1} />
+      <ambientLight intensity={0.06} />
       <directionalLight
         position={[5, 3, 4]}
-        intensity={1.35}
+        intensity={1.55}
         color={colors.accent}
       />
       <directionalLight
         position={[-4, -2, 2]}
-        intensity={0.18}
+        intensity={0.12}
         color={colors.orbit}
       />
       <pointLight position={[4, 2, 5]} intensity={0.45} color={colors.accent} />

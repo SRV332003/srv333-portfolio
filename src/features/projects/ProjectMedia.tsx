@@ -8,6 +8,8 @@ type ProjectMediaProps = {
   className?: string
   frameClassName?: string
   loading?: 'lazy' | 'eager'
+  /** Card grid uses lighter video preload; detail may eager-load. */
+  variant?: 'card' | 'detail'
   /** Card grid: subtle hover zoom on poster/video */
   interactive?: boolean
 }
@@ -17,6 +19,7 @@ export function ProjectMedia({
   className,
   frameClassName,
   loading = 'lazy',
+  variant = 'detail',
   interactive = false,
 }: ProjectMediaProps) {
   const reducedMotion = usePrefersReducedMotion()
@@ -49,7 +52,9 @@ export function ProjectMedia({
           playsInline
           loop
           autoPlay
-          preload={loading === 'eager' ? 'auto' : 'metadata'}
+          preload={
+            variant === 'card' || loading === 'lazy' ? 'metadata' : 'auto'
+          }
           aria-label={alt}
           className={mediaClassName}
           data-project-media="video"

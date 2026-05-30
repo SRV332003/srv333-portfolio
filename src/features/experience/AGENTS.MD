@@ -8,7 +8,7 @@ Renders the `#experience` timeline section from `portfolio.json` `experience` ar
 
 | File | Role |
 |------|------|
-| `ExperienceSection.tsx` | Shared timeline spine, employment type badges, present-role node styling, nebula wash, `experienceSection` intro, frosted cards |
+| `ExperienceSection.tsx` | Timeline spine, employment badges, skill chips under title · company (`data-experience-skills`), then duration and body |
 | `EmploymentTypeBadge.tsx` | Intern / Full-time / Contract badge |
 | `MissionPhaseBadge.tsx` | Launch / Orbit / Dock styling (unused in UI; kept for Phase 9) |
 | `MissionPhaseLegend.tsx` | Phase legend (unused in UI) |

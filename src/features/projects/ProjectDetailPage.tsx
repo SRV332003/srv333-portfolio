@@ -5,6 +5,7 @@ import { Layout } from '@/features/shell'
 import { Container, Section } from '@/shared/ui'
 
 import { ProjectDetail } from './ProjectDetail'
+import { ProjectDetailMeta } from './ProjectDetailMeta'
 
 export function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>()
@@ -33,6 +34,7 @@ export function ProjectDetailPage() {
 
   return (
     <Layout>
+      <ProjectDetailMeta project={project} />
       <ProjectDetail project={project} />
     </Layout>
   )

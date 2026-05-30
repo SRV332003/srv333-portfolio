@@ -9,6 +9,7 @@ Renders the `#about` anchor section from `portfolio.json` `about` content with i
 | File | Role |
 |------|------|
 | `AboutSection.tsx` | Avatar + text column layout |
+| `AboutBackground.tsx` | Achievements + education subsections (replaces standalone `#achievements` / `#education` on home) |
 | `index.ts` | Barrel export |
 
 ## Layout

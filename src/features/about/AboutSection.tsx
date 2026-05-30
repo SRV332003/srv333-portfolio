@@ -1,6 +1,8 @@
 import { loadPortfolio } from '@/content'
 import { Container, Section, SectionHeading } from '@/shared/ui'
 
+import { AboutBackground } from './AboutBackground'
+
 export function AboutSection() {
   const { about, meta } = loadPortfolio()
   const avatarAlt = about.avatarAlt ?? `${meta.name} portrait`
@@ -100,6 +102,7 @@ export function AboutSection() {
             ) : null}
           </div>
         </div>
+        <AboutBackground />
       </Container>
     </Section>
   )

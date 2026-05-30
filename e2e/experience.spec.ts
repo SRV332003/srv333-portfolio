@@ -69,6 +69,32 @@ test.describe('Experience section', () => {
     await expect(omnifulEntry.locator('[data-experience-duration]')).toContainText('ongoing')
   })
 
+  test('experience cards show skill chips under title not at bottom', async ({ page }) => {
+    await page.goto('/#experience')
+
+    const seedsai = page
+      .locator('article')
+      .filter({ hasText: 'Software Developer Intern' })
+      .filter({ hasText: 'SeedsAI' })
+    await expect(seedsai.getByText('Technologies', { exact: true })).toHaveCount(0)
+    const skills = seedsai.locator('[data-experience-skills]')
+    await expect(skills).toBeVisible()
+    await expect(skills.getByText('Python')).toBeVisible()
+    await expect(skills.getByText('FastAPI')).toBeVisible()
+
+    const title = seedsai.getByRole('heading', { level: 3 })
+    const duration = seedsai.locator('[data-experience-duration]')
+    const titleBox = await title.boundingBox()
+    const skillsBox = await skills.boundingBox()
+    const durationBox = await duration.boundingBox()
+    expect(titleBox).not.toBeNull()
+    expect(skillsBox).not.toBeNull()
+    expect(durationBox).not.toBeNull()
+    expect(durationBox!.x).toBeGreaterThan(titleBox!.x)
+    expect(Math.abs(durationBox!.y - titleBox!.y)).toBeLessThan(12)
+    expect(skillsBox!.y).toBeGreaterThan(titleBox!.y + 8)
+  })
+
   test('experience cards show employment type badges only', async ({ page }) => {
     await page.goto('/#experience')
 

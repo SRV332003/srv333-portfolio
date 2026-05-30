@@ -1,7 +1,6 @@
+import { HomePageMeta } from '@/features/home/HomePageMeta'
 import { AboutSection } from '@/features/about'
-import { AchievementsSection } from '@/features/achievements'
 import { ContactSection } from '@/features/contact'
-import { EducationSection } from '@/features/education'
 import { ExperienceSection } from '@/features/experience'
 import { Hero } from '@/features/hero'
 import { ProjectsSection } from '@/features/projects'
@@ -11,14 +10,13 @@ import { SkillsSection } from '@/features/skills'
 export function HomePage() {
   return (
     <Layout>
+      <HomePageMeta />
       <Hero />
-      <ProjectsSection />
+      <ExperienceSection sectionVariant="band" />
+      <ProjectsSection sectionVariant="default" />
       <AboutSection />
-      <ExperienceSection />
-      <AchievementsSection />
-      <EducationSection />
       <SkillsSection />
-      <ContactSection />
+      <ContactSection sectionVariant="band" />
     </Layout>
   )
 }

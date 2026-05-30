@@ -1,9 +1,9 @@
 import { expect, test } from '@playwright/test'
 
 test.describe('Navigation active state', () => {
-  test('contact link is active on #contact', async ({ page }) => {
-    await page.goto('/#contact')
-    await page.waitForFunction(() => window.location.hash === '#contact')
+  test('contact link is active when contact section is in view', async ({ page }) => {
+    await page.goto('/')
+    await page.locator('#contact').scrollIntoViewIfNeeded()
 
     const mainNav = page.getByRole('navigation', { name: 'Main' })
     const contactLink = mainNav.getByRole('link', { name: 'Contact', exact: true })
@@ -39,7 +39,8 @@ test.describe('Navigation active state', () => {
   })
 
   test('scrolling up from contact highlights skills', async ({ page }) => {
-    await page.goto('/#contact')
+    await page.goto('/')
+    await page.locator('#contact').scrollIntoViewIfNeeded()
 
     const mainNav = page.getByRole('navigation', { name: 'Main' })
     const skillsLink = mainNav.getByRole('link', { name: 'Skills', exact: true })

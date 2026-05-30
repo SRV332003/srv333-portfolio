@@ -9,29 +9,38 @@ function alphaFromColor(color: string): number {
 }
 
 test.describe('Home page UI', () => {
+  test('sets document title and meta from portfolio', async ({ page }) => {
+    await page.goto('/')
+
+    await expect(page).toHaveTitle('Sourav Garg — Software Developer')
+    await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+      'content',
+      /Backend engineer building Go microservices/,
+    )
+  })
+
   test('renders all portfolio section headings', async ({ page }) => {
     await page.goto('/')
 
-    await expect(page.locator('#about')).toBeVisible()
-    await expect(page.locator('#projects')).toBeVisible()
     await expect(page.locator('#experience')).toBeVisible()
-    await expect(page.locator('#achievements')).toBeVisible()
-    await expect(page.locator('#education')).toBeVisible()
+    await expect(page.locator('#projects')).toBeVisible()
+    await expect(page.locator('#about')).toBeVisible()
     await expect(page.locator('#skills')).toBeVisible()
     await expect(page.locator('#contact')).toBeVisible()
 
+    await expect(page.getByRole('heading', { name: 'Experience', exact: true })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Projects', exact: true })).toBeVisible()
     await expect(page.getByRole('heading', { name: 'About', exact: true })).toBeVisible()
     await expect(
       page.getByText('From intern orbits to full-time flight.'),
     ).toBeVisible()
-    await expect(page.getByRole('heading', { name: 'Projects', exact: true })).toBeVisible()
-    await expect(page.getByRole('heading', { name: 'Experience', exact: true })).toBeVisible()
-    await expect(page.getByRole('heading', { name: 'Achievements', exact: true })).toBeVisible()
-    await expect(page.getByRole('heading', { name: 'Education', exact: true })).toBeVisible()
+    const about = page.locator('#about')
+    await expect(about.getByRole('heading', { name: 'Achievements', exact: true })).toBeVisible()
+    await expect(about.getByRole('heading', { name: 'Education', exact: true })).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Skills', exact: true })).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Establish contact' })).toBeVisible()
     await expect(
-      page.getByText('Backend and full-stack roles, collaborations'),
+      page.getByText('Backend roles, collaborations'),
     ).toBeVisible()
   })
 
@@ -45,20 +54,19 @@ test.describe('Home page UI', () => {
 
     await page.goto('/')
 
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-      'Building backend systems that scale under pressure.',
-    )
-
+    const hero = page.locator('#hero')
+    await expect(hero.getByRole('heading', { level: 1 })).toHaveText('Sourav Garg')
     await expect(
-      page.getByText('Startup velocity, cosmic ambition'),
+      hero.getByText(/Backend engineer at Omniful — Go, Python, and systems that scale/),
     ).toBeVisible()
+    await expect(hero.getByText('Backend engineer · startups')).toBeVisible()
 
-    await expect(page.getByRole('link', { name: 'Sourav Garg' })).toBeVisible()
+    await expect(page.getByRole('banner').getByRole('link', { name: 'Home — Sourav Garg' })).toBeVisible()
     await expect(page.getByRole('navigation', { name: 'Main' })).toBeVisible()
     await expect(page.getByRole('link', { name: 'Projects', exact: true })).toBeVisible()
-    await expect(
-      page.locator('#hero').getByRole('button', { name: 'View projects', exact: true }),
-    ).toBeVisible()
+    await expect(hero.getByRole('button', { name: 'View projects', exact: true })).toBeVisible()
+    await expect(hero.getByRole('button', { name: 'GitHub', exact: true })).toBeVisible()
+    await expect(hero.getByRole('button', { name: 'LinkedIn', exact: true })).toBeVisible()
     await expect(
       page.getByRole('banner').getByRole('button', { name: 'View projects', exact: true }),
     ).toBeVisible()
@@ -89,8 +97,14 @@ test.describe('Home page UI', () => {
 
   test('hero and header primary CTAs have correct href', async ({ page }) => {
     await page.goto('/')
-    const heroCta = page.locator('#hero').getByRole('button', { name: 'View projects', exact: true })
+    const hero = page.locator('#hero')
+    const heroCta = hero.getByRole('button', { name: 'View projects', exact: true })
     await expect(heroCta).toHaveAttribute('href', '#projects')
+    const github = hero.getByRole('button', { name: 'GitHub', exact: true })
+    const linkedin = hero.getByRole('button', { name: 'LinkedIn', exact: true })
+    await expect(github).toHaveAttribute('href', 'https://github.com/SRV332003')
+    await expect(linkedin).toHaveAttribute('href', 'https://linkedin.com/in/srv333')
+    await expect(hero.getByRole('button', { name: 'Resume', exact: true })).toHaveCount(0)
     const headerCta = page.getByRole('banner').getByRole('button', { name: 'View projects', exact: true })
     await expect(headerCta).toHaveAttribute('href', '#projects')
   })
@@ -185,21 +199,19 @@ test.describe('Phase 5 identity', () => {
   test('shows role line, resume links, and about identity', async ({ page }) => {
     await page.goto('/')
 
+    const hero = page.locator('#hero')
     await expect(
-      page.getByText('Software developer · Go & Python · Omniful · 1+ years'),
+      hero.getByText(/Backend engineer at Omniful — Go, Python, and systems that scale/),
     ).toBeVisible()
-    await expect(page.getByText('3★ CodeChef')).toBeVisible()
-    await expect(page.getByText('AWS ML Scholar')).toBeVisible()
+    await expect(hero.getByText('AWS ML Scholar')).toBeVisible()
+    await expect(hero.getByText('Go in production')).toBeVisible()
+    await expect(hero.getByText(/AI side projects/)).toBeVisible()
+    await expect(hero.getByText('3★ CodeChef')).toBeVisible()
 
     const banner = page.getByRole('banner')
     const headerResume = banner.getByRole('button', { name: 'Resume', exact: true })
     await expect(headerResume).toBeVisible()
     await expect(headerResume).toHaveAttribute('href', '/assets/resume.pdf')
-
-    const hero = page.locator('#hero')
-    const heroResume = hero.getByRole('button', { name: 'Resume', exact: true })
-    await expect(heroResume).toBeVisible()
-    await expect(heroResume).toHaveAttribute('href', '/assets/resume.pdf')
 
     const avatar = page.locator('#about img')
     await expect(avatar).toBeVisible()
@@ -224,10 +236,17 @@ test.describe('Phase 7 visual system', () => {
     await expect(heroCta).toBeInViewport()
   })
 
-  test('projects section uses band variant', async ({ page }) => {
+  test('experience section uses band variant after hero', async ({ page }) => {
+    await page.goto('/#experience')
+
+    await expect(page.locator('#experience')).toHaveAttribute('data-section-variant', 'band')
+    await expect(page.locator('#experience [data-section-wash="experience"]')).toBeVisible()
+  })
+
+  test('projects section keeps nebula wash on default variant', async ({ page }) => {
     await page.goto('/#projects')
 
-    await expect(page.locator('#projects')).toHaveAttribute('data-section-variant', 'band')
+    await expect(page.locator('#projects')).toHaveAttribute('data-section-variant', 'default')
     await expect(page.locator('#projects [data-section-wash="projects"]')).toBeVisible()
   })
 
@@ -249,5 +268,5 @@ test.describe('Phase 7 visual system', () => {
 })
 
 const openToText =
-  'Open to backend and full-stack engineering roles at product startups and growth-stage teams.'
+  'Open to backend engineering roles at product startups and growth-stage teams.'
 const contactIntro = 'Send a message — I usually reply within a couple of business days.'

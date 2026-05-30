@@ -1,9 +1,9 @@
-/** Radians per second — tuned so hero spin reads at a glance (~12–14s per turn). */
-export const PLANET_ROTATION_SPEED = 0.52
-export const RING_ROTATION_SPEED = 0.34
+/** Radians per second — surface texture + markers make spin readable (~10s per turn). */
+export const PLANET_ROTATION_SPEED = 0.2
+export const RING_ROTATION_SPEED = 0.2
 /** Slow yaw on the whole planet + ring assembly (visible ring precession). */
-export const HERO_PLANET_YAW_SPEED = 0.14
-export const ATMOSPHERE_SCALE = 1.08
+export const HERO_PLANET_YAW_SPEED = 0.04
+export const ATMOSPHERE_SCALE = 1.04
 export const RING_TUBE = 0.034
 
 /** @deprecated Use PLANET_ROTATION_SPEED */

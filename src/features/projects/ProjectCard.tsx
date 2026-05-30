@@ -47,7 +47,12 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
       >
         <div className="relative flex flex-1 flex-col pointer-events-none">
           {project.image || project.video ? (
-            <ProjectMedia project={project} className="mb-4" interactive />
+            <ProjectMedia
+              project={project}
+              className="mb-4"
+              variant="card"
+              interactive
+            />
           ) : null}
           <div className="flex flex-wrap items-center gap-2">
             {meta ? (

@@ -173,9 +173,11 @@ Features: `about`, `projects`, `experience`, `skills`, `contact`.
 
 ---
 
-## Phase 13 — SEO & sharing
+## Phase 13 — SEO & sharing (in progress)
 
 **Goal:** Correct previews when the site is linked (Slack, LinkedIn, etc.).
+
+**Shipped:** `DocumentHead` + home/project meta; `index.html` fallbacks; `og.png`; `VITE_SITE_URL`; `robots.txt`; [deploy.md](./deploy.md).
 
 **Deliverables**
 

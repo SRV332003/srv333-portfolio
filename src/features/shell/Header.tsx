@@ -37,8 +37,9 @@ export function Header() {
       <Container as="div" className="flex h-16 items-center justify-between gap-2">
         <Link
           to="/"
-          className="font-display text-sm font-semibold tracking-wide text-foreground"
+          className="shrink-0 font-display text-base font-bold tracking-tight text-foreground transition-colors hover:text-primary md:text-lg"
         >
+          <span className="sr-only">Home — </span>
           {meta.name}
         </Link>
         <nav className="hidden items-center gap-6 md:flex" aria-label="Main">

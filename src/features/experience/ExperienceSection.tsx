@@ -41,21 +41,25 @@ function ExperienceBody({ item }: { item: Experience }) {
       ) : item.description ? (
         <p className="mt-4 leading-relaxed text-muted-foreground">{item.description}</p>
       ) : null}
-      {item.skills?.length ? (
-        <div className="mt-8 border-t border-border/30 pt-6">
-          <p className="mb-4 text-xs font-semibold tracking-widest text-primary uppercase">
-            Technologies
-          </p>
-          <ul className="flex flex-wrap gap-2">
-            {item.skills.map((skill) => (
-              <li key={skill}>
-                <Badge variant="outline">{skill}</Badge>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ) : null}
     </>
+  )
+}
+
+function ExperienceSkillChips({ skills }: { skills: string[] }) {
+  return (
+    <ul
+      className="mt-3 flex flex-wrap gap-2"
+      data-experience-skills
+      aria-label="Technologies used"
+    >
+      {skills.map((skill) => (
+        <li key={skill}>
+          <Badge variant="outline" className="text-[0.7rem]">
+            {skill}
+          </Badge>
+        </li>
+      ))}
+    </ul>
   )
 }
 
@@ -110,24 +114,32 @@ function ExperienceTimelineItem({ item }: ExperienceTimelineItemProps) {
             <EmploymentTypeBadge type={item.employmentType} />
           </div>
         ) : null}
-        <h3
+        <div
           className={cn(
-            'text-lg font-semibold text-foreground',
+            'flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1',
             item.employmentType ? 'mt-2' : null,
           )}
         >
-          {item.role}
-          <span className="font-normal text-accent"> · {item.company}</span>
-        </h3>
-        <p
-          className="mt-1 text-sm tabular-nums text-muted-foreground"
-          data-experience-duration
-        >
-          {duration}
-          {present ? (
-            <span className="text-primary/80"> · ongoing</span>
-          ) : null}
-        </p>
+          <h3 className="min-w-0 text-lg font-semibold text-foreground">
+            {item.role}
+            <span className="font-normal text-accent"> · {item.company}</span>
+          </h3>
+          <p
+            className={cn(
+              'shrink-0 text-sm font-medium tabular-nums',
+              present ? 'text-primary' : 'text-muted-foreground',
+            )}
+            data-experience-duration
+          >
+            {duration}
+            {present ? (
+              <span className="text-primary/80"> · ongoing</span>
+            ) : null}
+          </p>
+        </div>
+        {item.skills?.length ? (
+          <ExperienceSkillChips skills={item.skills} />
+        ) : null}
         <ExperienceBody item={item} />
       </FrostedPanel>
     </li>
