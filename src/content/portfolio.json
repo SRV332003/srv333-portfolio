@@ -438,6 +438,9 @@
     {
       "category": "Backend & data",
       "items": [
+        "Event-driven architecture",
+        "Microservices",
+        "System design",
         "Gin",
         "FastAPI",
         "PostgreSQL",
@@ -446,10 +449,7 @@
         "Redis",
         "WebSockets",
         "Prometheus",
-        "Caching",
-        "Event-driven architecture",
-        "Microservices",
-        "System design"
+        "Caching"
       ]
     },
     {
@@ -463,10 +463,16 @@
     {
       "category": "Platform & tools",
       "items": [
+        "Cursor",
         "AWS",
         "AWS SQS",
         "Linux",
-        "Git"
+        "Git",
+        "Docker",
+        "Github",
+        "AWS CloudWatch",
+        "Grafana",
+        "SSH"
       ]
     }
   ],
