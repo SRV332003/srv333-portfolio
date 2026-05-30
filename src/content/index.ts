@@ -15,4 +15,4 @@ export function getAllProjectSlugs(): string[] {
 }
 
 export { getResumeLabel, portfolioSchema } from './schema'
-export type { Portfolio, Project, ProjectOutcome, Experience } from './schema'
+export type { Portfolio, Project, ProjectOutcome, Experience, MissionPhase } from './schema'

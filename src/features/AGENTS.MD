@@ -15,6 +15,7 @@ Portfolio sections and pages. Each subfolder is a feature module.
 | `about/` | About section ([AGENTS.MD](about/AGENTS.MD)) |
 | `projects/` | Grid, tabs, detail pages ([AGENTS.MD](projects/AGENTS.MD)) |
 | `experience/` | Experience timeline ([AGENTS.MD](experience/AGENTS.MD)) |
+| `mission-control/` | Keyboard mission-control dialog ([AGENTS.MD](mission-control/AGENTS.MD)) |
 | `skills/` | Skills badges ([AGENTS.MD](skills/AGENTS.MD)) |
 | `contact/` | Mailto form ([AGENTS.MD](contact/AGENTS.MD)) |
 | `canvas/` | 2D starfield background ([AGENTS.MD](canvas/AGENTS.MD)) |

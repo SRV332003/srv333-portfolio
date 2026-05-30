@@ -8,6 +8,9 @@ import {
   experiencePeriodDateTime,
   formatExperiencePeriod,
 } from './formatPeriod'
+import { MissionPhaseBadge } from './MissionPhaseBadge'
+import { MissionPhaseLegend } from './MissionPhaseLegend'
+import { inferMissionPhase } from './missionPhase'
 
 function isPresentRole(item: Experience): boolean {
   return item.end === 'present'
@@ -59,10 +62,13 @@ function ExperienceBody({ item }: { item: Experience }) {
 
 type ExperienceTimelineItemProps = {
   item: Experience
+  index: number
+  total: number
 }
 
-function ExperienceTimelineItem({ item }: ExperienceTimelineItemProps) {
+function ExperienceTimelineItem({ item, index, total }: ExperienceTimelineItemProps) {
   const present = isPresentRole(item)
+  const phase = inferMissionPhase(item, index, total)
 
   return (
     <li className="group/experience relative grid grid-cols-[2.5rem_minmax(0,1fr)] gap-x-4 md:grid-cols-[2.5rem_9.5rem_minmax(0,1fr)] md:gap-x-6">
@@ -102,7 +108,10 @@ function ExperienceTimelineItem({ item }: ExperienceTimelineItemProps) {
           present && 'ring-1 ring-primary/20',
         )}
       >
-        <h3 className="text-lg font-semibold text-foreground">
+        <div className="flex flex-wrap items-center gap-2">
+          <MissionPhaseBadge phase={phase} />
+        </div>
+        <h3 className="mt-2 text-lg font-semibold text-foreground">
           {item.role}
           <span className="font-normal text-accent"> · {item.company}</span>
         </h3>
@@ -138,6 +147,7 @@ export function ExperienceSection({
           title={experienceSection.title}
           subtitle={experienceSection.subtitle}
         />
+        <MissionPhaseLegend />
         <div className="relative">
           <div
             data-timeline-spine
@@ -145,10 +155,12 @@ export function ExperienceSection({
             className="pointer-events-none absolute top-3 bottom-3 left-5 w-0.5 -translate-x-1/2 bg-gradient-to-b from-primary/55 via-accent/40 to-border/25 shadow-[0_0_12px_color-mix(in_srgb,var(--color-accent)_18%,transparent)] md:left-5"
           />
           <ol className="relative space-y-8 md:space-y-10">
-            {experience.map((item) => (
+            {experience.map((item, index) => (
               <ExperienceTimelineItem
                 key={`${item.company}-${item.start}`}
                 item={item}
+                index={index}
+                total={experience.length}
               />
             ))}
           </ol>

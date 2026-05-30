@@ -13,6 +13,7 @@
 - **FR-8**: Full-page animated starfield with pointer repulsion, horizontal background parallax, and scroll parallax; static fallback when `prefers-reduced-motion: reduce`. Hero text does not move (see ADR 0007).
 - **FR-9**: Decorative 3D planet visual in the hero via lazy-loaded React Three Fiber; auto-rotate only, no pointer interaction on meshes (see ADR 0010).
 - **FR-10**: Identity clarity — hero `roleLine`, about avatar/location/openTo, resume from `meta.resumeUrl` in header and hero; no hardcoded identity copy (see ADR 0011).
+- **FR-11**: Phase 9 delight — experience mission phases (`launch` / `orbit` / `dock`) with optional JSON override; mission-control dialog from `missionControl` content, opened via `?` keyboard shortcut (see ADR 0014).
 
 ## Non-functional requirements
 

@@ -74,12 +74,15 @@ const monthYearSchema = z
   .string()
   .regex(/^\d{4}-(0[1-9]|1[0-2])$/, 'Use YYYY-MM with month 01–12')
 
+export const missionPhaseSchema = z.enum(['launch', 'orbit', 'dock'])
+
 export const experienceSchema = z
   .object({
     role: z.string(),
     company: z.string(),
     start: monthYearSchema,
     end: z.union([monthYearSchema, z.literal('present')]),
+    missionPhase: missionPhaseSchema.optional(),
     description: z.string().optional(),
     summary: z.string().optional(),
     highlights: z.array(z.string()).min(1).optional(),
@@ -112,6 +115,24 @@ export const contactContentSchema = z.object({
   message: z.string(),
 })
 
+export const missionControlShortcutSchema = z.object({
+  label: z.string(),
+  href: z.string(),
+})
+
+export const missionControlTransmissionSchema = z.object({
+  label: z.string(),
+  href: z.string().url(),
+  kind: z.enum(['article', 'talk']).optional(),
+})
+
+export const missionControlSchema = z.object({
+  title: z.string(),
+  hint: z.string(),
+  shortcuts: z.array(missionControlShortcutSchema).min(1),
+  transmissions: z.array(missionControlTransmissionSchema).min(1),
+})
+
 export const portfolioSchema = z
   .object({
     meta: siteMetaSchema,
@@ -124,6 +145,7 @@ export const portfolioSchema = z
     experience: z.array(experienceSchema),
     skills: z.array(skillGroupSchema),
     contact: contactContentSchema,
+    missionControl: missionControlSchema,
   })
   .refine((data) => data.meta.resumeUrl.startsWith('/'), {
     message: 'resumeUrl must be a site-relative path',
@@ -150,6 +172,11 @@ export type ProjectOutcome = z.infer<typeof projectOutcomeSchema>
 export type Experience = z.infer<typeof experienceSchema>
 export type SkillGroup = z.infer<typeof skillGroupSchema>
 export type ContactContent = z.infer<typeof contactContentSchema>
+export type MissionPhase = z.infer<typeof missionPhaseSchema>
+export type MissionControl = z.infer<typeof missionControlSchema>
+export type MissionControlTransmission = z.infer<
+  typeof missionControlTransmissionSchema
+>
 
 export function getResumeLabel(meta: SiteMeta): string {
   return meta.resumeLabel ?? 'Resume'

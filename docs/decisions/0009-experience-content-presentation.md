@@ -22,8 +22,11 @@ Each experience entry in `portfolio.json`:
 | `highlights` | Optional bullet achievements |
 | `skills` | Optional tech used in this role |
 | `description` | Legacy single paragraph (backward compatible) |
+| `missionPhase` | Optional `launch` \| `orbit` \| `dock` (Phase 9 mission timeline) |
 
 At least one of `description`, `summary`, or `highlights` is required.
+
+**Mission phase inference** (when `missionPhase` omitted): `end: "present"` → `orbit`; oldest entry (last in array) → `launch`; middle entries → `dock`. See `src/features/experience/missionPhase.ts`.
 
 **Per-role `skills` vs global `#skills`**: global skills are category-grouped capabilities; per-role skills are “used here” tags. Overlap is intentional—no deduplication in content or UI.
 
@@ -45,6 +48,7 @@ Experience uses **bespoke marketing UI**, not shadcn `Card`:
 - **Card padding:** `FrostedPanel` `p-6 md:p-7` (matches project cards).
 - “Technologies” footer strip with shadcn `Badge variant="outline"`; label uses primary token; `mt-8 pt-6` spacing.
 - Role and company render as **Role · Company** (company in accent).
+- **Mission phases (Phase 9):** `MissionPhaseBadge` on each card (`launch` / `orbit` / `dock`); legend under section intro (`data-mission-legend`); tokens per [visual-principles.md](../visual-principles.md).
 
 Per-item connector spans replaced by the continuous spine (post–Phase 7 polish).
 
@@ -53,11 +57,12 @@ Per-item connector spans replaced by the continuous spine (post–Phase 7 polish
 - Schema change replaces free-text `period` with `start`/`end`; existing JSON must migrate.
 - Locale is fixed to `en-US` for month abbreviations; i18n would need a shared formatter change.
 - Experience cards are non-interactive (hover polish only)—no detail routes for jobs.
-- E2E: spine, subtitle, present role, date nowrap, card padding (`e2e/experience.spec.ts`).
+- E2E: spine, subtitle, present role, date nowrap, card padding, mission phase badges (`e2e/experience.spec.ts`).
 
 ## References
 
 - [ADR 0013](0013-visual-design-system.md) — band wash, FrostedPanel
+- [ADR 0014](0014-phase9-delight.md) — mission phases
 
 - [ADR 0004](0004-content-driven-ui.md) — content-driven copy
 - [ADR 0005](0005-shadcn-selective.md) — badge only; no shadcn Card

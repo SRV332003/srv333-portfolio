@@ -8,9 +8,9 @@ Global chrome: layout, header, footer. Mounts full-page `StarfieldBackground` (e
 
 | File | Role |
 |------|------|
-| `Layout.tsx` | `StarfieldBackground` + z-10 content column |
+| `Layout.tsx` | `StarfieldBackground` + `MissionControlProvider` + z-10 content column |
 | `Header.tsx` | Nav + primary CTA + resume (`lg+`); `useScrollSpySection` (IntersectionObserver + hash `replaceState` on scroll); `navActive.ts`; Projects active on `/projects/*` |
-| `Footer.tsx` | Social links from content |
+| `Footer.tsx` | Social links + mission-control hint from content |
 
 ## Chrome styling
 
@@ -31,5 +31,5 @@ Do not increase header/footer opacity without updating ADR 0007.
 
 ## Constraints
 
-- Only shell may import `features/canvas` for the fixed backdrop.
+- Only shell may import `features/canvas` for the fixed backdrop and `features/mission-control` for the global dialog.
 - No business copy; use `loadPortfolio()`.

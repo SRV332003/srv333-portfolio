@@ -116,23 +116,17 @@ Features: `about`, `projects`, `experience`, `skills`, `contact`.
 
 ---
 
-## Phase 9 — Delight & theme (optional)
+## Phase 9 — Delight & theme (complete)
 
 **Goal:** Memorable personality without hurting scanability or load time.
 
-**Pick 1–2:**
+- **Mission timeline:** experience `missionPhase` badges (Launch / Orbit / Dock) + legend; inference when omitted
+- **Mission control:** `?` keyboard easter egg → dialog with shortcuts + transmission links; footer hint
+- [ADR 0014](decisions/0014-phase9-delight.md)
 
-| Option | Description |
-|--------|-------------|
-| A. Constellation hotspots | Star tooltips for skills/facts (defer from Phase 2b) |
-| B. Mission timeline | Experience as missions (Launch → Orbit → Dock) |
-| C. Easter egg | e.g. `?` opens mission-control help panel |
-| D. Testimonial | One quote in About or after Projects |
-| E. Transmission log | 2–3 links to writing or talks |
+**Deferred:** constellation hotspots, testimonial block
 
-**Out of scope:** Blog CMS, chat widget, heavy gamification
-
-**Done when:** Chosen items ship with reduced-motion fallbacks.
+**Done when:** Chosen items ship with reduced-motion-safe static UI; build + e2e pass.
 
 ---
 

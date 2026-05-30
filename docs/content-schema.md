@@ -86,6 +86,7 @@ Loaders: `getProjectBySlug(slug)`, `getAllProjectSlugs()`.
 | `summary` | Optional one-line intro under company |
 | `highlights` | Optional bullet list (achievements) |
 | `skills` | Optional tech tags for this role |
+| `missionPhase` | Optional `launch` \| `orbit` \| `dock`; inferred when omitted (see ADR 0009) |
 | `description` | Legacy single paragraph (use if no summary/highlights) |
 
 At least one of `description`, `summary`, or `highlights` is required.
@@ -99,3 +100,16 @@ See [ADR 0009](decisions/0009-experience-content-presentation.md) for date forma
 ## `contact`
 
 `title`, `email`, `message` (form intro — keep distinct from `about.openTo`).
+
+## `missionControl`
+
+Phase 9 mission-control panel (keyboard `?` easter egg):
+
+| Field | Description |
+|-------|-------------|
+| `title` | Dialog heading |
+| `hint` | Footer hint text (e.g. “Press ? for mission control”) |
+| `shortcuts` | `{ label, href }[]` — in-page anchors or site paths |
+| `transmissions` | `{ label, href, kind? }[]` — external writing/talk links (`article` or `talk`) |
+
+See [ADR 0014](decisions/0014-phase9-delight.md).

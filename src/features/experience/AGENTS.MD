@@ -8,7 +8,10 @@ Renders the `#experience` timeline section from `portfolio.json` `experience` ar
 
 | File | Role |
 |------|------|
-| `ExperienceSection.tsx` | Shared timeline spine, present-role node styling, nebula wash, `experienceSection` intro, frosted cards |
+| `ExperienceSection.tsx` | Shared timeline spine, mission phase badges/legend, present-role node styling, nebula wash, `experienceSection` intro, frosted cards |
+| `MissionPhaseBadge.tsx` | Launch / Orbit / Dock badge styling |
+| `MissionPhaseLegend.tsx` | Compact phase legend under section intro |
+| `missionPhase.ts` | Phase labels + `inferMissionPhase()` |
 | `formatPeriod.ts` | `YYYY-MM` → `MMM YYYY` display formatting |
 | `index.ts` | Barrel export |
 

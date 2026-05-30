@@ -45,4 +45,16 @@ test.describe('Experience section', () => {
 
     await expect(page.locator('#experience')).toHaveAttribute('data-section-variant', 'band')
   })
+
+  test('experience cards show mission phase labels', async ({ page }) => {
+    await page.goto('/#experience')
+
+    const presentEntry = page.locator('#experience ol > li').first()
+    await expect(presentEntry.getByText('Orbit', { exact: true })).toBeVisible()
+
+    const pastEntry = page.locator('#experience ol > li').nth(1)
+    await expect(pastEntry.getByText('Launch', { exact: true })).toBeVisible()
+
+    await expect(page.locator('#experience [data-mission-legend]')).toBeVisible()
+  })
 })

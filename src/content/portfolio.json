@@ -134,6 +134,7 @@
       "company": "Stellar Dynamics",
       "start": "2022-03",
       "end": "present",
+      "missionPhase": "orbit",
       "summary": "Ground-system UI and incident tooling for mission operations.",
       "highlights": [
         "Led UI modernization for the telemetry console used by 40+ operators.",
@@ -147,6 +148,7 @@
       "company": "Astra Labs",
       "start": "2019-06",
       "end": "2022-02",
+      "missionPhase": "launch",
       "summary": "Simulation tooling and APIs for pre-flight validation workflows.",
       "highlights": [
         "Built simulation tooling and APIs for pre-flight validation workflows.",
@@ -173,5 +175,31 @@
     "title": "Establish contact",
     "email": "nova@example.com",
     "message": "Send a message — I usually reply within two business days."
+  },
+  "missionControl": {
+    "title": "Mission control",
+    "hint": "Press ? for mission control",
+    "shortcuts": [
+      { "label": "Projects", "href": "#projects" },
+      { "label": "Contact", "href": "#contact" },
+      { "label": "Resume", "href": "/assets/resume.pdf" }
+    ],
+    "transmissions": [
+      {
+        "label": "Designing for operator UIs",
+        "href": "https://example.com/talk-operator-ui",
+        "kind": "talk"
+      },
+      {
+        "label": "Resilience patterns in ground systems",
+        "href": "https://example.com/article-resilience",
+        "kind": "article"
+      },
+      {
+        "label": "Telemetry at scale",
+        "href": "https://example.com/talk-telemetry",
+        "kind": "talk"
+      }
+    ]
   }
 }
