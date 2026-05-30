@@ -122,7 +122,7 @@ test.describe('Phase 6 case studies', () => {
     await page.goto('/#projects')
 
     await expect(
-      page.getByText('Side projects and shipped products — from AI roasts to plagiarism detection and real-time chat.'),
+      page.getByText('Side projects and shipped products — some use AI, all were built to ship.'),
     ).toBeVisible()
   })
 

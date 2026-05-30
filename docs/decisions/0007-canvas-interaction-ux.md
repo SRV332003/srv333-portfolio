@@ -33,7 +33,7 @@ After Phase 2 shipped the starfield, UX iteration revealed several issues:
 
 ### Shell chrome (header / footer)
 
-- **Header**: semi-transparent glass — `bg-background/25`, `backdrop-blur-sm`, soft border — so stars show through.
+- **Header**: semi-transparent glass — `bg-background/5`, `backdrop-blur-sm`, soft border — so stars show through.
 - **Footer**: distinct frosted band — `bg-background/35`, top border, upward shadow, `mt-auto`; compact padding `py-6` (reduced from `py-10`).
 
 ### E2E testing

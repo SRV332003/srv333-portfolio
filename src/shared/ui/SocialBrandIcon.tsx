@@ -1,11 +1,13 @@
 import { cn } from '@/lib/utils'
 
-type HeroSocialIconProps = {
-  label: 'GitHub' | 'LinkedIn'
+type SocialBrandLabel = 'GitHub' | 'LinkedIn'
+
+type SocialBrandIconProps = {
+  label: SocialBrandLabel
   className?: string
 }
 
-export function HeroSocialIcon({ label, className }: HeroSocialIconProps) {
+export function SocialBrandIcon({ label, className }: SocialBrandIconProps) {
   const iconClass = cn('size-4 shrink-0', className)
 
   if (label === 'GitHub') {
@@ -27,3 +29,5 @@ export function HeroSocialIcon({ label, className }: HeroSocialIconProps) {
     </svg>
   )
 }
+
+export type { SocialBrandLabel }

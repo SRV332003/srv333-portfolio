@@ -18,7 +18,7 @@ Run `npm run typecheck` after changes; invalid JSON fails at `loadPortfolio()` v
 
 ## `nav`
 
-Array of `{ label, href }` for anchor or route links. Nav order prioritizes Projects after Home.
+Array of `{ label, href }` for anchor or route links. Name in header links to `/`; scroll-spy still tracks `#hero`.
 
 ## `about`
 

@@ -3,7 +3,7 @@ import { loadPortfolio } from '@/content'
 import { HeroPlanetScene } from '@/features/scene3d'
 import { Container, Section } from '@/shared/ui'
 
-import { HeroSocialIcon } from './HeroSocialIcon'
+import { SocialBrandIcon } from '@/shared/ui/SocialBrandIcon'
 
 const MAX_HERO_BADGES = 3
 const HERO_SOCIAL_LABELS = ['GitHub', 'LinkedIn'] as const
@@ -69,7 +69,7 @@ export function Hero() {
                 size="lg"
               >
                 <span className={heroCtaContentHoverClass}>
-                  <HeroSocialIcon label={link.label} />
+                  <SocialBrandIcon label={link.label} />
                   {link.label}
                 </span>
               </Button>

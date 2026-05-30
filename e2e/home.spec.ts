@@ -95,7 +95,7 @@ test.describe('Home page UI', () => {
     })
   })
 
-  test('hero and header primary CTAs have correct href', async ({ page }) => {
+  test('hero and header CTAs have correct href', async ({ page }) => {
     await page.goto('/')
     const hero = page.locator('#hero')
     const heroCta = hero.getByRole('button', { name: 'View projects', exact: true })
@@ -105,8 +105,12 @@ test.describe('Home page UI', () => {
     await expect(github).toHaveAttribute('href', 'https://github.com/SRV332003')
     await expect(linkedin).toHaveAttribute('href', 'https://linkedin.com/in/srv333')
     await expect(hero.getByRole('button', { name: 'Resume', exact: true })).toHaveCount(0)
-    const headerCta = page.getByRole('banner').getByRole('button', { name: 'View projects', exact: true })
-    await expect(headerCta).toHaveAttribute('href', '#projects')
+
+    const banner = page.getByRole('banner')
+    const headerResume = banner.getByRole('button', { name: 'Resume', exact: true })
+    const headerProjects = banner.getByRole('button', { name: 'View projects', exact: true })
+    await expect(headerResume).toHaveAttribute('href', '/assets/resume.pdf')
+    await expect(headerProjects).toHaveAttribute('href', '#projects')
   })
 
   test('header is semi-transparent so starfield shows through', async ({
@@ -212,12 +216,20 @@ test.describe('Phase 5 identity', () => {
     const headerResume = banner.getByRole('button', { name: 'Resume', exact: true })
     await expect(headerResume).toBeVisible()
     await expect(headerResume).toHaveAttribute('href', '/assets/resume.pdf')
+    await expect(banner.getByRole('button', { name: 'GitHub' })).toHaveAttribute(
+      'href',
+      'https://github.com/SRV332003',
+    )
+    await expect(banner.getByRole('button', { name: 'LinkedIn' })).toHaveAttribute(
+      'href',
+      'https://linkedin.com/in/srv333',
+    )
 
     const avatar = page.locator('#about img')
     await expect(avatar).toBeVisible()
     await expect(avatar).toHaveAttribute('alt', 'Portrait of Sourav Garg')
 
-    await expect(page.getByText('Faridabad, India · IST')).toBeVisible()
+    await expect(page.getByText('Gurgaon, India · IST')).toBeVisible()
     await expect(page.getByText(openToText)).toBeVisible()
 
     await expect(page.getByText(contactIntro)).toBeVisible()

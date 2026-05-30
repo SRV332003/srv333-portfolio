@@ -34,7 +34,7 @@ Original space metaphor labels if re-enabled: Launch / Orbit / Dock.
 
 Hero → Experience → Projects → About (includes Achievements + Education) → Skills → Contact
 
-Nav: Home, Experience, Projects, About, Skills, Contact.
+Nav: Experience, Projects, About, Skills, Contact (name link serves as Home).
 
 ### Mission control
 

@@ -1,3 +1,5 @@
+export { SocialBrandIcon } from './SocialBrandIcon'
+export type { SocialBrandLabel } from './SocialBrandIcon'
 export { Container } from './Container'
 export { FrostedPanel } from './FrostedPanel'
 export { Section } from './Section'

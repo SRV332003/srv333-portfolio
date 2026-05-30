@@ -11,18 +11,38 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import { getResumeLabel, loadPortfolio } from '@/content'
-import { Container } from '@/shared/ui'
+import { Container, SocialBrandIcon, type SocialBrandLabel } from '@/shared/ui'
 
-import { isNavItemActive, navLinkClassName } from './navActive'
+import {
+  isNavItemActive,
+  mobileNavLinkClassName,
+  navLinkClassName,
+} from './navActive'
 import { useScrollSpySection } from './useScrollSpySection'
+
+const headerCtaContentHoverClass =
+  'inline-flex items-center gap-1.5 motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out group-hover/button:scale-[1.06] group-active/button:scale-100'
+
+const HEADER_SOCIAL_LABELS = ['GitHub', 'LinkedIn'] as const satisfies readonly SocialBrandLabel[]
+
+/** Hero is not in nav links but participates in scroll-spy at the top of the page. */
+const SCROLL_SPY_LEAD_SECTION = '#hero'
 
 export function Header() {
   const { meta, nav, hero } = loadPortfolio()
   const resumeLabel = getResumeLabel(meta)
+  const headerSocialLinks: { label: SocialBrandLabel; href: string }[] =
+    HEADER_SOCIAL_LABELS.flatMap((label) => {
+      const link = meta.social.find((item) => item.label === label)
+      return link ? [{ label, href: link.href }] : []
+    })
   const [mobileOpen, setMobileOpen] = useState(false)
   const { pathname, hash } = useLocation()
-  const sectionIds = nav.map((item) => item.href).filter((href) => href.startsWith('#'))
-  const scrollSection = useScrollSpySection(sectionIds, pathname === '/')
+  const navSectionIds = nav
+    .map((item) => item.href)
+    .filter((href) => href.startsWith('#'))
+  const scrollSpySectionIds = [SCROLL_SPY_LEAD_SECTION, ...navSectionIds]
+  const scrollSection = useScrollSpySection(scrollSpySectionIds, pathname === '/')
 
   function isActive(href: string) {
     return isNavItemActive(href, pathname, hash, scrollSection)
@@ -33,7 +53,7 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/30 bg-background/25 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-border/15 bg-background/5 backdrop-blur-sm">
       <Container as="div" className="flex h-16 items-center justify-between gap-2">
         <Link
           to="/"
@@ -42,7 +62,10 @@ export function Header() {
           <span className="sr-only">Home — </span>
           {meta.name}
         </Link>
-        <nav className="hidden items-center gap-6 md:flex" aria-label="Main">
+        <nav
+          className="hidden min-w-0 flex-1 items-center justify-center gap-1 md:flex lg:gap-1.5"
+          aria-label="Main"
+        >
           {nav.map((item) => (
             <a
               key={item.href}
@@ -54,15 +77,28 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-2">
-          <Button
-            nativeButton={false}
-            render={<a href={hero.primaryCta.href} />}
-            size="sm"
-            className="hidden min-h-11 shadow-[var(--shadow-glow-hero)] lg:inline-flex"
-          >
-            {hero.primaryCta.label}
-          </Button>
+        <div className="flex shrink-0 items-center gap-1 sm:gap-2">
+          {headerSocialLinks.map((link) => (
+            <Button
+              key={link.href}
+              nativeButton={false}
+              render={
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.label}
+                />
+              }
+              variant="ghost"
+              size="icon-sm"
+              className="hidden size-11 min-h-11 min-w-11 md:inline-flex"
+            >
+              <span className={headerCtaContentHoverClass}>
+                <SocialBrandIcon label={link.label} />
+              </span>
+            </Button>
+          ))}
           <Button
             nativeButton={false}
             render={
@@ -72,12 +108,22 @@ export function Header() {
                 rel="noopener noreferrer"
               />
             }
+            size="sm"
+            className="hidden min-h-11 shadow-[var(--shadow-glow-hero)] md:inline-flex"
+          >
+            <span className={headerCtaContentHoverClass}>
+              <FileTextIcon className="size-4" aria-hidden />
+              {resumeLabel}
+            </span>
+          </Button>
+          <Button
+            nativeButton={false}
+            render={<a href={hero.primaryCta.href} />}
             variant="outline"
             size="sm"
-            className="hidden min-h-11 lg:inline-flex"
+            className="hidden min-h-11 md:inline-flex"
           >
-            <FileTextIcon className="size-4" aria-hidden />
-            {resumeLabel}
+            <span className={headerCtaContentHoverClass}>{hero.primaryCta.label}</span>
           </Button>
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger
@@ -96,23 +142,43 @@ export function Header() {
               <SheetHeader>
                 <SheetTitle>{meta.name}</SheetTitle>
               </SheetHeader>
-              <nav className="flex flex-col gap-4 px-4" aria-label="Mobile">
+              <nav className="flex flex-col gap-1 px-2" aria-label="Mobile">
                 {nav.map((item) => (
                   <a
                     key={item.href}
                     href={item.href}
                     onClick={handleNavClick}
                     aria-current={isActive(item.href) ? 'page' : undefined}
-                    className={
-                      isActive(item.href)
-                        ? 'text-base font-medium text-foreground'
-                        : 'text-base text-muted-foreground transition-colors hover:text-foreground'
-                    }
+                    className={mobileNavLinkClassName(isActive(item.href))}
                   >
                     {item.label}
                   </a>
                 ))}
               </nav>
+              {headerSocialLinks.length ? (
+                <div className="flex items-center gap-2 px-4">
+                  {headerSocialLinks.map((link) => (
+                    <Button
+                      key={link.href}
+                      nativeButton={false}
+                      render={
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={link.label}
+                          onClick={handleNavClick}
+                        />
+                      }
+                      variant="outline"
+                      size="icon-sm"
+                      className="size-11 min-h-11 min-w-11"
+                    >
+                      <SocialBrandIcon label={link.label} />
+                    </Button>
+                  ))}
+                </div>
+              ) : null}
               <div className="flex flex-col gap-3 px-4 pb-4">
                 <Button
                   nativeButton={false}
@@ -124,18 +190,22 @@ export function Header() {
                       onClick={handleNavClick}
                     />
                   }
-                  variant="outline"
-                  className="w-full"
+                  className="w-full shadow-[var(--shadow-glow-hero)]"
                 >
-                  <FileTextIcon className="size-4" aria-hidden />
-                  {resumeLabel}
+                  <span className={headerCtaContentHoverClass}>
+                    <FileTextIcon className="size-4" aria-hidden />
+                    {resumeLabel}
+                  </span>
                 </Button>
                 <Button
                   nativeButton={false}
                   render={<a href={hero.primaryCta.href} onClick={handleNavClick} />}
+                  variant="outline"
                   className="w-full"
                 >
-                  {hero.primaryCta.label}
+                  <span className={headerCtaContentHoverClass}>
+                    {hero.primaryCta.label}
+                  </span>
                 </Button>
               </div>
             </SheetContent>

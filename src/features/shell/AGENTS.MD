@@ -9,7 +9,7 @@ Global chrome: layout, header, footer. Mounts full-page `StarfieldBackground` (e
 | File | Role |
 |------|------|
 | `Layout.tsx` | `StarfieldBackground` + `MissionControlProvider` + z-10 content column |
-| `Header.tsx` | Nav + primary CTA + resume (`lg+`); `useScrollSpySection` (IntersectionObserver + hash `replaceState` on scroll); `navActive.ts`; Projects active on `/projects/*` |
+| `Header.tsx` | Nav + GitHub/LinkedIn icon links + resume (primary) + ghost “View projects” (`md+`); scroll-spy includes `#hero`; pill active styles |
 | `Footer.tsx` | Social links + mission-control hint from content |
 
 ## Chrome styling
@@ -18,14 +18,14 @@ Glass layers so the starfield remains visible. Rationale: [ADR 0007](../../../do
 
 | Element | Intent |
 |---------|--------|
-| **Header** | `bg-background/25`, `backdrop-blur-sm` — stars visible through nav |
+| **Header** | `bg-background/5`, `backdrop-blur-sm` — stars visible through nav |
 | **Footer** | Frosted band (`bg-background/35`), top border, upward shadow, `py-6` — separated from hero without excess height |
 
 Do not increase header/footer opacity without updating ADR 0007.
 
 ## Mobile navigation (Phase 3)
 
-- Hamburger + shadcn `Sheet` visible below `md` breakpoint.
+- Hamburger + shadcn `Sheet` below `md`; inline nav + CTAs from `md`.
 - Nav links from `loadPortfolio().nav`; sheet closes on link click (including resume).
 - See [ADR 0008](../../../docs/decisions/0008-portfolio-sections-routing.md), [ADR 0011](../../../docs/decisions/0011-identity-content-presentation.md).
 
