@@ -6,6 +6,7 @@ import { Container, FrostedPanel, Section, SectionHeading } from '@/shared/ui'
 
 import {
   experiencePeriodDateTime,
+  formatExperienceDuration,
   formatExperiencePeriod,
 } from './formatPeriod'
 import { EmploymentTypeBadge } from './EmploymentTypeBadge'
@@ -64,6 +65,7 @@ type ExperienceTimelineItemProps = {
 
 function ExperienceTimelineItem({ item }: ExperienceTimelineItemProps) {
   const present = isPresentRole(item)
+  const duration = formatExperienceDuration(item.start, item.end)
 
   return (
     <li className="group/experience relative grid grid-cols-[2.5rem_minmax(0,1fr)] gap-x-4 md:grid-cols-[2.5rem_9.5rem_minmax(0,1fr)] md:gap-x-6">
@@ -117,6 +119,15 @@ function ExperienceTimelineItem({ item }: ExperienceTimelineItemProps) {
           {item.role}
           <span className="font-normal text-accent"> · {item.company}</span>
         </h3>
+        <p
+          className="mt-1 text-sm tabular-nums text-muted-foreground"
+          data-experience-duration
+        >
+          {duration}
+          {present ? (
+            <span className="text-primary/80"> · ongoing</span>
+          ) : null}
+        </p>
         <ExperienceBody item={item} />
       </FrostedPanel>
     </li>

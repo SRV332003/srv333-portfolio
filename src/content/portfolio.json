@@ -166,12 +166,15 @@
       "start": "2025-01",
       "end": "present",
       "employmentType": "full-time",
-      "summary": "Intern-to-full-time path on backend systems for warehouse management, inventory sync, and client-facing APIs.",
+      "summary": "Backend engineer on Omniful's supply-chain platform — WMS integrations, inventory sync, and client APIs in Go (intern Jan–Jul 2025, full-time from Jul 2025).",
       "highlights": [
         "Resolved 300+ bugs to improve data consistency and reduce errors across production systems.",
-        "Built a cache-backed dynamic rate limiter on client APIs — 40% lower server load with DB-controlled limits per client.",
-        "Architected horizontally scalable inventory sync for 1000+ warehouses and 100K+ SKUs per client.",
-        "Added structured logging and alerting, cutting issue lookup time by 40–60%."
+        "Built a cache-backed dynamic rate limiter on client APIs — 40% lower server load with DB-controlled limits per client and faster limit updates under traffic.",
+        "Refactored the external WMS integration module with SOLID principles — 20% lower technical debt and 50% less code for future integrations.",
+        "Designed a generic inventory sync flow from external WMS into Omniful — 20% less dev effort per new integration and faster onboarding for large catalogs and hub networks.",
+        "Enhanced real-time inventory sync with a distributed caching layer — 30%+ fewer database and inter-service API calls with better response latency.",
+        "Architected horizontally scalable inventory sync for 1000+ warehouses and 100K+ SKUs per client, resolving prior scalability bottlenecks.",
+        "Added structured logging and alerting, cutting issue lookup time by 40–60% and improving system reliability."
       ],
       "skills": ["Go", "AWS", "Kafka", "SQS", "PostgreSQL"]
     },

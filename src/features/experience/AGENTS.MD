@@ -13,7 +13,7 @@ Renders the `#experience` timeline section from `portfolio.json` `experience` ar
 | `MissionPhaseBadge.tsx` | Launch / Orbit / Dock styling (unused in UI; kept for Phase 9) |
 | `MissionPhaseLegend.tsx` | Phase legend (unused in UI) |
 | `missionPhase.ts` | Phase labels + `inferMissionPhase()` (content/schema only) |
-| `formatPeriod.ts` | `YYYY-MM` → `MMM YYYY` display formatting |
+| `formatPeriod.ts` | `YYYY-MM` → `MMM YYYY` display; inclusive duration on cards (`9 mo`, `1 yr 4 mo`) |
 | `index.ts` | Barrel export |
 
 ## Dependencies

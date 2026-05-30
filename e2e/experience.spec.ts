@@ -56,6 +56,19 @@ test.describe('Experience section', () => {
     await expect(page.locator('#experience')).toHaveAttribute('data-section-variant', 'band')
   })
 
+  test('experience cards show tenure duration on each tile', async ({ page }) => {
+    await page.goto('/#experience')
+
+    const luneblazeEntry = page.locator('#experience ol > li').last().locator('article')
+    await expect(luneblazeEntry.locator('[data-experience-duration]')).toHaveText('9 mo')
+
+    const arcadiaEntry = page.locator('#experience ol > li').nth(2).locator('article')
+    await expect(arcadiaEntry.locator('[data-experience-duration]')).toHaveText('3 mo')
+
+    const omnifulEntry = page.locator('#experience ol > li').first().locator('article')
+    await expect(omnifulEntry.locator('[data-experience-duration]')).toContainText('ongoing')
+  })
+
   test('experience cards show employment type badges only', async ({ page }) => {
     await page.goto('/#experience')
 
