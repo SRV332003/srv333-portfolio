@@ -12,13 +12,17 @@ export function AboutSection() {
       <div
         data-section-wash="about"
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_45%_at_20%_50%,color-mix(in_srgb,var(--color-orbit)_10%,transparent),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_45%_at_50%_50%,color-mix(in_srgb,var(--color-orbit)_10%,transparent),transparent_55%)] md:bg-[radial-gradient(ellipse_60%_45%_at_20%_50%,color-mix(in_srgb,var(--color-orbit)_10%,transparent),transparent_55%)]"
       />
       <Container className="relative">
-        <SectionHeading title={about.title} subtitle={about.subtitle} />
-        <div className="grid gap-8 md:grid-cols-[auto_1fr] md:items-start md:gap-10 lg:gap-12">
-          <div className="mx-auto shrink-0 md:mx-0">
-            <div className="relative">
+        <SectionHeading
+          title={about.title}
+          subtitle={about.subtitle}
+          className="text-center md:text-left [&_p]:mx-auto md:[&_p]:mx-0"
+        />
+        <div className="grid w-full justify-items-center gap-8 md:grid-cols-[auto_1fr] md:justify-items-start md:items-start md:gap-10 lg:gap-12">
+          <div className="flex w-full flex-col items-center text-center md:w-auto md:shrink-0 md:items-start md:text-left">
+            <div className="relative inline-block">
               <div
                 className="pointer-events-none absolute inset-0 scale-110 rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--color-primary)_18%,transparent),transparent_70%)] blur-md"
                 aria-hidden
@@ -48,7 +52,7 @@ export function AboutSection() {
               </ul>
             ) : null}
           </div>
-          <div className="min-w-0">
+          <div className="w-full min-w-0 max-w-3xl text-center md:max-w-none md:text-left">
             {about.location ? (
               <p className="text-sm font-medium tracking-wide text-accent uppercase">
                 {about.location}
@@ -56,13 +60,13 @@ export function AboutSection() {
             ) : null}
             {about.openTo ? (
               <p
-                className="mt-4 max-w-2xl border-l-2 border-primary/40 pl-4 text-sm leading-relaxed text-foreground/90"
+                className="mx-auto mt-4 max-w-2xl rounded-lg border border-primary/30 bg-card/20 px-4 py-3 text-sm leading-relaxed text-foreground/90 md:mx-0 md:rounded-none md:border-0 md:border-l-2 md:border-primary/40 md:bg-transparent md:py-0 md:pl-4"
                 data-about-open-to
               >
                 {about.openTo}
               </p>
             ) : null}
-            <div className="mt-8 max-w-3xl space-y-4 text-muted-foreground">
+            <div className="mx-auto mt-8 max-w-3xl space-y-4 text-muted-foreground md:mx-0">
               {about.body.map((paragraph) => (
                 <p key={paragraph} className="text-base leading-relaxed md:text-lg">
                   {paragraph}
@@ -70,7 +74,7 @@ export function AboutSection() {
               ))}
             </div>
             {about.softSkills?.length ? (
-              <div className="mt-10 max-w-3xl" data-about-soft-skills>
+              <div className="mx-auto mt-10 max-w-3xl md:mx-0" data-about-soft-skills>
                 <h3 className="text-xs font-semibold tracking-widest text-accent uppercase">
                   How I work
                 </h3>
@@ -78,10 +82,10 @@ export function AboutSection() {
                   {about.softSkills.map((line) => (
                     <li
                       key={line}
-                      className="flex gap-3 text-sm leading-relaxed text-muted-foreground md:text-base"
+                      className="flex flex-col items-center gap-2 text-sm leading-relaxed text-muted-foreground md:flex-row md:items-start md:gap-3 md:text-base"
                     >
                       <span
-                        className="mt-2 size-1.5 shrink-0 rounded-full bg-accent/80 shadow-[0_0_8px_var(--color-accent-glow)]"
+                        className="size-1.5 shrink-0 rounded-full bg-accent/80 shadow-[0_0_8px_var(--color-accent-glow)] md:mt-2"
                         aria-hidden
                       />
                       <span>{line}</span>
@@ -91,7 +95,7 @@ export function AboutSection() {
               </div>
             ) : null}
             {about.interests?.length ? (
-              <div className="mt-10 max-w-3xl" data-about-interests>
+              <div className="mx-auto mt-10 max-w-3xl md:mx-0" data-about-interests>
                 <h3 className="text-xs font-semibold tracking-widest text-accent uppercase">
                   Beyond code
                 </h3>

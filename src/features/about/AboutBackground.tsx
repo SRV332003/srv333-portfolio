@@ -19,7 +19,7 @@ function CompactAchievement({ item }: { item: Achievement }) {
     .join(' · ')
 
   return (
-    <li className="rounded-lg border border-border/50 bg-card/30 p-4">
+    <li className="rounded-lg border border-border/50 bg-card/30 p-4 text-center md:text-left">
       <h4 className="font-semibold text-foreground">{item.title}</h4>
       {meta ? (
         <p className="mt-1 text-xs tracking-wide text-muted-foreground uppercase">{meta}</p>
@@ -37,8 +37,8 @@ function CompactEducation({ item }: { item: Education }) {
       : undefined
 
   return (
-    <article className="rounded-lg border border-border/50 bg-card/30 p-4 md:p-5">
-      <div className="flex flex-wrap items-start justify-between gap-2">
+    <article className="rounded-lg border border-border/50 bg-card/30 p-4 text-center md:p-5 md:text-left">
+      <div className="flex flex-col items-center gap-2 md:flex-row md:items-start md:justify-between">
         <div>
           <h4 className="font-semibold text-foreground">{item.degree}</h4>
           <p className="mt-1 text-sm text-accent">{item.institution}</p>
@@ -60,9 +60,9 @@ function CompactEducation({ item }: { item: Education }) {
           {item.highlights.map((line) => (
             <li
               key={line}
-              className="flex gap-2 text-sm leading-relaxed text-muted-foreground"
+              className="flex flex-col items-center gap-2 text-sm leading-relaxed text-muted-foreground md:flex-row md:items-start md:gap-2 md:text-left"
             >
-              <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary/80" aria-hidden />
+              <span className="size-1.5 shrink-0 rounded-full bg-primary/80 md:mt-2" aria-hidden />
               <span>{line}</span>
             </li>
           ))}
@@ -77,7 +77,7 @@ export function AboutBackground() {
     loadPortfolio()
 
   return (
-    <div className="mt-14 space-y-14 border-t border-border/40 pt-14">
+    <div className="mx-auto mt-14 w-full max-w-3xl space-y-14 border-t border-border/40 pt-14 text-center md:mx-0 md:max-w-none md:text-left">
       <section aria-labelledby="about-achievements-heading">
         <h3
           id="about-achievements-heading"
@@ -85,7 +85,7 @@ export function AboutBackground() {
         >
           {achievementsSection.title}
         </h3>
-        <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+        <p className="mx-auto mt-2 max-w-2xl text-sm text-muted-foreground md:mx-0">
           {achievementsSection.subtitle}
         </p>
         <ul className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -101,7 +101,7 @@ export function AboutBackground() {
         >
           {educationSection.title}
         </h3>
-        <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+        <p className="mx-auto mt-2 max-w-2xl text-sm text-muted-foreground md:mx-0">
           {educationSection.subtitle}
         </p>
         <ul className="mt-6 space-y-4">

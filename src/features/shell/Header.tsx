@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { MenuIcon } from 'lucide-react'
+import { FileTextIcon, MenuIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -74,8 +74,9 @@ export function Header() {
             }
             variant="outline"
             size="sm"
-            className="hidden min-h-11 min-w-11 lg:inline-flex"
+            className="hidden min-h-11 lg:inline-flex"
           >
+            <FileTextIcon className="size-4" aria-hidden />
             {resumeLabel}
           </Button>
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
@@ -126,6 +127,7 @@ export function Header() {
                   variant="outline"
                   className="w-full"
                 >
+                  <FileTextIcon className="size-4" aria-hidden />
                   {resumeLabel}
                 </Button>
                 <Button

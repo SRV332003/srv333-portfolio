@@ -7,26 +7,62 @@
     "resumeUrl": "/assets/resume.pdf",
     "resumeLabel": "Resume",
     "social": [
-      { "label": "GitHub", "href": "https://github.com/SRV332003" },
-      { "label": "LinkedIn", "href": "https://linkedin.com/in/srv333" },
-      { "label": "Email", "href": "mailto:srvgarg332003@gmail.com" }
+      {
+        "label": "GitHub",
+        "href": "https://github.com/SRV332003"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://linkedin.com/in/srv333"
+      },
+      {
+        "label": "Email",
+        "href": "mailto:srvgarg332003@gmail.com"
+      }
     ]
   },
   "nav": [
-    { "label": "Home", "href": "#hero" },
-    { "label": "Experience", "href": "#experience" },
-    { "label": "Projects", "href": "#projects" },
-    { "label": "About", "href": "#about" },
-    { "label": "Skills", "href": "#skills" },
-    { "label": "Contact", "href": "#contact" }
+    {
+      "label": "Home",
+      "href": "#hero"
+    },
+    {
+      "label": "Experience",
+      "href": "#experience"
+    },
+    {
+      "label": "Projects",
+      "href": "#projects"
+    },
+    {
+      "label": "About",
+      "href": "#about"
+    },
+    {
+      "label": "Skills",
+      "href": "#skills"
+    },
+    {
+      "label": "Contact",
+      "href": "#contact"
+    }
   ],
   "hero": {
     "eyebrow": "Backend engineer · startups",
     "headline": "Backend engineer at Omniful — Go, Python, and systems that scale. I also ship AI side projects when an idea sticks.",
     "credibilityBadges": [
-      { "label": "Go in production", "detail": "Omniful · WMS & sync" },
-      { "label": "AWS ML Scholar", "detail": "Scholarship · 2023" },
-      { "label": "3★ CodeChef", "detail": "Competitive programming" }
+      {
+        "label": "Go in production",
+        "detail": "Omniful · WMS & sync"
+      },
+      {
+        "label": "AWS ML Scholar",
+        "detail": "Scholarship · 2023"
+      },
+      {
+        "label": "3★ CodeChef",
+        "detail": "Competitive programming"
+      }
     ],
     "primaryCta": {
       "label": "View projects",
@@ -42,7 +78,7 @@
     "subtitle": "From intern orbits to full-time flight.",
     "avatar": "/assets/avatar.png",
     "avatarAlt": "Portrait of Sourav Garg",
-    "location": "Faridabad, India · IST",
+    "location": "Gurgaon, India · IST",
     "openTo": "Open to backend engineering roles at product startups and growth-stage teams.",
     "body": [
       "I'm a software developer focused on backend systems at startups — currently at Omniful working on inventory sync, rate limiting, and WMS integrations in Go. Before that I interned at SeedsAI on AI calling pipelines, Creatvise on OAuth2 microservices, Arcadia Hospitality on full-stack features, and Luneblaze on React and QA.",
@@ -53,7 +89,14 @@
       "Clear written communication for async teams — structured logs, PRs, and docs that shorten incident lookup.",
       "Teaching and facilitation — ran Manan workshops and events for 500+ students; patient explaining technical ideas."
     ],
-    "interests": ["Guitar", "Music", "Dance","Philosophy", "Psychology", "Cooking"]
+    "interests": [
+      "Guitar",
+      "Music",
+      "Dance",
+      "Philosophy",
+      "Psychology",
+      "Cooking"
+    ]
   },
   "projects": [
     {
@@ -66,9 +109,18 @@
       "image": "/assets/projects/github-roaster.png",
       "imageAlt": "Github Roaster AI web interface preview",
       "outcomes": [
-        { "value": "6K", "label": "Developers on day one" },
-        { "value": "AWS", "label": "EC2 production deploy" },
-        { "value": "Live", "label": "Streamlit on EC2" }
+        {
+          "value": "6K",
+          "label": "Developers on day one"
+        },
+        {
+          "value": "AWS",
+          "label": "EC2 production deploy"
+        },
+        {
+          "value": "Live",
+          "label": "Streamlit on EC2"
+        }
       ],
       "flagship": true,
       "body": [
@@ -76,7 +128,14 @@
         "I built an AI roasting platform leveraging LLaMA to critique GitHub profiles with humor, wrapped in a web interface deployed on AWS EC2 with Nginx and SSL — co-created with Nakshatra Chandna for an overnight launch push.",
         "The launch attracted 6,000 developers worldwide on the first day, proving strong product-market fit for a fun, shareable developer experience."
       ],
-      "tech": ["Python", "LLaMA", "AWS EC2", "Streamlit", "Nginx", "Generative AI"],
+      "tech": [
+        "Python",
+        "LLaMA",
+        "AWS EC2",
+        "Streamlit",
+        "Nginx",
+        "Generative AI"
+      ],
       "href": "https://gitroaster.streamlit.app/",
       "repo": "https://github.com/SRV332003/githubroaster",
       "featured": true
@@ -92,9 +151,18 @@
       "video": "/assets/projects/lc-police.mp4",
       "imageAlt": "LC Police search results showing plagiarism percentage and side-by-side code comparison",
       "outcomes": [
-        { "value": "14.5K", "label": "Page views at launch" },
-        { "value": "3.5K", "label": "Visitors in 15 hours" },
-        { "value": "2024", "label": "Beta launch · now archived" }
+        {
+          "value": "14.5K",
+          "label": "Page views at launch"
+        },
+        {
+          "value": "3.5K",
+          "label": "Visitors in 15 hours"
+        },
+        {
+          "value": "2024",
+          "label": "Beta launch · now archived"
+        }
       ],
       "flagship": false,
       "body": [
@@ -122,9 +190,18 @@
       "image": "/assets/projects/binge-chat.png",
       "imageAlt": "BingeChat random video chat platform",
       "outcomes": [
-        { "value": "2.5K+", "label": "Impressions on launch day" },
-        { "value": "70%", "label": "Faster bug detection with Zap" },
-        { "value": "WebRTC", "label": "Peer video pipeline" }
+        {
+          "value": "2.5K+",
+          "label": "Impressions on launch day"
+        },
+        {
+          "value": "70%",
+          "label": "Faster bug detection with Zap"
+        },
+        {
+          "value": "WebRTC",
+          "label": "Peer video pipeline"
+        }
       ],
       "flagship": false,
       "body": [
@@ -132,7 +209,14 @@
         "I architected BingeChat with Golang and Gin on the backend, WebSockets and WebRTC for real-time video, and React on the frontend — applying OOP design patterns and structured Zap logging throughout.",
         "The platform reached 2,500+ impressions on day one, with logging improvements that cut bug detection time by roughly 70% during early iterations."
       ],
-      "tech": ["Go", "Gin", "WebRTC", "WebSockets", "React", "Zap"],
+      "tech": [
+        "Go",
+        "Gin",
+        "WebRTC",
+        "WebSockets",
+        "React",
+        "Zap"
+      ],
       "href": "https://www.bingechat.live",
       "repo": "https://github.com/SRV332003/BingeChatBackend",
       "featured": true
@@ -147,9 +231,18 @@
       "image": "/assets/projects/go-music.png",
       "imageAlt": "Go Music GitHub Releases page with cross-platform download assets",
       "outcomes": [
-        { "value": "<200ms", "label": "YouTube search time" },
-        { "value": "30%", "label": "Less code redundancy" },
-        { "value": "CLI", "label": "Cross-platform Go app" }
+        {
+          "value": "<200ms",
+          "label": "YouTube search time"
+        },
+        {
+          "value": "30%",
+          "label": "Less code redundancy"
+        },
+        {
+          "value": "CLI",
+          "label": "Cross-platform Go app"
+        }
       ],
       "flagship": false,
       "body": [
@@ -157,7 +250,13 @@
         "I built a cross-platform CLI in Go with a bare-metal YouTube scraper, concurrency control, file caching, and audio codec support — refactored with SOLID principles and design patterns. Binaries for macOS, Linux, and Windows ship via GitHub Releases so users can install without cloning the repo.",
         "Search completes in under 200 milliseconds and code redundancy dropped by about 30%. The case-study image shows the release page where users download builds; the README and repo cover build-from-source for contributors."
       ],
-      "tech": ["Go", "Concurrency", "Web Scraping", "Audio Codecs", "GitHub Releases"],
+      "tech": [
+        "Go",
+        "Concurrency",
+        "Web Scraping",
+        "Audio Codecs",
+        "GitHub Releases"
+      ],
       "href": "https://github.com/SRV332003/go_music/releases/latest",
       "hrefLabel": "Download releases",
       "hrefBadge": "Releases",
@@ -186,7 +285,13 @@
         "Architected horizontally scalable inventory sync for 1000+ warehouses and 100K+ SKUs per client, resolving prior scalability bottlenecks.",
         "Added structured logging and alerting, cutting issue lookup time by 40–60% and improving system reliability."
       ],
-      "skills": ["Go", "AWS", "Kafka", "SQS", "PostgreSQL"]
+      "skills": [
+        "Go",
+        "AWS",
+        "Kafka",
+        "SQS",
+        "PostgreSQL"
+      ]
     },
     {
       "role": "Software Developer Intern",
@@ -199,7 +304,12 @@
         "Optimized the AI calling pipeline, reducing agent response latency by up to 2 seconds.",
         "Shipped automatic call transfer and API hits during live AI agent calls."
       ],
-      "skills": ["Python", "FastAPI", "WebSockets", "AI Agents"]
+      "skills": [
+        "Python",
+        "FastAPI",
+        "WebSockets",
+        "AI Agents"
+      ]
     },
     {
       "role": "Full-stack Developer Intern",
@@ -212,7 +322,12 @@
         "Built REST APIs and integrated frontend dashboards for hospitality booking workflows.",
         "Shipped React UI components wired to backend services for internal operations teams."
       ],
-      "skills": ["React", "REST APIs", "JavaScript", "Full-stack"]
+      "skills": [
+        "React",
+        "REST APIs",
+        "JavaScript",
+        "Full-stack"
+      ]
     },
     {
       "role": "Backend Engineer Intern",
@@ -226,7 +341,13 @@
         "Engineered an OAuth2 authorization microservice deployed on Google Cloud.",
         "Implemented cookie-based OAuth2 with Next.js serverless functions for stronger backend security."
       ],
-      "skills": ["Go", "OAuth2", "PostgreSQL", "Google Cloud", "Next.js"]
+      "skills": [
+        "Go",
+        "OAuth2",
+        "PostgreSQL",
+        "Google Cloud",
+        "Next.js"
+      ]
     },
     {
       "role": "React Developer Intern",
@@ -239,7 +360,12 @@
         "Started as QA intern (Dec 2022–Feb 2023): expanded manual and regression test coverage for React apps.",
         "Transitioned to React developer (Feb–Aug 2023): built UI components and fixed production bugs."
       ],
-      "skills": ["React", "QA", "JavaScript", "Manual testing"]
+      "skills": [
+        "React",
+        "QA",
+        "JavaScript",
+        "Manual testing"
+      ]
     }
   ],
   "achievementsSection": {
@@ -296,19 +422,40 @@
   "skills": [
     {
       "category": "Languages",
-      "items": ["Go", "Python", "JavaScript", "C/C++"]
+      "items": [
+        "Go",
+        "Python",
+        "JavaScript",
+        "C/C++"
+      ]
     },
     {
       "category": "Backend & data",
-      "items": ["Gin", "FastAPI", "PostgreSQL", "GORM", "Kafka", "WebSockets"]
+      "items": [
+        "Gin",
+        "FastAPI",
+        "PostgreSQL",
+        "GORM",
+        "Kafka",
+        "WebSockets"
+      ]
     },
     {
       "category": "Frontend",
-      "items": ["React", "Next.js", "WebRTC"]
+      "items": [
+        "React",
+        "Next.js",
+        "WebRTC"
+      ]
     },
     {
       "category": "Platform & tools",
-      "items": ["AWS", "AWS SQS", "Linux", "Git"]
+      "items": [
+        "AWS",
+        "AWS SQS",
+        "Linux",
+        "Git"
+      ]
     }
   ],
   "contactSection": {
@@ -323,10 +470,22 @@
     "title": "Mission control",
     "hint": "Press ? for mission control",
     "shortcuts": [
-      { "label": "Experience", "href": "#experience" },
-      { "label": "Projects", "href": "#projects" },
-      { "label": "Contact", "href": "#contact" },
-      { "label": "Resume", "href": "/assets/resume.pdf" }
+      {
+        "label": "Experience",
+        "href": "#experience"
+      },
+      {
+        "label": "Projects",
+        "href": "#projects"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      },
+      {
+        "label": "Resume",
+        "href": "/assets/resume.pdf"
+      }
     ],
     "transmissions": [
       {

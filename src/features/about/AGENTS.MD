@@ -16,7 +16,7 @@ Renders the `#about` anchor section from `portfolio.json` `about` content with i
 
 ```
 md+ grid: [ avatar + social | location, openTo callout, body ]
-mobile:   avatar centered, social links, then stacked text column
+mobile:   centered stack (heading, avatar, social, body, subsections); `md+` left-aligned grid
 ```
 
 - Section wash (`data-section-wash="about"`) — transparent section, no frosted card grid
