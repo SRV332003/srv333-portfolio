@@ -1,8 +1,8 @@
-# Space Portfolio — Agent entry
+# srv333-portfolio — Agent entry
 
 ## Purpose
 
-Interactive space-themed portfolio. Phases 1–9 (structure, demo content, craft) are complete. **Next:** personal rebrand (Phases 10–12) then SEO/QA/ship (13–15). Fill [docs/content-inventory.md](docs/content-inventory.md) before Phase 10.
+Sourav Garg's interactive space-themed portfolio (npm: `srv333-portfolio`). Phases 1–9 (structure, demo content, craft) are complete. **Next:** personal rebrand (Phases 10–12) then SEO/QA/ship (13–15). Fill [docs/content-inventory.md](docs/content-inventory.md) before Phase 10.
 
 ## Commands
 

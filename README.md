@@ -1,6 +1,6 @@
-# Space Portfolio
+# srv333-portfolio
 
-Interactive space-themed developer portfolio — React, Vite, Tailwind CSS v4, shadcn/ui, content-driven architecture, and agent-friendly documentation.
+Sourav Garg's interactive space-themed developer portfolio — React, Vite, Tailwind CSS v4, shadcn/ui, content-driven architecture, and agent-friendly documentation.
 
 ## Quick start
 

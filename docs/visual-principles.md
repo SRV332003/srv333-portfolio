@@ -1,6 +1,6 @@
 # Visual principles
 
-Short guide for the space portfolio visual system (Phase 7).
+Short guide for the srv333-portfolio visual system (Phase 7).
 
 ## Depth
 
