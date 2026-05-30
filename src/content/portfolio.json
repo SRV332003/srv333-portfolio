@@ -1,8 +1,8 @@
 {
   "meta": {
     "name": "Sourav Garg",
-    "title": "Sourav Garg — Software Developer",
-    "description": "Backend engineer building Go microservices, inventory sync, and startup products — internships at SeedsAI and Creatvise, full-time at Omniful.",
+    "title": "Sourav Garg — Software Engineer",
+    "description": "Software engineer building Go microservices, inventory sync, and startup products — internships at SeedsAI and Creatvise, full-time at Omniful.",
     "ogImage": "/assets/og.png",
     "resumeUrl": "/assets/resume.pdf",
     "resumeLabel": "Resume",
@@ -44,16 +44,16 @@
     }
   ],
   "hero": {
-    "eyebrow": "Backend engineer · startups",
-    "headline": "Backend engineer at Omniful — Go, Python, and systems that scale. I also ship AI side projects when an idea sticks.",
+    "eyebrow": "Software engineer · Omniful · 1+ years",
+    "headline": "Software engineer at Omniful — Go, Python, and systems that scale. I also ship AI side projects when an idea sticks.",
     "credibilityBadges": [
       {
         "label": "Go in production",
         "detail": "Omniful · WMS & sync"
       },
       {
-        "label": "AWS ML Scholar",
-        "detail": "Scholarship · 2023"
+        "label": "Omniful · WMS",
+        "detail": "Inventory sync · rate limiting · client APIs"
       },
       {
         "label": "3★ CodeChef",
@@ -67,7 +67,7 @@
   },
   "projectsSection": {
     "title": "Projects",
-    "subtitle": "Side projects and shipped products — some use AI, all were built to ship."
+    "subtitle": "Side projects alongside production backend work — some use AI, all built to ship."
   },
   "about": {
     "title": "About",
@@ -75,9 +75,9 @@
     "avatar": "/assets/avatar.png",
     "avatarAlt": "Portrait of Sourav Garg",
     "location": "Gurgaon, India · IST",
-    "openTo": "Open to backend engineering roles at product startups and growth-stage teams.",
+    "openTo": "Open to software engineering roles at product startups and growth-stage teams.",
     "body": [
-      "I'm a software developer focused on backend systems at startups — currently at Omniful working on inventory sync, rate limiting, and WMS integrations in Go. Before that I interned at SeedsAI on AI calling pipelines, Creatvise on OAuth2 microservices, Arcadia Hospitality on full-stack features, and Luneblaze on React and QA.",
+      "I'm a software engineer focused on backend systems at startups — currently at Omniful working on inventory sync, rate limiting, and WMS integrations in Go. Before that I interned at SeedsAI on AI calling pipelines, Creatvise on OAuth2 microservices, Arcadia Hospitality on full-stack features, and Luneblaze on React and QA.",
       "B.Tech in Computer Engineering from YMCA University of Science & Technology (CGPA 8.3). Joint Secretary of Manan, the coding society, where I helped run workshops for 500+ students. Outside work I build projects like Github Roaster, LC Police, and BingeChat."
     ],
     "softSkills": [
@@ -271,7 +271,7 @@
       "start": "2025-01",
       "end": "present",
       "employmentType": "full-time",
-      "summary": "Backend engineer on Omniful's supply-chain platform — WMS integrations, inventory sync, and client APIs in Go (intern Jan–Jul 2025, full-time from Jul 2025).",
+      "summary": "Software engineer on Omniful's supply-chain platform — WMS integrations, inventory sync, and client APIs in Go (intern Jan–Jul 2025, full-time from Jul 2025).",
       "highlights": [
         "Resolved 300+ bugs to improve data consistency and reduce errors across production systems.",
         "Built a cache-backed dynamic rate limiter on client APIs — 40% lower server load with DB-controlled limits per client and faster limit updates under traffic.",
@@ -366,7 +366,7 @@
   ],
   "achievementsSection": {
     "title": "Achievements",
-    "subtitle": "Mission patches from contests, scholarships, and competitive programming."
+    "subtitle": "Contests, scholarships, and competitive programming."
   },
   "achievements": [
     {
@@ -456,7 +456,7 @@
   ],
   "contactSection": {
     "title": "Establish contact",
-    "subtitle": "Backend roles, collaborations, or questions about my work."
+    "subtitle": "Software engineering roles, collaborations, or questions about my work."
   },
   "contact": {
     "email": "srvgarg332003@gmail.com",

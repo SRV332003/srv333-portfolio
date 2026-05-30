@@ -20,7 +20,7 @@ test.describe('Contact section', () => {
     await page.goto('/#contact')
 
     await expect(
-      page.getByText('Backend roles, collaborations'),
+      page.getByText('Software engineering roles, collaborations'),
     ).toBeVisible()
     await expect(page.locator('#contact form')).toBeVisible()
     await expect(page.getByText('Send a message — I usually reply')).toBeVisible()

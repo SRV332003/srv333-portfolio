@@ -12,10 +12,10 @@ test.describe('Home page UI', () => {
   test('sets document title and meta from portfolio', async ({ page }) => {
     await page.goto('/')
 
-    await expect(page).toHaveTitle('Sourav Garg — Software Developer')
+    await expect(page).toHaveTitle('Sourav Garg — Software Engineer')
     await expect(page.locator('meta[name="description"]')).toHaveAttribute(
       'content',
-      /Backend engineer building Go microservices/,
+      /Software engineer building Go microservices/,
     )
   })
 
@@ -40,7 +40,7 @@ test.describe('Home page UI', () => {
     await expect(page.getByRole('heading', { name: 'Skills', exact: true })).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Establish contact' })).toBeVisible()
     await expect(
-      page.getByText('Backend roles, collaborations'),
+      page.getByText('Software engineering roles, collaborations'),
     ).toBeVisible()
   })
 
@@ -57,9 +57,9 @@ test.describe('Home page UI', () => {
     const hero = page.locator('#hero')
     await expect(hero.getByRole('heading', { level: 1 })).toHaveText('Sourav Garg')
     await expect(
-      hero.getByText(/Backend engineer at Omniful — Go, Python, and systems that scale/),
+      hero.getByText(/Software engineer at Omniful — Go, Python, and systems that scale/),
     ).toBeVisible()
-    await expect(hero.getByText('Backend engineer · startups')).toBeVisible()
+    await expect(hero.getByText('Software engineer · Omniful · 1+ years')).toBeVisible()
 
     await expect(page.getByRole('banner').getByRole('link', { name: 'Home — Sourav Garg' })).toBeVisible()
     await expect(page.getByRole('navigation', { name: 'Main' })).toBeVisible()
@@ -205,9 +205,9 @@ test.describe('Phase 5 identity', () => {
 
     const hero = page.locator('#hero')
     await expect(
-      hero.getByText(/Backend engineer at Omniful — Go, Python, and systems that scale/),
+      hero.getByText(/Software engineer at Omniful — Go, Python, and systems that scale/),
     ).toBeVisible()
-    await expect(hero.getByText('AWS ML Scholar')).toBeVisible()
+    await expect(hero.getByText('Omniful · WMS')).toBeVisible()
     await expect(hero.getByText('Go in production')).toBeVisible()
     await expect(hero.getByText(/AI side projects/)).toBeVisible()
     await expect(hero.getByText('3★ CodeChef')).toBeVisible()
@@ -280,5 +280,5 @@ test.describe('Phase 7 visual system', () => {
 })
 
 const openToText =
-  'Open to backend engineering roles at product startups and growth-stage teams.'
+  'Open to software engineering roles at product startups and growth-stage teams.'
 const contactIntro = 'Send a message — I usually reply within a couple of business days.'
