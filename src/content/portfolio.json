@@ -1,15 +1,15 @@
 {
   "meta": {
-    "name": "Nova Chen",
-    "title": "Nova Chen — Spacecraft Software Engineer",
-    "description": "Building reliable systems for exploration — from ground control UIs to orbital telemetry pipelines.",
+    "name": "Sourav Garg",
+    "title": "Sourav Garg — Software Developer",
+    "description": "Backend engineer building Go microservices, inventory sync, and startup products — internships at SeedsAI and Creatvise, full-time at Omniful.",
     "ogImage": "/assets/og-placeholder.png",
     "resumeUrl": "/assets/resume.pdf",
     "resumeLabel": "Resume",
     "social": [
-      { "label": "GitHub", "href": "https://github.com/nova-chen" },
-      { "label": "LinkedIn", "href": "https://linkedin.com/in/nova-chen" },
-      { "label": "Email", "href": "mailto:nova@example.com" }
+      { "label": "GitHub", "href": "https://github.com/SRV332003" },
+      { "label": "LinkedIn", "href": "https://linkedin.com/in/srv333" },
+      { "label": "Email", "href": "mailto:srvgarg332003@gmail.com" }
     ]
   },
   "nav": [
@@ -17,14 +17,20 @@
     { "label": "Projects", "href": "#projects" },
     { "label": "About", "href": "#about" },
     { "label": "Experience", "href": "#experience" },
+    { "label": "Achievements", "href": "#achievements" },
+    { "label": "Education", "href": "#education" },
     { "label": "Skills", "href": "#skills" },
     { "label": "Contact", "href": "#contact" }
   ],
   "hero": {
-    "eyebrow": "Mission control for curious builders",
-    "headline": "Engineering software that orbits the impossible.",
-    "roleLine": "Senior full-stack engineer · mission systems & operator UIs",
-    "subheadline": "Full-stack developer focused on resilient systems, immersive interfaces, and tools that help teams ship under pressure.",
+    "eyebrow": "Startup velocity, cosmic ambition",
+    "headline": "Building backend systems that scale under pressure.",
+    "roleLine": "Software developer · Go & Python · Omniful · 1+ years",
+    "subheadline": "Backend engineer at Omniful with startup internships in AI calling and cloud microservices. I ship Go services, sync pipelines, and side projects that real users touch.",
+    "credibilityBadges": [
+      { "label": "3★ CodeChef", "detail": "Competitive programming" },
+      { "label": "AWS ML Scholar", "detail": "2023 cohort" }
+    ],
     "primaryCta": {
       "label": "View projects",
       "href": "#projects"
@@ -36,145 +42,252 @@
   },
   "projectsSection": {
     "title": "Projects",
-    "subtitle": "Mission-critical systems and operator-facing platforms."
+    "subtitle": "Side projects and shipped products — from AI roasts to plagiarism detection and real-time chat."
   },
   "about": {
     "title": "About",
-    "subtitle": "Exploration starts where comfort ends.",
+    "subtitle": "From intern orbits to full-time flight.",
     "avatar": "/assets/avatar.png",
-    "avatarAlt": "Portrait of Nova Chen",
-    "location": "Bay Area · Pacific Time",
-    "openTo": "Open to full-time product engineering, consulting, and speaking on resilient systems.",
+    "avatarAlt": "Portrait of Sourav Garg",
+    "location": "Faridabad, India · IST",
+    "openTo": "Open to backend and full-stack engineering roles at product startups and growth-stage teams.",
     "body": [
-      "I design and ship software where failure modes matter — telemetry dashboards, mission simulators, and developer platforms used in high-stakes environments.",
-      "When I'm not coding, I'm sketching star maps, contributing to open-source observability tools, and mentoring engineers entering aerospace-adjacent tech."
+      "I'm a software developer focused on backend systems at startups — currently at Omniful working on inventory sync, rate limiting, and WMS integrations in Go. Before that I interned at SeedsAI on AI calling pipelines, Creatvise on OAuth2 microservices, Arcadia Hospitality on full-stack features, and Luneblaze on React and QA.",
+      "B.Tech in Computer Engineering from YMCA University of Science & Technology (CGPA 8.3). Joint Secretary of Manan, the coding society, where I helped run workshops for 500+ students. Outside work I build projects like Github Roaster, LC Police, and BingeChat."
     ]
   },
   "projects": [
     {
-      "title": "Orbital Telemetry Console",
-      "slug": "orbital-telemetry",
-      "summary": "Real-time satellite health dashboard with anomaly detection and operator playbooks.",
-      "role": "Lead frontend engineer",
+      "title": "Github Roaster",
+      "slug": "github-roaster",
+      "summary": "AI platform that humorously roasts GitHub profiles using LLaMA — deployed on AWS with global reach on launch day.",
+      "role": "Creator · with Nakshatra Chandna",
       "year": 2024,
-      "domain": "Mission operations",
-      "image": "/assets/projects/orbital-telemetry.png",
-      "imageAlt": "Orbital Telemetry Console dashboard showing satellite health metrics",
+      "domain": "AI & developer tools",
+      "image": "/assets/projects/github-roaster.png",
+      "imageAlt": "Github Roaster AI web interface preview",
       "outcomes": [
-        { "value": "<2s", "label": "Anomaly detection latency" },
-        { "value": "40%", "label": "Faster operator response" },
-        { "value": "40+", "label": "Daily active operators" }
+        { "value": "6K", "label": "Developers on day one" },
+        { "value": "AWS", "label": "EC2 production deploy" },
+        { "value": "Live", "label": "Streamlit on EC2" }
       ],
       "flagship": true,
       "body": [
-        "Mission operators lacked a unified view of satellite health across multiple buses — alerts were scattered across tools, slowing incident response during critical windows.",
-        "I led frontend architecture for a real-time dashboard ingesting WebSocket telemetry streams, surfacing anomaly scores with configurable operator playbooks for acknowledge, escalate, and auto-remediate flows.",
-        "The console became the primary operator surface for 40+ users, cutting mean incident response time by 40% and establishing patterns reused across ground-system products."
+        "Developers enjoy playful feedback on their public GitHub profiles, but most tools are either dry analytics or generic — nothing that combines entertainment with a memorable first impression.",
+        "I built an AI roasting platform leveraging LLaMA to critique GitHub profiles with humor, wrapped in a web interface deployed on AWS EC2 with Nginx and SSL — co-created with Nakshatra Chandna for an overnight launch push.",
+        "The launch attracted 6,000 developers worldwide on the first day, proving strong product-market fit for a fun, shareable developer experience."
       ],
-      "tech": ["React", "WebSocket", "PostgreSQL", "Grafana"],
-      "href": "https://example.com/orbital",
+      "tech": ["Python", "LLaMA", "AWS EC2", "Streamlit", "Nginx", "Generative AI"],
+      "href": "https://gitroaster.streamlit.app/",
+      "repo": "https://github.com/SRV332003/githubroaster",
       "featured": true
     },
     {
-      "title": "Nebula Design System",
-      "slug": "nebula-ds",
-      "summary": "Accessible component library themed for dark environments and mission-critical UIs.",
-      "role": "Design system lead",
-      "year": 2023,
-      "domain": "Platform UX",
-      "image": "/assets/projects/nebula-ds.png",
-      "imageAlt": "Nebula Design System component library preview",
+      "title": "LC Police",
+      "slug": "lc-police",
+      "summary": "AI-assisted plagiarism detection for competitive programming — LLM code normalization plus a custom model for side-by-side evidence.",
+      "role": "Co-creator",
+      "year": 2024,
+      "domain": "AI & competitive programming",
+      "image": "/assets/projects/lc-police.png",
+      "imageAlt": "LC Police plagiarism detection interface preview",
       "outcomes": [
-        { "value": "3", "label": "Product teams adopted" },
-        { "value": "AA", "label": "WCAG target met" },
-        { "value": "60+", "label": "Documented components" }
+        { "value": "14.5K", "label": "Page views at launch" },
+        { "value": "3.5K", "label": "Visitors in 15 hours" },
+        { "value": "LLaMA", "label": "90B normalization" }
       ],
       "flagship": false,
       "body": [
-        "Three product teams were shipping inconsistent UIs in low-light control rooms — accessibility gaps and ad-hoc styling slowed delivery and increased operator error risk.",
-        "I designed and documented a token-driven component library with Storybook workflows, contrast checklists, and dark-environment readability as first-class requirements.",
-        "Nebula became the shared foundation for mission-critical interfaces, adopted by three teams and reducing duplicate UI work across ground-system products."
+        "Competitive programming in India faces widespread solution leaking and copy-paste cheating — honest coders need evidence-backed tools beyond simple API skip checkers.",
+        "LC Police strips redundant functions, loops, and comments with LLaMA-3-90B prompt engineering, then scores plagiarism with an in-house model. Users search a profile and get side-by-side code comparison with one-click reporting flows.",
+        "The beta launch drew 14.5K page views and 3.5K visitors in 15 hours — built with Dhruv Mehta and the LC Police team as a community tool to push back against contest cheating."
       ],
-      "tech": ["TypeScript", "Storybook", "Tailwind"],
-      "repo": "https://github.com/example/nebula-ds",
+      "tech": ["Python", "LLaMA-3-90B", "Flask", "Web scraping", "Prompt engineering"],
       "featured": true
     },
     {
-      "title": "Launch Pad CI",
-      "slug": "launch-pad-ci",
-      "summary": "Pipeline orchestration templates for multi-stage deploys with rollback guardrails.",
-      "role": "Platform engineer",
-      "year": 2022,
-      "domain": "Developer infrastructure",
-      "image": "/assets/projects/launch-pad-ci.png",
-      "imageAlt": "Launch Pad CI pipeline orchestration workflow",
+      "title": "BingeChat",
+      "slug": "binge-chat",
+      "summary": "Random video chat platform built with Go, WebRTC, and React — live traffic from day one.",
+      "role": "Creator",
+      "year": 2024,
+      "domain": "Real-time social",
+      "image": "/assets/projects/binge-chat.png",
+      "imageAlt": "BingeChat random video chat platform",
       "outcomes": [
-        { "value": "35%", "label": "Fewer failed deploys" },
-        { "value": "12", "label": "Services standardized" },
-        { "value": "1-click", "label": "Rollback paths" }
+        { "value": "2.5K+", "label": "Impressions on launch day" },
+        { "value": "70%", "label": "Faster bug detection with Zap" },
+        { "value": "WebRTC", "label": "Peer video pipeline" }
       ],
       "flagship": false,
       "body": [
-        "Services deployed with inconsistent CI gates — failed production releases were common and rollbacks required manual coordination across teams.",
-        "I created reusable GitHub Actions templates with staged deploy gates, automated smoke tests, and one-click rollback paths integrated into existing service repos.",
-        "Standardized pre-flight checks across 12 services reduced failed production deploys by 35% and gave teams a shared playbook for safe releases."
+        "Random video chat products need low-latency signaling, reliable WebRTC pairing, and a backend that stays observable when traffic spikes on launch day.",
+        "I architected BingeChat with Golang and Gin on the backend, WebSockets and WebRTC for real-time video, and React on the frontend — applying OOP design patterns and structured Zap logging throughout.",
+        "The platform reached 2,500+ impressions on day one, with logging improvements that cut bug detection time by roughly 70% during early iterations."
       ],
-      "tech": ["Go", "GitHub Actions", "Docker"],
-      "repo": "https://github.com/example/launch-pad-ci",
+      "tech": ["Go", "Gin", "WebRTC", "WebSockets", "React", "Zap"],
+      "href": "https://www.bingechat.live",
+      "repo": "https://github.com/SRV332003/BingeChatBackend",
+      "featured": true
+    },
+    {
+      "title": "Go Music",
+      "slug": "go-music",
+      "summary": "Cross-platform CLI for searching, downloading, and playing YouTube music — fast scraper, clean architecture.",
+      "role": "Creator",
+      "year": 2024,
+      "domain": "Developer tools",
+      "image": "/assets/projects/go-music.png",
+      "imageAlt": "Go Music CLI terminal interface",
+      "outcomes": [
+        { "value": "<200ms", "label": "YouTube search time" },
+        { "value": "30%", "label": "Less code redundancy" },
+        { "value": "CLI", "label": "Cross-platform Go app" }
+      ],
+      "flagship": false,
+      "body": [
+        "Music lovers who prefer the terminal lacked a fast, cohesive Go tool for search, download, and playback without juggling multiple scripts.",
+        "I created a cross-platform CLI in Golang with a bare-metal YouTube scraper, concurrency control, file caching, and audio codec support — refactoring with SOLID principles and design patterns.",
+        "Search completes in under 200 milliseconds and code redundancy dropped by about 30%, making the tool responsive and maintainable for ongoing feature work."
+      ],
+      "tech": ["Go", "Concurrency", "Web Scraping", "Audio Codecs"],
+      "repo": "https://github.com/SRV332003/go_music",
       "featured": false
     }
   ],
   "experienceSection": {
     "title": "Experience",
-    "subtitle": "Ground systems, mission operations, and the path from launch to orbit."
+    "subtitle": "Internships and full-time roles at early-stage startups — from React QA to inventory at scale."
   },
   "experience": [
     {
-      "role": "Senior Software Engineer",
-      "company": "Stellar Dynamics",
-      "start": "2022-03",
+      "role": "Software Developer",
+      "company": "Omniful",
+      "start": "2025-01",
       "end": "present",
-      "missionPhase": "orbit",
-      "summary": "Ground-system UI and incident tooling for mission operations.",
+      "employmentType": "full-time",
+      "summary": "Intern-to-full-time path on backend systems for warehouse management, inventory sync, and client-facing APIs.",
       "highlights": [
-        "Led UI modernization for the telemetry console used by 40+ operators.",
-        "Reduced mean incident response time by 40% via playbooks and alerting.",
-        "Introduced design-system patterns adopted across three product teams."
+        "Resolved 300+ bugs to improve data consistency and reduce errors across production systems.",
+        "Built a cache-backed dynamic rate limiter on client APIs — 40% lower server load with DB-controlled limits per client.",
+        "Architected horizontally scalable inventory sync for 1000+ warehouses and 100K+ SKUs per client.",
+        "Added structured logging and alerting, cutting issue lookup time by 40–60%."
       ],
-      "skills": ["React", "TypeScript", "PostgreSQL", "WebSocket", "Grafana"]
+      "skills": ["Go", "AWS", "Kafka", "SQS", "PostgreSQL"]
     },
     {
-      "role": "Software Engineer",
-      "company": "Astra Labs",
-      "start": "2019-06",
-      "end": "2022-02",
-      "missionPhase": "launch",
-      "summary": "Simulation tooling and APIs for pre-flight validation workflows.",
+      "role": "Software Developer Intern",
+      "company": "SeedsAI",
+      "start": "2024-10",
+      "end": "2024-12",
+      "employmentType": "intern",
+      "summary": "AI calling pipeline and real-time agent features at an AI startup.",
       "highlights": [
-        "Built simulation tooling and APIs for pre-flight validation workflows.",
-        "Delivered test harnesses that cut pre-launch verification cycles by 25%."
+        "Optimized the AI calling pipeline, reducing agent response latency by up to 2 seconds.",
+        "Shipped automatic call transfer and API hits during live AI agent calls."
       ],
-      "skills": ["Go", "Node.js", "PostgreSQL", "Docker"]
+      "skills": ["Python", "FastAPI", "WebSockets", "AI Agents"]
+    },
+    {
+      "role": "Full-stack Developer Intern",
+      "company": "Arcadia Hospitality",
+      "start": "2024-06",
+      "end": "2024-08",
+      "employmentType": "intern",
+      "summary": "Full-stack features for hospitality operations and guest-facing flows.",
+      "highlights": [
+        "Built REST APIs and integrated frontend dashboards for hospitality booking workflows.",
+        "Shipped React UI components wired to backend services for internal operations teams."
+      ],
+      "skills": ["React", "REST APIs", "JavaScript", "Full-stack"]
+    },
+    {
+      "role": "Backend Engineer Intern",
+      "company": "Creatvise",
+      "start": "2023-10",
+      "end": "2024-07",
+      "employmentType": "intern",
+      "summary": "Cloud microservices and OAuth2 authentication for a product startup.",
+      "highlights": [
+        "Designed a scalable cloud file-upload microservice in Go, reducing infrastructure costs by 35%.",
+        "Engineered an OAuth2 authorization microservice deployed on Google Cloud.",
+        "Implemented cookie-based OAuth2 with Next.js serverless functions for stronger backend security."
+      ],
+      "skills": ["Go", "OAuth2", "PostgreSQL", "Google Cloud", "Next.js"]
+    },
+    {
+      "role": "React Developer Intern",
+      "company": "Luneblaze",
+      "start": "2022-12",
+      "end": "2023-08",
+      "employmentType": "intern",
+      "summary": "QA and React development for a product startup — manual testing through component delivery.",
+      "highlights": [
+        "Started as QA intern (Dec 2022–Feb 2023): expanded manual and regression test coverage for React apps.",
+        "Transitioned to React developer (Feb–Aug 2023): built UI components and fixed production bugs."
+      ],
+      "skills": ["React", "QA", "JavaScript", "Manual testing"]
+    }
+  ],
+  "achievementsSection": {
+    "title": "Achievements",
+    "subtitle": "Mission patches from contests, scholarships, and competitive programming."
+  },
+  "achievements": [
+    {
+      "title": "Hacked 2022",
+      "organization": "YMCA University",
+      "year": 2022,
+      "summary": "1st place at the university hackathon — shipped a working prototype under time pressure with a cross-functional team."
+    },
+    {
+      "title": "AWS AI & ML Scholar",
+      "organization": "Amazon Web Services",
+      "year": 2023,
+      "summary": "Selected for the AWS AI & ML Scholarship program — deep learning and ML engineering coursework."
+    },
+    {
+      "title": "SnackDown Pre-Eliminator",
+      "organization": "CodeChef",
+      "year": 2022,
+      "summary": "Qualified for CodeChef SnackDown pre-elimination round — national competitive programming contest."
+    }
+  ],
+  "educationSection": {
+    "title": "Education",
+    "subtitle": "Ground school — degree, leadership, and continued learning."
+  },
+  "education": [
+    {
+      "degree": "B.Tech, Computer Engineering",
+      "institution": "YMCA University of Science & Technology",
+      "start": "2021-08",
+      "end": "2025-05",
+      "summary": "CGPA 8.3",
+      "highlights": [
+        "Joint Secretary, Manan coding society — workshops and events for 500+ students",
+        "Udacity AI Programming with Python Nanodegree"
+      ]
     }
   ],
   "skills": [
     {
-      "category": "Frontend",
-      "items": ["React", "TypeScript", "WebGL", "Tailwind CSS"]
+      "category": "Languages",
+      "items": ["Go", "Python", "JavaScript", "C/C++"]
     },
     {
-      "category": "Backend",
-      "items": ["Node.js", "Go", "PostgreSQL", "Redis"]
+      "category": "Backend & data",
+      "items": ["Gin", "FastAPI", "PostgreSQL", "GORM", "Kafka", "AWS SQS", "WebSockets"]
     },
     {
-      "category": "Ops",
-      "items": ["Docker", "Kubernetes", "Observability", "CI/CD"]
+      "category": "Frontend & platform",
+      "items": ["React", "Next.js", "WebRTC", "Linux", "AWS", "Git"]
     }
   ],
   "contact": {
     "title": "Establish contact",
-    "email": "nova@example.com",
-    "message": "Send a message — I usually reply within two business days."
+    "email": "srvgarg332003@gmail.com",
+    "message": "Send a message — I usually reply within a couple of business days."
   },
   "missionControl": {
     "title": "Mission control",
@@ -186,19 +299,24 @@
     ],
     "transmissions": [
       {
-        "label": "Designing for operator UIs",
-        "href": "https://example.com/talk-operator-ui",
-        "kind": "talk"
-      },
-      {
-        "label": "Resilience patterns in ground systems",
-        "href": "https://example.com/article-resilience",
+        "label": "Github Roaster — live demo",
+        "href": "https://gitroaster.streamlit.app/",
         "kind": "article"
       },
       {
-        "label": "Telemetry at scale",
-        "href": "https://example.com/talk-telemetry",
-        "kind": "talk"
+        "label": "BingeChat — live demo",
+        "href": "https://www.bingechat.live",
+        "kind": "article"
+      },
+      {
+        "label": "LC Police — case study",
+        "href": "/projects/lc-police",
+        "kind": "article"
+      },
+      {
+        "label": "Go Music CLI — source",
+        "href": "https://github.com/SRV332003/go_music",
+        "kind": "article"
       }
     ]
   }

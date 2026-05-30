@@ -22,6 +22,23 @@ export function Hero() {
           <p className="mt-4 max-w-2xl text-lg font-medium text-primary md:text-xl">
             {hero.roleLine}
           </p>
+          {hero.credibilityBadges?.length ? (
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {hero.credibilityBadges.map((badge) => (
+                <li key={badge.label}>
+                  <span
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border/50 bg-card/40 px-3 py-1 text-xs font-medium text-foreground/90 backdrop-blur-sm"
+                    title={badge.detail}
+                  >
+                    {badge.label}
+                    {badge.detail ? (
+                      <span className="text-muted-foreground">· {badge.detail}</span>
+                    ) : null}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
           <p className="mt-3 max-w-prose text-base leading-relaxed text-muted-foreground md:text-lg">
             {hero.subheadline}
           </p>

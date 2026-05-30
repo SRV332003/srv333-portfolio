@@ -15,15 +15,19 @@ test.describe('Home page UI', () => {
     await expect(page.locator('#about')).toBeVisible()
     await expect(page.locator('#projects')).toBeVisible()
     await expect(page.locator('#experience')).toBeVisible()
+    await expect(page.locator('#achievements')).toBeVisible()
+    await expect(page.locator('#education')).toBeVisible()
     await expect(page.locator('#skills')).toBeVisible()
     await expect(page.locator('#contact')).toBeVisible()
 
     await expect(page.getByRole('heading', { name: 'About', exact: true })).toBeVisible()
     await expect(
-      page.getByText('Exploration starts where comfort ends.'),
+      page.getByText('From intern orbits to full-time flight.'),
     ).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Projects', exact: true })).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Experience', exact: true })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Achievements', exact: true })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Education', exact: true })).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Skills', exact: true })).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Establish contact' })).toBeVisible()
   })
@@ -39,14 +43,14 @@ test.describe('Home page UI', () => {
     await page.goto('/')
 
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-      'Engineering software that orbits the impossible.',
+      'Building backend systems that scale under pressure.',
     )
 
     await expect(
-      page.getByText('Mission control for curious builders'),
+      page.getByText('Startup velocity, cosmic ambition'),
     ).toBeVisible()
 
-    await expect(page.getByRole('link', { name: 'Nova Chen' })).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Sourav Garg' })).toBeVisible()
     await expect(page.getByRole('navigation', { name: 'Main' })).toBeVisible()
     await expect(page.getByRole('link', { name: 'Projects', exact: true })).toBeVisible()
     await expect(
@@ -176,8 +180,10 @@ test.describe('Phase 5 identity', () => {
     await page.goto('/')
 
     await expect(
-      page.getByText('Senior full-stack engineer · mission systems & operator UIs'),
+      page.getByText('Software developer · Go & Python · Omniful · 1+ years'),
     ).toBeVisible()
+    await expect(page.getByText('3★ CodeChef')).toBeVisible()
+    await expect(page.getByText('AWS ML Scholar')).toBeVisible()
 
     const banner = page.getByRole('banner')
     const headerResume = banner.getByRole('button', { name: 'Resume', exact: true })
@@ -191,9 +197,9 @@ test.describe('Phase 5 identity', () => {
 
     const avatar = page.locator('#about img')
     await expect(avatar).toBeVisible()
-    await expect(avatar).toHaveAttribute('alt', 'Portrait of Nova Chen')
+    await expect(avatar).toHaveAttribute('alt', 'Portrait of Sourav Garg')
 
-    await expect(page.getByText('Bay Area · Pacific Time')).toBeVisible()
+    await expect(page.getByText('Faridabad, India · IST')).toBeVisible()
     await expect(page.getByText(openToText)).toBeVisible()
 
     await expect(page.getByText(contactIntro)).toBeVisible()
@@ -229,7 +235,7 @@ test.describe('Phase 7 visual system', () => {
   test('project card link shows focus ring when tabbed', async ({ page }) => {
     await page.goto('/#projects')
 
-    const cardLink = page.getByRole('link', { name: 'View Orbital Telemetry Console' })
+    const cardLink = page.getByRole('link', { name: 'View Github Roaster' })
     await cardLink.focus()
     await expect(cardLink).toBeFocused()
     await expect(cardLink).toHaveClass(/focus-visible:ring-2/)
@@ -237,5 +243,5 @@ test.describe('Phase 7 visual system', () => {
 })
 
 const openToText =
-  'Open to full-time product engineering, consulting, and speaking on resilient systems.'
-const contactIntro = 'Send a message — I usually reply within two business days.'
+  'Open to backend and full-stack engineering roles at product startups and growth-stage teams.'
+const contactIntro = 'Send a message — I usually reply within a couple of business days.'

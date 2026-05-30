@@ -39,6 +39,7 @@ Array of `{ label, href }` for anchor or route links. Nav order prioritizes Proj
 | `eyebrow` | Small label above headline |
 | `headline` | Main H1 text |
 | `roleLine` | Recruiter-scannable specialty (plain text under H1) |
+| `credibilityBadges` | Optional `{ label, detail? }[]` — compact chips under roleLine (Phase 12) |
 | `subheadline` | Supporting paragraph |
 | `primaryCta` | `{ label, href }` |
 | `secondaryCta` | optional second CTA |
@@ -83,15 +84,34 @@ Loaders: `getProjectBySlug(slug)`, `getAllProjectSlugs()`.
 | `role`, `company` | Required |
 | `start` | `YYYY-MM` (e.g. `2022-03`) — displayed as `Mar 2022` |
 | `end` | `YYYY-MM` or `"present"` |
+| `employmentType` | Optional `intern` \| `full-time` \| `contract` — badge on timeline card |
+| `missionPhase` | Optional `launch` \| `orbit` \| `dock` — **not shown in UI** (schema/content only; see ADR 0015 amendment) |
 | `summary` | Optional one-line intro under company |
 | `highlights` | Optional bullet list (achievements) |
 | `skills` | Optional tech tags for this role |
-| `missionPhase` | Optional `launch` \| `orbit` \| `dock`; inferred when omitted (see ADR 0009) |
 | `description` | Legacy single paragraph (use if no summary/highlights) |
 
 At least one of `description`, `summary`, or `highlights` is required.
 
 See [ADR 0009](decisions/0009-experience-content-presentation.md) for date formatting and per-role vs global skills.
+
+## `achievementsSection` / `achievements` (Phase 12)
+
+| Field | Description |
+|-------|-------------|
+| `title` | Section heading |
+| `subtitle` | Optional supporting line |
+
+Each achievement: `{ title, organization?, year?, summary }` — rendered as mission-patch cards in `#achievements`.
+
+## `educationSection` / `education` (Phase 12)
+
+| Field | Description |
+|-------|-------------|
+| `title` | Section heading |
+| `subtitle` | Optional supporting line |
+
+Each entry: `{ degree, institution, start?, end?, summary?, highlights? }` — dates use same `YYYY-MM` format as experience.
 
 ## `skills`
 
@@ -110,6 +130,6 @@ Phase 9 mission-control panel (keyboard `?` easter egg):
 | `title` | Dialog heading |
 | `hint` | Footer hint text (e.g. “Press ? for mission control”) |
 | `shortcuts` | `{ label, href }[]` — in-page anchors or site paths |
-| `transmissions` | `{ label, href, kind? }[]` — external writing/talk links (`article` or `talk`) |
+| `transmissions` | `{ label, href, kind? }[]` — external URLs or site paths (e.g. `/projects/lc-police`) |
 
 See [ADR 0014](decisions/0014-phase9-delight.md).

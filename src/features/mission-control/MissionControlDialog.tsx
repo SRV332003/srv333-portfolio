@@ -62,24 +62,31 @@ export function MissionControlDialog({
             Transmissions
           </h3>
           <ul className="flex flex-col gap-2">
-            {missionControl.transmissions.map((transmission) => (
-              <li key={transmission.href}>
-                <a
-                  href={transmission.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-lg border border-border/40 bg-background/40 px-3 py-2 text-sm text-muted-foreground transition-colors hover:border-accent/30 hover:text-foreground"
-                >
-                  <span className="min-w-0 flex-1">{transmission.label}</span>
-                  {transmission.kind ? (
-                    <Badge variant="secondary" className="shrink-0 capitalize">
-                      {transmission.kind}
-                    </Badge>
-                  ) : null}
-                  <ExternalLinkIcon className="size-3.5 shrink-0 opacity-60" aria-hidden />
-                </a>
-              </li>
-            ))}
+            {missionControl.transmissions.map((transmission) => {
+              const isExternal = /^https?:\/\//.test(transmission.href)
+              return (
+                <li key={transmission.href}>
+                  <a
+                    href={transmission.href}
+                    {...(isExternal
+                      ? { target: '_blank', rel: 'noopener noreferrer' }
+                      : {})}
+                    className="flex items-center gap-2 rounded-lg border border-border/40 bg-background/40 px-3 py-2 text-sm text-muted-foreground transition-colors hover:border-accent/30 hover:text-foreground"
+                    onClick={() => onOpenChange(false)}
+                  >
+                    <span className="min-w-0 flex-1">{transmission.label}</span>
+                    {transmission.kind ? (
+                      <Badge variant="secondary" className="shrink-0 capitalize">
+                        {transmission.kind}
+                      </Badge>
+                    ) : null}
+                    {isExternal ? (
+                      <ExternalLinkIcon className="size-3.5 shrink-0 opacity-60" aria-hidden />
+                    ) : null}
+                  </a>
+                </li>
+              )
+            })}
           </ul>
         </section>
       </DialogContent>

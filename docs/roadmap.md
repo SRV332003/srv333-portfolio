@@ -12,13 +12,13 @@ flowchart LR
   P8 --> P9[9 Delight]
   P9 --> P10[10 Voice]
   P10 --> P11[11 Real work]
-  P11 --> P12[12 Fresher UX]
+  P11 --> P12[12 Profile depth]
   P12 --> P13[13 SEO]
   P13 --> P14[14 QA]
   P14 --> P15[15 Ship]
 ```
 
-**Recommended order:** 5 → … → 9 (done) → **10 → 11 → (12 optional) → 13 → 14 → 15**
+**Recommended order:** 5 → … → 9 (done) → **10 → 11 → 12 → 13 → 14 → 15**
 
 **Before Phase 10:** complete [content-inventory.md](./content-inventory.md).
 
@@ -131,58 +131,45 @@ Features: `about`, `projects`, `experience`, `skills`, `contact`.
 
 ---
 
-## Phase 10 — Identity & voice (personal rebrand)
+## Phase 10 — Identity & voice (complete)
 
 **Goal:** Honest hero, about, and meta for a **startup engineer (~1+ YOE)** — space **skin**, startup **story**.
 
-**Prerequisite:** [content-inventory.md](./content-inventory.md) filled in.
+- Rewrote `meta`, `hero`, `about`, section subtitles, `missionControl` for **Sourav Garg** (from résumé v1.3)
+- Early-career voice; no senior/aerospace demo persona
+- E2e de-hardcoded from Nova Chen / Stellar Dynamics strings
 
-**Deliverables**
-
-- Rewrite `meta`, `hero`, `about`, section subtitles, `missionControl` transmissions
-- Tone: early-career, intern + full-time startup path — no fake senior/aerospace claims
-- Mission phase legend copy: optional friendlier labels (Intern / Full-time / Current) while keeping enum
-- De-hardcode e2e from “Nova Chen” / Stellar Dynamics / orbital-telemetry strings → structure + your inventory
-- Amend [ADR 0011](decisions/0011-identity-content-presentation.md) (early-career voice guidelines)
-
-**Out of scope:** New projects/experience entries (Phase 11); schema changes (Phase 12)
-
-**Done when:** Hero role line and about match résumé; no credibility gaps vs 1+ YOE; e2e updated.
+**Done when:** Hero role line and about match résumé; e2e updated.
 
 ---
 
-## Phase 11 — Real work portfolio
+## Phase 11 — Real work portfolio (complete)
 
-**Goal:** Replace demo case studies and jobs with **your** startups, projects, and metrics.
+**Goal:** Replace demo case studies and jobs with **real** startups, projects, and metrics.
 
-**Deliverables**
+- Experience: Omniful (FT), SeedsAI + Creatvise (internships)
+- Projects: Github Roaster (flagship), BingeChat, Go Music — real GitHub/live links
+- `public/assets/resume.pdf` from résumé; project placeholder images for new slugs
+- E2e updated for new slugs and copy
 
-- New `portfolio.json` projects (2–4) with real slugs, bodies, outcomes, repos/links
-- Real experience timeline (dates, titles, companies)
-- Replace `public/assets/projects/*`, avatar, resume PDF
-- Update project detail e2e for new flagship slug
-- Amend [ADR 0012](decisions/0012-project-case-studies.md) (early-career outcome examples)
-
-**Out of scope:** Education section (Phase 12); SEO tags (Phase 13)
-
-**Done when:** Every claim is interview-defensible; flagship project is yours; images or documented placeholders.
+**Done when:** Claims match résumé; build + e2e pass.
 
 ---
 
-## Phase 12 — Fresher affordances (optional)
+## Phase 12 — Profile depth & mission patches (complete)
 
-**Goal:** UI/schema affordances recruiters expect at ~0–2 YOE.
+**Goal:** Match résumé + LinkedIn depth — full job history, LC Police, live demos, achievements, education — space-themed UI.
 
-**Pick what you need:**
+**Deliverables**
 
-| Option | Description |
-|--------|-------------|
-| A. `employmentType` | `intern` \| `full-time` \| `contract` on experience entries + badge on timeline |
-| B. Education section | Degree/bootcamp in schema + `#education` or About subsection |
-| C. Schema relax | Allow 1–2 projects without PNG; optional outcomes for repo-only entries |
-| D. Mission phase labels | Content-only rename: Launch → Intern, Orbit → Full-time, Dock → Current |
+- **Experience:** Arcadia Hospitality + Luneblaze; `employmentType` badges on timeline
+- **Projects:** LC Police case study; Github Roaster live at `https://gitroaster.streamlit.app/`; featured tab = Roaster, LC Police, BingeChat
+- **Schema:** `employmentType`, `achievements[]`, `education[]`, `hero.credibilityBadges`
+- **UI:** `#achievements` mission patches, `#education` ground school, Live pills on project cards, friendlier mission phase labels (Intern / Full-time / Internship)
+- **Mission control:** Roaster live demo, LC Police case study link
+- [ADR 0015](decisions/0015-profile-depth.md)
 
-**Done when:** Chosen items ship; schema + content-schema.md + ADR updated.
+**Done when:** Five experience entries; LC Police + Roaster live on site; achievements + education sections; build + e2e pass.
 
 ---
 
@@ -244,8 +231,8 @@ Features: `about`, `projects`, `experience`, `skills`, `contact`.
 | 5–9 | (complete — demo content) |
 | 10 | [content-inventory.md](./content-inventory.md) |
 | 11 | 10 (voice + inventory) |
-| 12 | 11 (optional) |
-| 13 | 10–11 + real OG artwork |
+| 12 | 11 |
+| 13 | 10–12 + real OG artwork |
 | 14 | 7–13 |
 | 15 | 14 |
 

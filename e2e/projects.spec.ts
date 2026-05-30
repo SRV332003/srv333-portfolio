@@ -6,51 +6,53 @@ test.describe('Projects', () => {
   test('filter query param opens featured tab', async ({ page }) => {
     await page.goto('/?filter=featured#projects')
 
-    await expect(page.getByRole('tab', { name: 'Featured (2)' })).toHaveAttribute(
+    await expect(page.getByRole('tab', { name: 'Featured (3)' })).toHaveAttribute(
       'aria-selected',
       'true',
     )
-    const featuredPanel = page.getByRole('tabpanel', { name: 'Featured (2)' })
-    await expect(featuredPanel.getByRole('link', { name: 'View Launch Pad CI' })).toHaveCount(0)
+    const featuredPanel = page.getByRole('tabpanel', { name: 'Featured (3)' })
+    await expect(featuredPanel.getByRole('link', { name: 'View Go Music' })).toHaveCount(0)
   })
 
   test('tab filter switches visible project cards', async ({ page }) => {
     await page.goto('/#projects')
 
     await expect(page.getByRole('tab', { name: 'All' })).toBeVisible()
-    await expect(page.getByRole('tab', { name: 'Featured (2)' })).toBeVisible()
+    await expect(page.getByRole('tab', { name: 'Featured (3)' })).toBeVisible()
 
     const allPanel = page.getByRole('tabpanel', { name: 'All' })
-    await expect(allPanel.getByRole('link', { name: 'View Orbital Telemetry Console' })).toBeVisible()
-    await expect(allPanel.getByRole('link', { name: 'View Launch Pad CI' })).toBeVisible()
+    await expect(allPanel.getByRole('link', { name: 'View Github Roaster' })).toBeVisible()
+    await expect(allPanel.getByRole('link', { name: 'View LC Police' })).toBeVisible()
+    await expect(allPanel.getByRole('link', { name: 'View Go Music' })).toBeVisible()
 
-    await page.getByRole('tab', { name: 'Featured (2)' }).click()
+    await page.getByRole('tab', { name: 'Featured (3)' }).click()
 
-    const featuredPanel = page.getByRole('tabpanel', { name: 'Featured (2)' })
+    const featuredPanel = page.getByRole('tabpanel', { name: 'Featured (3)' })
     await expect(
-      featuredPanel.getByRole('link', { name: 'View Orbital Telemetry Console' }),
+      featuredPanel.getByRole('link', { name: 'View Github Roaster' }),
     ).toBeVisible()
     await expect(
-      featuredPanel.getByRole('link', { name: 'View Nebula Design System' }),
+      featuredPanel.getByRole('link', { name: 'View LC Police' }),
     ).toBeVisible()
-    await expect(featuredPanel.getByRole('link', { name: 'View Launch Pad CI' })).toHaveCount(0)
+    await expect(
+      featuredPanel.getByRole('link', { name: 'View BingeChat' }),
+    ).toBeVisible()
+    await expect(featuredPanel.getByRole('link', { name: 'View Go Music' })).toHaveCount(0)
   })
 
   test('project detail page shows title and body', async ({ page }) => {
-    await page.goto('/projects/orbital-telemetry')
+    await page.goto('/projects/github-roaster')
 
-    await expect(
-      page.getByRole('heading', { name: 'Orbital Telemetry Console', level: 1 }),
-    ).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Github Roaster', level: 1 })).toBeVisible()
     await expect(
       page.getByText(
-        'Mission operators lacked a unified view of satellite health across multiple buses',
+        'Developers enjoy playful feedback on their public GitHub profiles',
       ),
     ).toBeVisible()
     await expect(page.getByRole('button', { name: 'Live demo' })).toBeVisible()
     await expect(page.getByRole('button', { name: 'Live demo' })).toHaveAttribute(
       'href',
-      'https://example.com/orbital',
+      'https://gitroaster.streamlit.app/',
     )
   })
 
@@ -66,34 +68,32 @@ test.describe('Phase 6 case studies', () => {
   test('project cards show thumbnails on home grid', async ({ page }) => {
     await page.goto('/#projects')
 
-    const orbitalCard = page.getByRole('link', { name: 'View Orbital Telemetry Console' })
-    await expect(orbitalCard).toBeVisible()
-    await expect(
-      page.getByAltText('Orbital Telemetry Console dashboard showing satellite health metrics'),
-    ).toBeVisible()
+    const flagshipCard = page.getByRole('link', { name: 'View Github Roaster' })
+    await expect(flagshipCard).toBeVisible()
+    await expect(page.getByAltText('Github Roaster AI web interface preview')).toBeVisible()
   })
 
   test('project cards show outcome teasers and case study affordance', async ({ page }) => {
     await page.goto('/#projects')
 
-    const orbitalCard = page
-      .getByRole('link', { name: 'View Orbital Telemetry Console' })
+    const flagshipCard = page
+      .getByRole('link', { name: 'View Github Roaster' })
       .locator('xpath=ancestor::article[1]')
-    await expect(orbitalCard.getByText('<2s', { exact: true })).toBeVisible()
-    await expect(orbitalCard.getByText('Anomaly detection latency')).toBeVisible()
-    await expect(orbitalCard.getByText('View case study')).toBeVisible()
+    await expect(flagshipCard.getByText('6K', { exact: true })).toBeVisible()
+    await expect(flagshipCard.getByText('Developers on day one')).toBeVisible()
+    await expect(flagshipCard.getByText('View case study')).toBeVisible()
   })
 
   test('projects section shows subtitle', async ({ page }) => {
     await page.goto('/#projects')
 
     await expect(
-      page.getByText('Mission-critical systems and operator-facing platforms.'),
+      page.getByText('Side projects and shipped products — from AI roasts to plagiarism detection and real-time chat.'),
     ).toBeVisible()
   })
 
   test('projects nav is active on detail route', async ({ page }) => {
-    await page.goto('/projects/orbital-telemetry')
+    await page.goto('/projects/github-roaster')
 
     const projectsNav = page.getByRole('navigation', { name: 'Main' }).getByRole('link', {
       name: 'Projects',
@@ -107,23 +107,21 @@ test.describe('Phase 6 case studies', () => {
     await page.goto('/#projects')
 
     const flagshipItem = page
-      .getByRole('link', { name: 'View Orbital Telemetry Console' })
+      .getByRole('link', { name: 'View Github Roaster' })
       .locator('xpath=ancestor::li[1]')
     await expect(flagshipItem).toHaveClass(/lg:col-span-2/)
   })
 
   test('detail page shows hero image, meta, and outcomes', async ({ page }) => {
-    await page.goto('/projects/orbital-telemetry')
+    await page.goto('/projects/github-roaster')
 
-    await expect(
-      page.getByAltText('Orbital Telemetry Console dashboard showing satellite health metrics'),
-    ).toBeVisible()
-    await expect(page.getByText('Mission operations · 2024 · Lead frontend engineer')).toBeVisible()
-    const outcomesStrip = page.locator('dl').filter({ hasText: 'Anomaly detection latency' })
-    await expect(outcomesStrip.getByText('<2s', { exact: true })).toBeVisible()
-    await expect(outcomesStrip.getByText('Anomaly detection latency')).toBeVisible()
-    await expect(outcomesStrip.getByText('40%', { exact: true })).toBeVisible()
-    await expect(outcomesStrip.getByText('Faster operator response')).toBeVisible()
+    await expect(page.getByAltText('Github Roaster AI web interface preview')).toBeVisible()
+    await expect(page.getByText('AI & developer tools · 2024 · Creator')).toBeVisible()
+    const outcomesStrip = page.locator('dl').filter({ hasText: 'Developers on day one' })
+    await expect(outcomesStrip.getByText('6K', { exact: true })).toBeVisible()
+    await expect(outcomesStrip.getByText('Developers on day one')).toBeVisible()
+    await expect(outcomesStrip.getByText('AWS', { exact: true })).toBeVisible()
+    await expect(outcomesStrip.getByText('EC2 production deploy')).toBeVisible()
   })
 })
 
@@ -142,13 +140,13 @@ test.describe('Contact form', () => {
     await page.goto('/#contact')
 
     const mailtoHref = buildMailtoUrl(
-      'nova@example.com',
+      'srvgarg332003@gmail.com',
       'Test User',
       'test@example.com',
       'Hello from Playwright test message.',
     )
 
-    expect(mailtoHref).toMatch(/^mailto:nova@example\.com/)
+    expect(mailtoHref).toMatch(/^mailto:srvgarg332003@gmail\.com/)
     expect(mailtoHref).toContain('subject=')
     expect(mailtoHref).toContain('body=')
 

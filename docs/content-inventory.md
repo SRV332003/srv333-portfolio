@@ -1,10 +1,8 @@
 # Content inventory — personal rebrand worksheet
 
-Fill this in **before** Phases 10–12 touch `portfolio.json`. The site keeps the **space visual theme**; copy and facts should reflect **your** startup path (~1+ year, intern + full-time).
+**Status: filled** from `Resume_Sourav_v1.3.pdf` — implemented in Phases 10–11 (`portfolio.json`).
 
-**Design rule:** Space = look and feel. Startups = what you claim you built.
-
-When done, hand this to an agent (or paste into chat) to implement Phases 10–11.
+The site keeps the **space visual theme**; copy reflects **Sourav Garg**, startup engineer (~1+ YOE).
 
 ---
 

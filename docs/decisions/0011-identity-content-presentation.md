@@ -49,6 +49,13 @@ eyebrow → headline (H1) → roleLine (plain <p>) → subheadline → CTAs
 | `about.openTo` | Availability / desired work |
 | `contact.message` | Contact form intro only — must not duplicate `openTo` |
 
+### Early-career voice (amended — Phase 10 rebrand)
+
+- `roleLine` must match experience level (e.g. ~1+ YOE — avoid “Senior” unless accurate)
+- `openTo` targets roles the candidate actually wants (SWE, backend, startups) — not consulting/speaking by default
+- Space metaphor in headline/eyebrow is OK; job claims must match `portfolio.json` experience and projects
+- Demo persona (Nova Chen / aerospace) replaced with author content from [content-inventory.md](../content-inventory.md) / résumé
+
 ### Footer
 
 - No resume link (header + hero sufficient)

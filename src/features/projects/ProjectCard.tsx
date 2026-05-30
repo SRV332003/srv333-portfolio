@@ -64,6 +64,14 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
                 Featured
               </Badge>
             ) : null}
+            {project.href ? (
+              <Badge
+                variant="outline"
+                className="border-primary/40 bg-primary/10 text-[0.65rem] text-primary uppercase"
+              >
+                Live
+              </Badge>
+            ) : null}
           </div>
           <h3
             className={cn(

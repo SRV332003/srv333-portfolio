@@ -20,11 +20,17 @@ export const navItemSchema = z.object({
   href: z.string(),
 })
 
+export const credibilityBadgeSchema = z.object({
+  label: z.string(),
+  detail: z.string().optional(),
+})
+
 export const heroContentSchema = z.object({
   eyebrow: z.string(),
   headline: z.string(),
   roleLine: z.string(),
   subheadline: z.string(),
+  credibilityBadges: z.array(credibilityBadgeSchema).optional(),
   primaryCta: z.object({
     label: z.string(),
     href: z.string(),
@@ -76,12 +82,15 @@ const monthYearSchema = z
 
 export const missionPhaseSchema = z.enum(['launch', 'orbit', 'dock'])
 
+export const employmentTypeSchema = z.enum(['intern', 'full-time', 'contract'])
+
 export const experienceSchema = z
   .object({
     role: z.string(),
     company: z.string(),
     start: monthYearSchema,
     end: z.union([monthYearSchema, z.literal('present')]),
+    employmentType: employmentTypeSchema.optional(),
     missionPhase: missionPhaseSchema.optional(),
     description: z.string().optional(),
     summary: z.string().optional(),
@@ -103,6 +112,24 @@ const sectionIntroSchema = z.object({
 
 export const projectsSectionSchema = sectionIntroSchema
 export const experienceSectionSchema = sectionIntroSchema
+export const achievementsSectionSchema = sectionIntroSchema
+export const educationSectionSchema = sectionIntroSchema
+
+export const achievementSchema = z.object({
+  title: z.string(),
+  organization: z.string().optional(),
+  year: z.number().int().min(2000).max(2100).optional(),
+  summary: z.string(),
+})
+
+export const educationSchema = z.object({
+  degree: z.string(),
+  institution: z.string(),
+  start: monthYearSchema.optional(),
+  end: monthYearSchema.optional(),
+  summary: z.string().optional(),
+  highlights: z.array(z.string()).min(1).optional(),
+})
 
 export const skillGroupSchema = z.object({
   category: z.string(),
@@ -122,7 +149,10 @@ export const missionControlShortcutSchema = z.object({
 
 export const missionControlTransmissionSchema = z.object({
   label: z.string(),
-  href: z.string().url(),
+  href: z.string().refine(
+    (value) => value.startsWith('/') || /^https?:\/\//.test(value),
+    { message: 'href must be a URL or site-relative path' },
+  ),
   kind: z.enum(['article', 'talk']).optional(),
 })
 
@@ -143,6 +173,10 @@ export const portfolioSchema = z
     projects: z.array(projectSchema),
     experienceSection: experienceSectionSchema,
     experience: z.array(experienceSchema),
+    achievementsSection: achievementsSectionSchema,
+    achievements: z.array(achievementSchema),
+    educationSection: educationSectionSchema,
+    education: z.array(educationSchema),
     skills: z.array(skillGroupSchema),
     contact: contactContentSchema,
     missionControl: missionControlSchema,
@@ -170,6 +204,12 @@ export type ExperienceSectionContent = z.infer<typeof experienceSectionSchema>
 export type Project = z.infer<typeof projectSchema>
 export type ProjectOutcome = z.infer<typeof projectOutcomeSchema>
 export type Experience = z.infer<typeof experienceSchema>
+export type EmploymentType = z.infer<typeof employmentTypeSchema>
+export type AchievementsSectionContent = z.infer<typeof achievementsSectionSchema>
+export type Achievement = z.infer<typeof achievementSchema>
+export type EducationSectionContent = z.infer<typeof educationSectionSchema>
+export type Education = z.infer<typeof educationSchema>
+export type CredibilityBadge = z.infer<typeof credibilityBadgeSchema>
 export type SkillGroup = z.infer<typeof skillGroupSchema>
 export type ContactContent = z.infer<typeof contactContentSchema>
 export type MissionPhase = z.infer<typeof missionPhaseSchema>
