@@ -54,7 +54,13 @@
     "body": [
       "I'm a software developer focused on backend systems at startups — currently at Omniful working on inventory sync, rate limiting, and WMS integrations in Go. Before that I interned at SeedsAI on AI calling pipelines, Creatvise on OAuth2 microservices, Arcadia Hospitality on full-stack features, and Luneblaze on React and QA.",
       "B.Tech in Computer Engineering from YMCA University of Science & Technology (CGPA 8.3). Joint Secretary of Manan, the coding society, where I helped run workshops for 500+ students. Outside work I build projects like Github Roaster, LC Police, and BingeChat."
-    ]
+    ],
+    "softSkills": [
+      "Ownership from debugging through production — comfortable digging into 300+ bug fixes and follow-through on reliability.",
+      "Clear written communication for async teams — structured logs, PRs, and docs that shorten incident lookup.",
+      "Teaching and facilitation — ran Manan workshops and events for 500+ students; patient explaining technical ideas."
+    ],
+    "interests": ["Guitar", "Music", "Dance"]
   },
   "projects": [
     {
@@ -85,24 +91,32 @@
     {
       "title": "LC Police",
       "slug": "lc-police",
-      "summary": "AI-assisted plagiarism detection for competitive programming — LLM code normalization plus a custom model for side-by-side evidence.",
-      "role": "Co-creator",
+      "summary": "2024 launch: beta anti-cheat for Indian competitive programming — LLaMA-3-90B normalization, an in-house similarity model, and side-by-side evidence. The live app is no longer hosted; this case study and demo video capture what we shipped.",
+      "role": "Co-creator · with Dhruv Mehta & Gautam B.",
       "year": 2024,
       "domain": "AI & competitive programming",
       "image": "/assets/projects/lc-police.png",
-      "imageAlt": "LC Police plagiarism detection interface preview",
+      "video": "/assets/projects/lc-police.mp4",
+      "imageAlt": "LC Police search results showing plagiarism percentage and side-by-side code comparison",
       "outcomes": [
         { "value": "14.5K", "label": "Page views at launch" },
         { "value": "3.5K", "label": "Visitors in 15 hours" },
-        { "value": "LLaMA", "label": "90B normalization" }
+        { "value": "2024", "label": "Beta launch · now archived" }
       ],
       "flagship": false,
       "body": [
-        "Competitive programming in India faces widespread solution leaking and copy-paste cheating — honest coders need evidence-backed tools beyond simple API skip checkers.",
-        "LC Police strips redundant functions, loops, and comments with LLaMA-3-90B prompt engineering, then scores plagiarism with an in-house model. Users search a profile and get side-by-side code comparison with one-click reporting flows.",
-        "The beta launch drew 14.5K page views and 3.5K visitors in 15 hours — built with Dhruv Mehta and the LC Police team as a community tool to push back against contest cheating."
+        "Competitive programming in India is under pressure from leaked solutions, cheap answer sellers, and even live-stream cheating during contests. Checkers that only flag skipped solutions from external APIs are not enough — honest coders need proof they can act on.",
+        "LC Police let you search a suspect profile and see a plagiarism percentage with both submissions side by side — the user's code and the suspected source. We stripped redundant functions, loops, variables, and comments with LLaMA-3-90B and prompt engineering, then scored similarity with our in-house model, with one-click flows toward LeetCode reporting. It ran as a public beta on Vercel while we iterated on limited infra and community feedback.",
+        "Built with Dhruv Mehta and Gautam B., including browser-log-driven scraping behind the scenes. The launch drew 14.5K page views and 3.5K visitors in 15 hours. The maintainers have since moved on to full-time roles and the deployment is down — the metrics and screen recording here document the achievement, not an active service."
       ],
-      "tech": ["Python", "LLaMA-3-90B", "Flask", "Web scraping", "Prompt engineering"],
+      "tech": [
+        "Python",
+        "LLaMA-3-90B",
+        "Flask",
+        "Web scraping",
+        "Prompt engineering",
+        "Vercel"
+      ],
       "featured": true
     },
     {
@@ -133,12 +147,12 @@
     {
       "title": "Go Music",
       "slug": "go-music",
-      "summary": "Cross-platform CLI for searching, downloading, and playing YouTube music — fast scraper, clean architecture.",
+      "summary": "Cross-platform CLI for YouTube music — search, download, and play from the terminal, shipped as binaries on GitHub Releases.",
       "role": "Creator",
       "year": 2024,
       "domain": "Developer tools",
       "image": "/assets/projects/go-music.png",
-      "imageAlt": "Go Music CLI terminal interface",
+      "imageAlt": "Go Music GitHub Releases page with cross-platform download assets",
       "outcomes": [
         { "value": "<200ms", "label": "YouTube search time" },
         { "value": "30%", "label": "Less code redundancy" },
@@ -147,10 +161,13 @@
       "flagship": false,
       "body": [
         "Music lovers who prefer the terminal lacked a fast, cohesive Go tool for search, download, and playback without juggling multiple scripts.",
-        "I created a cross-platform CLI in Golang with a bare-metal YouTube scraper, concurrency control, file caching, and audio codec support — refactoring with SOLID principles and design patterns.",
-        "Search completes in under 200 milliseconds and code redundancy dropped by about 30%, making the tool responsive and maintainable for ongoing feature work."
+        "I built a cross-platform CLI in Go with a bare-metal YouTube scraper, concurrency control, file caching, and audio codec support — refactored with SOLID principles and design patterns. Binaries for macOS, Linux, and Windows ship via GitHub Releases so users can install without cloning the repo.",
+        "Search completes in under 200 milliseconds and code redundancy dropped by about 30%. The case-study image shows the release page where users download builds; the README and repo cover build-from-source for contributors."
       ],
-      "tech": ["Go", "Concurrency", "Web Scraping", "Audio Codecs"],
+      "tech": ["Go", "Concurrency", "Web Scraping", "Audio Codecs", "GitHub Releases"],
+      "href": "https://github.com/SRV332003/go_music/releases/latest",
+      "hrefLabel": "Download releases",
+      "hrefBadge": "Releases",
       "repo": "https://github.com/SRV332003/go_music",
       "featured": false
     }
@@ -254,6 +271,12 @@
       "organization": "CodeChef",
       "year": 2022,
       "summary": "Qualified for CodeChef SnackDown pre-elimination round — national competitive programming contest."
+    },
+    {
+      "title": "LC Police beta launch",
+      "organization": "With Dhruv Mehta & Gautam B.",
+      "year": 2024,
+      "summary": "Co-built and launched a community anti-cheat tool for Indian competitive programming — 14.5K page views in the first wave before the team archived the project for full-time work."
     }
   ],
   "educationSection": {
@@ -323,12 +346,17 @@
         "kind": "article"
       },
       {
-        "label": "LC Police — case study",
+        "label": "LC Police — project",
         "href": "/projects/lc-police",
         "kind": "article"
       },
       {
-        "label": "Go Music CLI — source",
+        "label": "Go Music — download",
+        "href": "https://github.com/SRV332003/go_music/releases/latest",
+        "kind": "article"
+      },
+      {
+        "label": "Go Music — source",
         "href": "https://github.com/SRV332003/go_music",
         "kind": "article"
       }

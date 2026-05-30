@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import type { Project } from '@/content'
 import { Container, Section } from '@/shared/ui'
 
+import { ProjectMedia } from './ProjectMedia'
 import { ProjectOutcomesStrip } from './ProjectOutcomesStrip'
 
 type ProjectDetailProps = {
@@ -21,8 +22,6 @@ function formatDetailMeta(project: Project): string | null {
 
 export function ProjectDetail({ project }: ProjectDetailProps) {
   const meta = formatDetailMeta(project)
-  const imageAlt = project.imageAlt ?? project.title
-
   return (
     <Section
       ariaLabel={project.title}
@@ -40,12 +39,12 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         >
           ← Back to projects
         </Link>
-        {project.image ? (
-          <img
-            src={project.image}
-            alt={imageAlt}
+        {project.image || project.video ? (
+          <ProjectMedia
+            project={project}
+            className="mb-8"
+            frameClassName="rounded-xl"
             loading="eager"
-            className="mb-8 aspect-video w-full rounded-xl border border-border/50 object-cover"
           />
         ) : null}
         <h1 className="text-section font-bold tracking-tight text-foreground">
@@ -80,7 +79,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                 <a href={project.href} target="_blank" rel="noopener noreferrer" />
               }
             >
-              Live demo
+              {project.hrefLabel ?? 'Live demo'}
             </Button>
           ) : null}
           {project.repo ? (

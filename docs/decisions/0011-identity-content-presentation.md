@@ -39,7 +39,8 @@ eyebrow → headline (H1) → roleLine (plain <p>) → subheadline → CTAs
 - **`about.avatar`** — required public path
 - **`about.avatarAlt`** — optional; fallback `{meta.name} portrait`
 - **`about.location`**, **`about.openTo`** — optional; About section only (not hero)
-- Layout: `md+` two-column grid — avatar left; right column stacks title, subtitle, location, `openTo`, and body paragraphs (shared text alignment)
+- **`about.softSkills`**, **`about.interests`** — optional; human context in About only (not `#skills` tech chips)
+- Layout: `md+` two-column grid — avatar left; right column stacks title, subtitle, location, `openTo`, body, soft skills, interests
 - `openTo` renders as a short prose line (`text-sm text-foreground/85`), not a badge — long availability copy reads better as text
 
 ### Content separation

@@ -6,6 +6,8 @@ import type { Project } from '@/content'
 import { cn } from '@/lib/utils'
 import { FrostedPanel } from '@/shared/ui'
 
+import { ProjectMedia } from './ProjectMedia'
+
 type ProjectCardProps = {
   project: Project
   className?: string
@@ -22,7 +24,6 @@ function formatProjectMeta(project: Project): string | null {
 
 export function ProjectCard({ project, className }: ProjectCardProps) {
   const meta = formatProjectMeta(project)
-  const imageAlt = project.imageAlt ?? project.title
   const cardOutcomes = project.outcomes?.slice(0, MAX_CARD_OUTCOMES) ?? []
 
   return (
@@ -45,15 +46,8 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
         className="relative flex h-full flex-col p-6 transition-colors group-hover:border-accent/40 group-hover:bg-card/60"
       >
         <div className="relative flex flex-1 flex-col pointer-events-none">
-          {project.image ? (
-            <div className="mb-4 overflow-hidden rounded-lg border border-border/50">
-              <img
-                src={project.image}
-                alt={imageAlt}
-                loading="lazy"
-                className="aspect-video w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-[1.03]"
-              />
-            </div>
+          {project.image || project.video ? (
+            <ProjectMedia project={project} className="mb-4" interactive />
           ) : null}
           <div className="flex flex-wrap items-center gap-2">
             {meta ? (
@@ -69,7 +63,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
                 variant="outline"
                 className="border-primary/40 bg-primary/10 text-[0.65rem] text-primary uppercase"
               >
-                Live
+                {project.hrefBadge ?? 'Live'}
               </Badge>
             ) : null}
           </div>
@@ -105,7 +99,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
             ))}
           </ul>
           <p className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">
-            View case study
+            View project
             <ArrowRightIcon
               className="size-4 transition-transform motion-safe:group-hover:translate-x-0.5"
               aria-hidden

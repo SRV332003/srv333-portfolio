@@ -8,6 +8,10 @@ test.describe('About section', () => {
     await expect(page.locator('#about [data-about-open-to]')).toBeVisible()
     await expect(page.locator('#about').getByRole('link', { name: 'GitHub' })).toBeVisible()
     await expect(page.locator('#about').getByRole('link', { name: 'LinkedIn' })).toBeVisible()
+    await expect(page.locator('#about [data-about-soft-skills]')).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'How I work' })).toBeVisible()
+    await expect(page.locator('#about [data-about-interests]')).toBeVisible()
+    await expect(page.getByText('Guitar · Music · Dance')).toBeVisible()
   })
 })
 

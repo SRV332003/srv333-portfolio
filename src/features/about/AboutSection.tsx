@@ -67,6 +67,37 @@ export function AboutSection() {
                 </p>
               ))}
             </div>
+            {about.softSkills?.length ? (
+              <div className="mt-10 max-w-3xl" data-about-soft-skills>
+                <h3 className="text-xs font-semibold tracking-widest text-accent uppercase">
+                  How I work
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {about.softSkills.map((line) => (
+                    <li
+                      key={line}
+                      className="flex gap-3 text-sm leading-relaxed text-muted-foreground md:text-base"
+                    >
+                      <span
+                        className="mt-2 size-1.5 shrink-0 rounded-full bg-accent/80 shadow-[0_0_8px_var(--color-accent-glow)]"
+                        aria-hidden
+                      />
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+            {about.interests?.length ? (
+              <div className="mt-10 max-w-3xl" data-about-interests>
+                <h3 className="text-xs font-semibold tracking-widest text-accent uppercase">
+                  Beyond code
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
+                  {about.interests.join(' · ')}
+                </p>
+              </div>
+            ) : null}
           </div>
         </div>
       </Container>

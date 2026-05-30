@@ -40,6 +40,24 @@ test.describe('Projects', () => {
     await expect(featuredPanel.getByRole('link', { name: 'View Go Music' })).toHaveCount(0)
   })
 
+  test('LC Police card and detail autoplay demo video', async ({ page }) => {
+    await page.goto('/#projects')
+
+    const lcCard = page
+      .getByRole('link', { name: 'View LC Police' })
+      .locator('xpath=ancestor::article[1]')
+    await expect(lcCard.locator('video[data-project-media="video"]')).toBeVisible()
+
+    await page.goto('/projects/lc-police')
+    await expect(page.getByRole('button', { name: 'Live demo' })).toHaveCount(0)
+    const detailVideo = page.locator('video[data-project-media="video"]')
+    await expect(detailVideo).toBeVisible()
+    await expect(detailVideo).toHaveAttribute('src', /lc-police\.mp4/)
+    await expect(detailVideo).toHaveJSProperty('autoplay', true)
+    await expect(detailVideo).toHaveJSProperty('muted', true)
+    await expect(detailVideo).toHaveJSProperty('loop', true)
+  })
+
   test('project detail page shows title and body', async ({ page }) => {
     await page.goto('/projects/github-roaster')
 
@@ -54,6 +72,18 @@ test.describe('Projects', () => {
       'href',
       'https://gitroaster.streamlit.app/',
     )
+  })
+
+  test('Go Music detail links to GitHub releases', async ({ page }) => {
+    await page.goto('/projects/go-music')
+
+    await expect(page.getByRole('button', { name: 'Download releases' })).toHaveAttribute(
+      'href',
+      'https://github.com/SRV332003/go_music/releases/latest',
+    )
+    await expect(
+      page.getByAltText('Go Music GitHub Releases page with cross-platform download assets'),
+    ).toBeVisible()
   })
 
   test('unknown slug shows not-found UI', async ({ page }) => {
@@ -73,7 +103,7 @@ test.describe('Phase 6 case studies', () => {
     await expect(page.getByAltText('Github Roaster AI web interface preview')).toBeVisible()
   })
 
-  test('project cards show outcome teasers and case study affordance', async ({ page }) => {
+  test('project cards show outcome teasers and view project affordance', async ({ page }) => {
     await page.goto('/#projects')
 
     const flagshipCard = page
@@ -81,7 +111,7 @@ test.describe('Phase 6 case studies', () => {
       .locator('xpath=ancestor::article[1]')
     await expect(flagshipCard.getByText('6K', { exact: true })).toBeVisible()
     await expect(flagshipCard.getByText('Developers on day one')).toBeVisible()
-    await expect(flagshipCard.getByText('View case study')).toBeVisible()
+    await expect(flagshipCard.getByText('View project')).toBeVisible()
   })
 
   test('projects section shows subtitle', async ({ page }) => {

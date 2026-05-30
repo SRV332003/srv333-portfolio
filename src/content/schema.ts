@@ -51,6 +51,8 @@ export const aboutContentSchema = z.object({
   location: z.string().optional(),
   openTo: z.string().optional(),
   body: z.array(z.string()),
+  softSkills: z.array(z.string()).min(1).optional(),
+  interests: z.array(z.string()).min(1).optional(),
 })
 
 export const projectOutcomeSchema = z.object({
@@ -65,10 +67,18 @@ export const projectSchema = z.object({
   body: z.array(z.string()).min(1),
   tech: z.array(z.string()),
   href: z.string().url().optional(),
+  hrefLabel: z.string().optional(),
+  hrefBadge: z.string().optional(),
   repo: z.string().url().optional(),
   featured: z.boolean(),
   image: z.string().optional(),
   imageAlt: z.string().optional(),
+  video: z
+    .string()
+    .refine((value) => value.startsWith('/'), {
+      message: 'video must be a site-relative path',
+    })
+    .optional(),
   role: z.string().optional(),
   year: z.number().int().min(2000).max(2100).optional(),
   domain: z.string().optional(),

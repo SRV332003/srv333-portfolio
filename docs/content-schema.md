@@ -31,6 +31,8 @@ Array of `{ label, href }` for anchor or route links. Nav order prioritizes Proj
 | `location` | Optional (e.g. `Bay Area · Pacific Time`) — About only |
 | `openTo` | Optional availability line — **not** the contact form intro; shown in About as muted prose |
 | `body` | Array of paragraphs |
+| `softSkills` | Optional proof-backed lines — **How I work** block in About (not `#skills`) |
+| `interests` | Optional extracurricular list — **Beyond code** block (e.g. guitar, music, dance) |
 
 ## `hero`
 
@@ -59,9 +61,12 @@ Array of `{ label, href }` for anchor or route links. Nav order prioritizes Proj
 | `body` | array of paragraphs (min 1) for `/projects/:slug` detail page; `body[0]` should state the problem |
 | `tech` | string array |
 | `href`, `repo` | optional URLs |
+| `hrefLabel` | Optional primary CTA on detail page (default `Live demo`) |
+| `hrefBadge` | Optional card badge when `href` is set (default `Live`) |
 | `featured` | Required boolean for tab filter and card highlight |
-| `image` | Site-relative path (e.g. `/assets/projects/orbital-telemetry.png`) — required for demo portfolio |
-| `imageAlt` | Optional hero/thumbnail alt text |
+| `image` | Site-relative path (e.g. `/assets/projects/orbital-telemetry.png`) — required poster / fallback |
+| `video` | Optional site-relative `.mp4` — muted autoplay loop on grid + detail; falls back to `image` when `prefers-reduced-motion` |
+| `imageAlt` | Optional hero/thumbnail alt text (used for `<img>` and `video` `aria-label`) |
 | `role` | Optional contributor role |
 | `year` | Optional ship year (integer, e.g. `2024`) |
 | `domain` | Optional problem space (e.g. `Mission operations`) |

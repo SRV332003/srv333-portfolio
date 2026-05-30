@@ -9,15 +9,16 @@ Home `#projects` grid with tab filter and `/projects/:slug` case-study detail pa
 | File | Role |
 |------|------|
 | `ProjectsSection.tsx` | Band + nebula wash (`data-section-wash="projects"`); grid + tabs (All / Featured with count); `/?filter=featured#projects` sync; compact 2-col when ≤2 featured; flagship `lg:col-span-2` on 3-col grid |
-| `ProjectCard.tsx` | Thumbnail (hover zoom), meta, outcome teasers (max 3), “View case study”, stretched-link to detail |
-| `ProjectDetail.tsx` | Hero image, meta row, outcomes strip, body, CTAs |
+| `ProjectCard.tsx` | `ProjectMedia` thumbnail, meta, outcome teasers, “View project →”, stretched-link |
+| `ProjectMedia.tsx` | Poster `image` + optional `video` (muted, loop, autoplay); poster only when `prefers-reduced-motion` |
+| `ProjectDetail.tsx` | Hero media, meta row, outcomes strip, body, CTAs |
 | `ProjectOutcomesStrip.tsx` | Metrics grid (`value` + `label`) |
 | `ProjectDetailPage.tsx` | Route page with 404 handling (lazy route import only) |
 | `index.ts` | Barrel export (excludes `ProjectDetailPage` for code-splitting) |
 
 ## Content fields
 
-- Case study: `image`, `imageAlt`, `role`, `year`, `domain`, `outcomes[]`, `flagship`
+- Case study: `image` (required poster), optional `video`, `imageAlt`, `href` + optional `hrefLabel` / `hrefBadge` (e.g. Go Music → Releases), `repo`, `role`, `year`, `domain`, `outcomes[]`, `flagship`
 - Narrative: `body[0]` = problem; remaining paragraphs = approach/results
 
 ## Dependencies

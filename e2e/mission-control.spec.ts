@@ -13,7 +13,7 @@ test.describe('Mission control', () => {
     await expect(dialog.getByRole('heading', { name: 'Mission control' })).toBeVisible()
     await expect(dialog.getByRole('link', { name: 'Projects' })).toBeVisible()
     await expect(dialog.getByRole('link', { name: 'Github Roaster — live demo' })).toBeVisible()
-    await expect(dialog.getByRole('link', { name: 'LC Police — case study' })).toBeVisible()
+    await expect(dialog.getByRole('link', { name: 'LC Police — project' })).toBeVisible()
   })
 
   test('escape closes mission control dialog', async ({ page }) => {

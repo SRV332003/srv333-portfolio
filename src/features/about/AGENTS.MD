@@ -25,6 +25,8 @@ mobile:   avatar centered, social links, then stacked text column
 ## Content fields
 
 - `avatar` (required path), `avatarAlt`, `location`, `openTo`, `title`, `subtitle`, `body`
+- `softSkills` — optional proof-backed lines under **How I work** (not in `#skills`)
+- `interests` — optional extracurricular list under **Beyond code** (e.g. guitar, music, dance)
 - `openTo` is availability intent — distinct from `contact.message`; rendered as muted prose, not a badge
 
 ## Dependencies

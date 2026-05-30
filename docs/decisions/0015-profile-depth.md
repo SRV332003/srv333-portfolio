@@ -43,8 +43,7 @@ Nav includes Achievements and Education anchors.
 ## Consequences
 
 - Nav grows to 8 items; mobile sheet scrolls — acceptable for fresher profile depth
-- LC Police metrics (14.5K views) published from LinkedIn launch post — update if numbers change
-- Real project screenshots and LC Police live URL can be added later without schema changes
+- LC Police metrics (14.5K views) from LinkedIn launch post — live Vercel deploy is down; case study + demo video + achievements entry document the 2024 launch
 
 ## References
 
