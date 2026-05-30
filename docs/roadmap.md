@@ -177,7 +177,7 @@ Features: `about`, `projects`, `experience`, `skills`, `contact`.
 
 **Goal:** Correct previews when the site is linked (Slack, LinkedIn, etc.).
 
-**Shipped:** `DocumentHead` + home/project meta; `index.html` fallbacks; `og.png`; `VITE_SITE_URL`; `robots.txt`; [deploy.md](./deploy.md).
+**Shipped:** `DocumentHead` + canonical + JSON-LD; home/project meta; `index.html` fallbacks; `og.png`; `VITE_SITE_URL`; build-time `sitemap.xml` + `robots.txt`; dev `public/robots.txt`; [deploy.md](./deploy.md).
 
 **Deliverables**
 

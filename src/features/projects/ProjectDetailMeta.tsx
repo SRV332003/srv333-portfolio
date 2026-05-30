@@ -1,5 +1,5 @@
-import type { Project } from '@/content'
 import { loadPortfolio } from '@/content'
+import type { Project } from '@/content'
 import { DocumentHead } from '@/shared/seo'
 
 type ProjectDetailMetaProps = {
@@ -15,6 +15,7 @@ export function ProjectDetailMeta({ project }: ProjectDetailMetaProps) {
       description={project.summary}
       ogImage={project.image ?? meta.ogImage}
       path={`/projects/${project.slug}`}
+      siteName={meta.name}
     />
   )
 }

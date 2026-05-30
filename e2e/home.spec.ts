@@ -15,7 +15,7 @@ test.describe('Home page UI', () => {
     await expect(page).toHaveTitle('Sourav Garg — Software Engineer')
     await expect(page.locator('meta[name="description"]')).toHaveAttribute(
       'content',
-      /Software engineer building Go microservices/,
+      /Software engineer at Omniful — Go, Kafka/,
     )
   })
 

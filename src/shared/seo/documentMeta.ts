@@ -3,6 +3,7 @@ export type PageMeta = {
   description: string
   ogImage?: string
   path?: string
+  siteName?: string
 }
 
 export function getSiteOrigin(): string {
@@ -37,6 +38,16 @@ function upsertMeta(
   element.setAttribute('content', content)
 }
 
+function upsertLink(rel: string, href: string): void {
+  let element = document.querySelector(`link[rel="${rel}"]`)
+  if (!element) {
+    element = document.createElement('link')
+    element.setAttribute('rel', rel)
+    document.head.appendChild(element)
+  }
+  element.setAttribute('href', href)
+}
+
 export function applyPageMeta(meta: PageMeta): void {
   document.title = meta.title
   upsertMeta('name', 'description', meta.description)
@@ -48,7 +59,13 @@ export function applyPageMeta(meta: PageMeta): void {
   upsertMeta('name', 'twitter:description', meta.description)
 
   const canonicalPath = meta.path ?? '/'
-  upsertMeta('property', 'og:url', absoluteUrl(canonicalPath))
+  const canonicalUrl = absoluteUrl(canonicalPath)
+  upsertLink('canonical', canonicalUrl)
+  upsertMeta('property', 'og:url', canonicalUrl)
+
+  if (meta.siteName) {
+    upsertMeta('property', 'og:site_name', meta.siteName)
+  }
 
   if (meta.ogImage) {
     const imageUrl = absoluteUrl(meta.ogImage)
