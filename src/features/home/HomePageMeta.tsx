@@ -15,6 +15,7 @@ export function HomePageMeta() {
         ogImage={meta.ogImage}
         path="/"
         siteName={meta.name}
+        keywords={meta.keywords}
       />
       <JsonLdScript id="home" data={jsonLd} />
     </>

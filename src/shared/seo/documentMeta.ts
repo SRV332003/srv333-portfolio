@@ -8,6 +8,7 @@ export type PageMeta = {
   publishedTime?: string
   modifiedTime?: string
   type?: 'website' | 'article'
+  keywords?: string[]
 }
 
 export function getSiteOrigin(): string {
@@ -89,6 +90,7 @@ export function applyPageMeta(meta: PageMeta): void {
   setMeta('property', 'article:author', meta.author)
   setMeta('property', 'article:published_time', meta.publishedTime)
   setMeta('property', 'article:modified_time', meta.modifiedTime)
+  setMeta('name', 'keywords', meta.keywords ? meta.keywords.join(', ') : undefined)
 
   const canonicalPath = meta.path ?? '/'
   const canonicalUrl = absoluteUrl(canonicalPath)

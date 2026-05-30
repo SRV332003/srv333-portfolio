@@ -10,6 +10,7 @@ export const siteMetaSchema = z.object({
   title: z.string(),
   description: z.string(),
   ogImage: z.string().optional(),
+  keywords: z.array(z.string()).optional(),
   resumeUrl: z.string(),
   resumeLabel: z.string().optional(),
   social: z.array(socialLinkSchema),

@@ -15,6 +15,9 @@ export function ProjectDetailMeta({ project }: ProjectDetailMetaProps) {
     [meta.name, project],
   )
   const publishedTime = project.year ? `${project.year}-01-01T00:00:00.000Z` : undefined
+  const combinedKeywords = Array.from(
+    new Set([...(project.tech ?? []), project.domain ?? '', ...(meta.keywords ?? [])].filter(Boolean)),
+  )
 
   return (
     <>
@@ -28,6 +31,7 @@ export function ProjectDetailMeta({ project }: ProjectDetailMetaProps) {
         publishedTime={publishedTime}
         modifiedTime={publishedTime}
         type="article"
+        keywords={combinedKeywords}
       />
       <JsonLdScript id={`project-${project.slug}`} data={jsonLd} />
     </>
