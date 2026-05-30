@@ -60,6 +60,6 @@ eyebrow → headline (H1) → roleLine (plain <p>) → subheadline → CTAs
 
 ## Consequences
 
-- Phase 10 SEO uses existing `meta.title` / `meta.description`; dynamic `<title>` deferred
+- Phase 13 SEO uses existing `meta.title` / `meta.description`; dynamic `<title>` deferred
 - Replace placeholder avatar/resume/social URLs in content before personal ship
 - Nav active state: [ADR 0008](0008-portfolio-sections-routing.md) (scroll-spy)

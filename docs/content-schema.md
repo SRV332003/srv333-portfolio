@@ -11,7 +11,7 @@ Run `npm run typecheck` after changes; invalid JSON fails at `loadPortfolio()` v
 | `name` | string | Display name |
 | `title` | string | Document title (future `<title>`) |
 | `description` | string | Meta description |
-| `ogImage` | string? | Open Graph image path (Phase 10) |
+| `ogImage` | string? | Open Graph image path (Phase 13) |
 | `resumeUrl` | string | Site-relative PDF path (e.g. `/assets/resume.pdf`) — single source for header + hero |
 | `resumeLabel` | string? | Button label; UI default `"Resume"` |
 | `social` | array | `{ label, href }` footer links — use real profile URLs before personal ship |

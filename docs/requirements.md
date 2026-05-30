@@ -23,7 +23,7 @@
 - **NFR-3 shadcn/a11y**: Use shadcn primitives for focus traps, dialogs, sheets, forms—do not reimplement Radix patterns in features.
 - **NFR-4 Maintainability**: Feature-folder isolation; content schema versioned with Zod.
 - **NFR-5 Agent-readiness**: `AGENTS.MD` per module; ADRs for architectural decisions; Cursor rules for boundaries.
-- **NFR-6 SEO** (Phase 10): Meta tags, OG image, semantic HTML landmarks.
+- **NFR-6 SEO** (Phase 13): Meta tags, OG image, semantic HTML landmarks.
 - **NFR-7 Canvas**: Cap particles and DPR; pause animation when tab hidden; decorative canvas `aria-hidden`.
 - **NFR-8 Scene3D**: Cap DPR (1.5 mobile / 2 desktop); pause rotation when tab hidden; reduced-motion CSS fallback; single mesh per scene in Phase 4.
 
@@ -39,4 +39,4 @@
 
 - Contact backend / Formspree / email API.
 - Project quick-view Dialog (detail route used instead).
-- SEO meta / OG (Phase 10).
+- SEO meta / OG (Phase 13).

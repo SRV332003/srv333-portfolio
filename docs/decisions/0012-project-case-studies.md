@@ -59,7 +59,7 @@ Placeholder images under `public/assets/projects/`; swap real screenshots before
 
 ## Consequences
 
-- Phase 10 SEO can reuse `getAllProjectSlugs()` and per-project `image` for OG later.
+- Phase 13 SEO can reuse `getAllProjectSlugs()` and per-project `image` for OG later.
 - Phase 7 unified card surfaces via `FrostedPanel` and band washes (ADR 0013).
 - E2E: thumbnails, detail outcomes, card teasers, subtitle, filter query, tab panels (`e2e/projects.spec.ts`, `e2e/home.spec.ts`).
 

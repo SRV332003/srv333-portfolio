@@ -5,6 +5,7 @@
 | [requirements.md](./requirements.md) | FR/NFR and constraints |
 | [patterns.md](./patterns.md) | Code conventions, UI layers, shadcn usage |
 | [content-schema.md](./content-schema.md) | Editing `portfolio.json` |
+| [content-inventory.md](./content-inventory.md) | **Personal rebrand worksheet** — fill before Phases 10–11 |
 | [roadmap.md](./roadmap.md) | Phased delivery |
 | [decisions/](./decisions/) | Architecture decision records (ADRs) |
 

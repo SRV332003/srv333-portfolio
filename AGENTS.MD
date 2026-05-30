@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Interactive space-themed portfolio. Phase 7: visual design system (tokens, FrostedPanel, section bands, Geist display).
+Interactive space-themed portfolio. Phases 1–9 (structure, demo content, craft) are complete. **Next:** personal rebrand (Phases 10–12) then SEO/QA/ship (13–15). Fill [docs/content-inventory.md](docs/content-inventory.md) before Phase 10.
 
 ## Commands
 
@@ -43,7 +43,7 @@ npx shadcn@latest add <component>  # new UI primitive (see ADR 0005)
 
 1. Read this file → target module `AGENTS.MD`
 2. UI work? Pick marketing vs shadcn layer ([ADR 0005](docs/decisions/0005-shadcn-selective.md))
-3. Copy change? Edit `portfolio.json` + schema only
+3. Copy change? Edit `portfolio.json` + schema only — use [content-inventory.md](docs/content-inventory.md) for personal rebrand (Phases 10–11)
 4. New shadcn primitive? Use `.cursor/skills/add-shadcn-component/`
 5. New section? Use `.cursor/skills/add-portfolio-section/`
 6. Canvas/shell UX change? Read [ADR 0007](docs/decisions/0007-canvas-interaction-ux.md)

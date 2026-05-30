@@ -49,7 +49,7 @@ Experience array remains **newest-first** (unchanged).
 
 ### Reduced motion
 
-Mission-control panel is static content — no decorative animation dependency. Dialog enter/exit uses CSS transitions; acceptable for Phase 9; Phase 11 re-verifies delight coverage.
+Mission-control panel is static content — no decorative animation dependency. Dialog enter/exit uses CSS transitions; acceptable for Phase 9; Phase 14 re-verifies delight coverage.
 
 ### Performance
 
