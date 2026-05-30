@@ -87,39 +87,32 @@ Features: `about`, `projects`, `experience`, `skills`, `contact`.
 
 ---
 
-## Phase 7 — Visual design system
+## Phase 7 — Visual design system (complete)
 
 **Goal:** Site feels designed as one product, not sections bolted together.
 
-**Deliverables**
+- Token/contrast pass; Geist display headings; `FrostedPanel`; section bands (Projects, Experience, Contact)
+- About uses `SectionHeading`; shell mobile tap targets; hero above-fold CTA
+- [ADR 0013](decisions/0013-visual-design-system.md), [visual-principles.md](visual-principles.md)
 
-- Token pass: void/nebula depth, accent/orbit balance, glow, muted-text contrast (WCAG-friendly)
-- Typography scale; consistent `SectionHeading` usage
-- Section rhythm: spacing, optional dividers or subtle band backgrounds
-- Unified frosted cards (projects + experience); hover/focus states
-- Shell chrome tuned vs starfield; mobile tap targets and hero CTA above fold
-- Short visual principles doc in `docs/`
+**Post–Phase 7 polish (documented in amended ADRs):** hero/header tokens and CTAs ([0011](decisions/0011-identity-content-presentation.md)); projects grid/cards/tabs ([0012](decisions/0012-project-case-studies.md)); experience timeline + padding ([0009](decisions/0009-experience-content-presentation.md)); band nebula washes ([0013](decisions/0013-visual-design-system.md)); nav scroll-spy + hash sync ([0008](decisions/0008-portfolio-sections-routing.md)).
 
-**Out of scope:** Planet shaders, new sections, SEO
-
-**Done when:** Clear polish vs Phase 4; contrast check on muted text; patterns documented.
+**Done when:** Clear polish vs Phase 6; muted text contrast documented; patterns documented; build + e2e pass.
 
 ---
 
-## Phase 8 — Hero planet & motion craft
+## Phase 8 — Hero planet & motion craft (complete)
 
 **Goal:** Hero 3D reads as intentional brand, not a placeholder mesh.
 
-**Deliverables**
-
-- Planet: layered materials, atmosphere hint, rim light; ring vs planet motion
-- `Scene3DFallback` matches new planet look (reduced motion)
-- Lighting aligned with Phase 7 tokens
-- Optional subtle bloom only if perf OK — amend [ADR 0010](decisions/0010-scene3d-performance.md) if needed
+- Layered planet (core + atmosphere shell); independent planet Y-spin and ring roll; static group tilt
+- Token lights via `readSceneColors()`; constants in `scene3d/lib/constants.ts`
+- `Scene3DFallback` uses `--hero-planet-glow` + CSS ring hint
+- Bloom deferred per [ADR 0010](decisions/0010-scene3d-performance.md) amendment
 
 **Out of scope:** OrbitControls, clickable 3D, GLTF assets, heavy postprocessing
 
-**Done when:** Planet no longer reads “default demo”; fallback matches; perf caps still met.
+**Done when:** Planet no longer reads “default demo”; fallback matches; perf caps still met; build + e2e pass.
 
 ---
 

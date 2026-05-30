@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { MenuIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -13,10 +13,20 @@ import {
 import { getResumeLabel, loadPortfolio } from '@/content'
 import { Container } from '@/shared/ui'
 
+import { isNavItemActive, navLinkClassName } from './navActive'
+import { useScrollSpySection } from './useScrollSpySection'
+
 export function Header() {
   const { meta, nav, hero } = loadPortfolio()
   const resumeLabel = getResumeLabel(meta)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { pathname, hash } = useLocation()
+  const sectionIds = nav.map((item) => item.href).filter((href) => href.startsWith('#'))
+  const scrollSection = useScrollSpySection(sectionIds, pathname === '/')
+
+  function isActive(href: string) {
+    return isNavItemActive(href, pathname, hash, scrollSection)
+  }
 
   function handleNavClick() {
     setMobileOpen(false)
@@ -27,7 +37,7 @@ export function Header() {
       <Container as="div" className="flex h-16 items-center justify-between gap-2">
         <Link
           to="/"
-          className="text-sm font-semibold tracking-wide text-foreground"
+          className="font-display text-sm font-semibold tracking-wide text-foreground"
         >
           {meta.name}
         </Link>
@@ -36,13 +46,22 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              aria-current={isActive(item.href) ? 'page' : undefined}
+              className={navLinkClassName(isActive(item.href))}
             >
               {item.label}
             </a>
           ))}
         </nav>
         <div className="flex items-center gap-2">
+          <Button
+            nativeButton={false}
+            render={<a href={hero.primaryCta.href} />}
+            size="sm"
+            className="hidden min-h-11 shadow-[var(--shadow-glow-hero)] lg:inline-flex"
+          >
+            {hero.primaryCta.label}
+          </Button>
           <Button
             nativeButton={false}
             render={
@@ -54,17 +73,9 @@ export function Header() {
             }
             variant="outline"
             size="sm"
-            className="hidden lg:inline-flex"
+            className="hidden min-h-11 min-w-11 lg:inline-flex"
           >
             {resumeLabel}
-          </Button>
-          <Button
-            nativeButton={false}
-            render={<a href={hero.primaryCta.href} />}
-            size="sm"
-            className="hidden md:inline-flex"
-          >
-            {hero.primaryCta.label}
           </Button>
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger
@@ -72,7 +83,7 @@ export function Header() {
                 <Button
                   variant="ghost"
                   size="icon-sm"
-                  className="md:hidden"
+                  className="size-11 min-h-11 min-w-11 md:hidden"
                   aria-label="Open navigation menu"
                 />
               }
@@ -89,7 +100,12 @@ export function Header() {
                     key={item.href}
                     href={item.href}
                     onClick={handleNavClick}
-                    className="text-base text-muted-foreground transition-colors hover:text-foreground"
+                    aria-current={isActive(item.href) ? 'page' : undefined}
+                    className={
+                      isActive(item.href)
+                        ? 'text-base font-medium text-foreground'
+                        : 'text-base text-muted-foreground transition-colors hover:text-foreground'
+                    }
                   >
                     {item.label}
                   </a>

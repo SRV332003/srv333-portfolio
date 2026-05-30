@@ -52,10 +52,25 @@ Phase 3 expands the single-hero page into a full scrollable portfolio with ancho
 - `scroll-behavior: smooth` on `html` in `globals.css`.
 - `@media (prefers-reduced-motion: reduce) { scroll-behavior: auto }` per ADR 0007 a11y pattern.
 
+### Nav active state (amended — post–Phase 7)
+
+Desktop and mobile nav links set `aria-current="page"` from scroll position on `/`, not from hash alone.
+
+| Piece | Location | Behavior |
+|-------|----------|----------|
+| Scroll-spy | `useScrollSpySection.ts` | `IntersectionObserver` with `rootMargin: -96px 0 -55% 0`; highest `intersectionRatio` wins |
+| Bottom sections | same | Near document bottom, `#contact` wins when it intersects or its top enters the active zone (avoids Skills stuck active) |
+| Hash clicks | `hashchange` | Sets active section immediately; observer updates deferred ~300ms while anchor scroll settles |
+| Hash sync on scroll | same | `history.replaceState` updates URL hash to match spy (e.g. `#projects` while reading Projects) |
+| Active resolution | `navActive.ts` | `scrollSection ?? (hash \|\| '#hero')`; no stale hash override |
+| Detail routes | `navActive.ts` | On `/projects/*`, **Projects** nav item is active |
+
+E2E: `e2e/navigation.spec.ts` (scroll activation, Contact click/load).
+
 ## Consequences
 
 - Home page height increases; canvas scroll parallax becomes more visible.
-- Playwright coverage expanded for sections, tabs, detail route, mailto, mobile sheet.
+- Playwright coverage expanded for sections, tabs, detail route, mailto, mobile sheet, navigation active state.
 - Future SEO (Phase 5) can use `getAllProjectSlugs()` for static paths or meta.
 
 ## References

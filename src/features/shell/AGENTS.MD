@@ -9,7 +9,7 @@ Global chrome: layout, header, footer. Mounts full-page `StarfieldBackground` (e
 | File | Role |
 |------|------|
 | `Layout.tsx` | `StarfieldBackground` + z-10 content column |
-| `Header.tsx` | Nav + CTAs from content; resume from `meta.resumeUrl` (`lg+` desktop); mobile Sheet nav |
+| `Header.tsx` | Nav + primary CTA + resume (`lg+`); `useScrollSpySection` (IntersectionObserver + hash `replaceState` on scroll); `navActive.ts`; Projects active on `/projects/*` |
 | `Footer.tsx` | Social links from content |
 
 ## Chrome styling

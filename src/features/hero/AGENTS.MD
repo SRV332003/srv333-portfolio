@@ -10,7 +10,9 @@ Hero section with headline, role line, CTAs, resume link, and decorative lazy 3D
 
 ## Hierarchy
 
-`eyebrow → headline → roleLine → subheadline → CTAs (primary, secondary, resume)`
+`eyebrow → headline → roleLine → subheadline → CTAs (primary, secondary, resume outline)`
+
+Primary CTA label aligns with nav ("View projects"); repeated in hero and header (`lg+`) for persistent access.
 
 ## 3D accent
 

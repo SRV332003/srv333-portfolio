@@ -26,13 +26,17 @@
     "roleLine": "Senior full-stack engineer · mission systems & operator UIs",
     "subheadline": "Full-stack developer focused on resilient systems, immersive interfaces, and tools that help teams ship under pressure.",
     "primaryCta": {
-      "label": "View missions",
+      "label": "View projects",
       "href": "#projects"
     },
     "secondaryCta": {
-      "label": "Open channel",
+      "label": "Contact",
       "href": "#contact"
     }
+  },
+  "projectsSection": {
+    "title": "Projects",
+    "subtitle": "Mission-critical systems and operator-facing platforms."
   },
   "about": {
     "title": "About",
@@ -120,6 +124,10 @@
       "featured": false
     }
   ],
+  "experienceSection": {
+    "title": "Experience",
+    "subtitle": "Ground systems, mission operations, and the path from launch to orbit."
+  },
   "experience": [
     {
       "role": "Senior Software Engineer",

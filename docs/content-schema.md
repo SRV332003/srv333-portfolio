@@ -43,6 +43,13 @@ Array of `{ label, href }` for anchor or route links. Nav order prioritizes Proj
 | `primaryCta` | `{ label, href }` |
 | `secondaryCta` | optional second CTA |
 
+## `projectsSection`
+
+| Field | Description |
+|-------|-------------|
+| `title` | Section heading (e.g. Projects) |
+| `subtitle` | Optional supporting line under the heading |
+
 ## `projects`
 
 | Field | Description |
@@ -61,6 +68,13 @@ Array of `{ label, href }` for anchor or route links. Nav order prioritizes Proj
 | `flagship` | Required boolean; one richest case study spans wider on home grid |
 
 Loaders: `getProjectBySlug(slug)`, `getAllProjectSlugs()`.
+
+## `experienceSection`
+
+| Field | Description |
+|-------|-------------|
+| `title` | Section heading (e.g. Experience) |
+| `subtitle` | Optional supporting line under the heading |
 
 ## `experience`
 

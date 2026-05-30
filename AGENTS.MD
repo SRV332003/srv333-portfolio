@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Interactive space-themed portfolio. Phase 6: project case studies (thumbnails, outcomes, flagship detail).
+Interactive space-themed portfolio. Phase 7: visual design system (tokens, FrostedPanel, section bands, Geist display).
 
 ## Commands
 
@@ -47,13 +47,14 @@ npx shadcn@latest add <component>  # new UI primitive (see ADR 0005)
 4. New shadcn primitive? Use `.cursor/skills/add-shadcn-component/`
 5. New section? Use `.cursor/skills/add-portfolio-section/`
 6. Canvas/shell UX change? Read [ADR 0007](docs/decisions/0007-canvas-interaction-ux.md)
-7. Sections/routing/contact? Read [ADR 0008](docs/decisions/0008-portfolio-sections-routing.md)
+7. Sections/routing/contact/nav active? Read [ADR 0008](docs/decisions/0008-portfolio-sections-routing.md)
 8. Experience content/dates/UI? Read [ADR 0009](docs/decisions/0009-experience-content-presentation.md)
 9. 3D / scene3d? Read [ADR 0010](docs/decisions/0010-scene3d-performance.md); use `.cursor/skills/add-3d-scene/`
 10. Identity / resume / avatar? Read [ADR 0011](docs/decisions/0011-identity-content-presentation.md)
 11. Project case studies / outcomes? Read [ADR 0012](docs/decisions/0012-project-case-studies.md)
-12. Non-obvious choice not covered by ADRs? Add ADR in `docs/decisions/`
-13. `npm run typecheck` before done
+12. Visual system / tokens / bands? Read [ADR 0013](docs/decisions/0013-visual-design-system.md), [visual-principles.md](docs/visual-principles.md)
+13. Non-obvious choice not covered by ADRs? Add ADR in `docs/decisions/`
+14. `npm run typecheck` before done
 
 ## Boundaries
 

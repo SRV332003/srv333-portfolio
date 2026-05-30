@@ -68,15 +68,35 @@ npx shadcn@latest add <component>
 - **Never** add Canvas to `shell/Layout.tsx` — 3D is opt-in per section ([ADR 0003](decisions/0003-hybrid-visuals.md), [ADR 0010](decisions/0010-scene3d-performance.md))
 - Home uses one hero Canvas; avoid duplicate generic 3D sections before proof-of-work content
 
-## Bespoke card pattern (projects + experience)
+## FrostedPanel (projects + experience + outcomes)
 
-Shared visual language for section “tiles”:
+Use `FrostedPanel` from `@/shared/ui` — do not duplicate frosted class strings:
 
-- Frosted panel: `rounded-xl border border-border/50 bg-card/40 p-6 backdrop-blur-sm`
-- Hover: `hover:border-accent/40 hover:bg-card/60`
+```tsx
+import { FrostedPanel } from '@/shared/ui'
+
+<FrostedPanel as="article" className="p-6">{children}</FrostedPanel>
+```
+
+- `interactive={false}` when hover is handled by a parent (e.g. project card `group-hover`)
 - shadcn `Badge` for tech/skills; **no** shadcn `Card`
 
-See [ADR 0009](decisions/0009-experience-content-presentation.md) for experience timeline specifics.
+See [ADR 0013](decisions/0013-visual-design-system.md), [ADR 0009](decisions/0009-experience-content-presentation.md).
+
+## Section bands
+
+- `Section variant="band"` — nebula band background; `data-section-variant="band"` for tests
+- Default on Projects, Experience, Contact; Hero, About, Skills stay transparent
+
+## Typography scale
+
+| Token | CSS class | Use |
+|-------|-----------|-----|
+| `--text-display` | `.text-display` | Hero H1 |
+| `--text-section` | `.text-section` | Section h2, detail h1 |
+| Body | — | `system-ui` via `--font-body` |
+
+Headings use Geist Variable (`--font-display`); body uses system-ui.
 
 ## Project card grid
 
@@ -93,8 +113,8 @@ See [ADR 0009](decisions/0009-experience-content-presentation.md) for experience
 
 ```tsx
 <article className="relative ...">
-  <Link to={...} className="absolute inset-0 ..." aria-label={...} />
-  <div className="relative ... pointer-events-none">{/* content */}</div>
+  <Link to={...} className="absolute inset-0 z-10 ... focus-visible:ring-2 ..." aria-label={...} />
+  <FrostedPanel className="relative ... pointer-events-none">{/* content */}</FrostedPanel>
 </article>
 ```
 
@@ -125,6 +145,7 @@ See [ADR 0009](decisions/0009-experience-content-presentation.md) for experience
 ## Mobile nav
 
 - Header sheet (`md:hidden` trigger); desktop nav unchanged.
+- Active link: `useScrollSpySection` + `isNavItemActive` — see [ADR 0008](decisions/0008-portfolio-sections-routing.md) (nav active state).
 - Close sheet on link click.
 
 ## Canvas (Phase 2)

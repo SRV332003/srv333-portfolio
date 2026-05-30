@@ -8,7 +8,7 @@ Renders the `#contact` section with a client-side Zod-validated form that opens 
 
 | File | Role |
 |------|------|
-| `ContactSection.tsx` | Form (name, email, message) → mailto |
+| `ContactSection.tsx` | Band + nebula wash (`data-section-wash="contact"`); form (name, email, message) → mailto |
 | `mailto.ts` | `buildMailtoUrl()` helper (testable, shared encoding) |
 | `index.ts` | Barrel export |
 

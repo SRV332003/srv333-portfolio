@@ -50,7 +50,10 @@ test.describe('Home page UI', () => {
     await expect(page.getByRole('navigation', { name: 'Main' })).toBeVisible()
     await expect(page.getByRole('link', { name: 'Projects', exact: true })).toBeVisible()
     await expect(
-      page.getByRole('button', { name: 'View missions' }).first(),
+      page.locator('#hero').getByRole('button', { name: 'View projects', exact: true }),
+    ).toBeVisible()
+    await expect(
+      page.getByRole('banner').getByRole('button', { name: 'View projects', exact: true }),
     ).toBeVisible()
 
     const starfieldLayer = page.locator('.pointer-events-none.fixed.inset-0')
@@ -77,10 +80,12 @@ test.describe('Home page UI', () => {
     })
   })
 
-  test('header CTA has correct href', async ({ page }) => {
+  test('hero and header primary CTAs have correct href', async ({ page }) => {
     await page.goto('/')
-    const cta = page.getByRole('button', { name: 'View missions' }).first()
-    await expect(cta).toHaveAttribute('href', '#projects')
+    const heroCta = page.locator('#hero').getByRole('button', { name: 'View projects', exact: true })
+    await expect(heroCta).toHaveAttribute('href', '#projects')
+    const headerCta = page.getByRole('banner').getByRole('button', { name: 'View projects', exact: true })
+    await expect(headerCta).toHaveAttribute('href', '#projects')
   })
 
   test('header is semi-transparent so starfield shows through', async ({
@@ -193,6 +198,41 @@ test.describe('Phase 5 identity', () => {
 
     await expect(page.getByText(contactIntro)).toBeVisible()
     expect(openToText).not.toBe(contactIntro)
+  })
+})
+
+test.describe('Phase 7 visual system', () => {
+  test.use({ viewport: { width: 375, height: 667 } })
+
+  test('hero primary CTA is visible above the fold on mobile', async ({ page }) => {
+    await page.goto('/')
+
+    const heroCta = page.locator('#hero').getByRole('button', { name: 'View projects', exact: true })
+    await expect(heroCta).toBeVisible()
+    await expect(heroCta).toBeInViewport()
+  })
+
+  test('projects section uses band variant', async ({ page }) => {
+    await page.goto('/#projects')
+
+    await expect(page.locator('#projects')).toHaveAttribute('data-section-variant', 'band')
+    await expect(page.locator('#projects [data-section-wash="projects"]')).toBeVisible()
+  })
+
+  test('contact section uses band variant and nebula wash', async ({ page }) => {
+    await page.goto('/#contact')
+
+    await expect(page.locator('#contact')).toHaveAttribute('data-section-variant', 'band')
+    await expect(page.locator('#contact [data-section-wash="contact"]')).toBeVisible()
+  })
+
+  test('project card link shows focus ring when tabbed', async ({ page }) => {
+    await page.goto('/#projects')
+
+    const cardLink = page.getByRole('link', { name: 'View Orbital Telemetry Console' })
+    await cardLink.focus()
+    await expect(cardLink).toBeFocused()
+    await expect(cardLink).toHaveClass(/focus-visible:ring-2/)
   })
 })
 

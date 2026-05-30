@@ -3,20 +3,37 @@ import { expect, test } from '@playwright/test'
 import { buildMailtoUrl } from '../src/features/contact/mailto'
 
 test.describe('Projects', () => {
+  test('filter query param opens featured tab', async ({ page }) => {
+    await page.goto('/?filter=featured#projects')
+
+    await expect(page.getByRole('tab', { name: 'Featured (2)' })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    )
+    const featuredPanel = page.getByRole('tabpanel', { name: 'Featured (2)' })
+    await expect(featuredPanel.getByRole('link', { name: 'View Launch Pad CI' })).toHaveCount(0)
+  })
+
   test('tab filter switches visible project cards', async ({ page }) => {
     await page.goto('/#projects')
 
     await expect(page.getByRole('tab', { name: 'All' })).toBeVisible()
-    await expect(page.getByRole('tab', { name: 'Featured' })).toBeVisible()
+    await expect(page.getByRole('tab', { name: 'Featured (2)' })).toBeVisible()
 
-    await expect(page.getByRole('link', { name: 'View Orbital Telemetry Console' })).toBeVisible()
-    await expect(page.getByRole('link', { name: 'View Launch Pad CI' })).toBeVisible()
+    const allPanel = page.getByRole('tabpanel', { name: 'All' })
+    await expect(allPanel.getByRole('link', { name: 'View Orbital Telemetry Console' })).toBeVisible()
+    await expect(allPanel.getByRole('link', { name: 'View Launch Pad CI' })).toBeVisible()
 
-    await page.getByRole('tab', { name: 'Featured' }).click()
+    await page.getByRole('tab', { name: 'Featured (2)' }).click()
 
-    await expect(page.getByRole('link', { name: 'View Orbital Telemetry Console' })).toBeVisible()
-    await expect(page.getByRole('link', { name: 'View Nebula Design System' })).toBeVisible()
-    await expect(page.getByRole('link', { name: 'View Launch Pad CI' })).toHaveCount(0)
+    const featuredPanel = page.getByRole('tabpanel', { name: 'Featured (2)' })
+    await expect(
+      featuredPanel.getByRole('link', { name: 'View Orbital Telemetry Console' }),
+    ).toBeVisible()
+    await expect(
+      featuredPanel.getByRole('link', { name: 'View Nebula Design System' }),
+    ).toBeVisible()
+    await expect(featuredPanel.getByRole('link', { name: 'View Launch Pad CI' })).toHaveCount(0)
   })
 
   test('project detail page shows title and body', async ({ page }) => {
@@ -54,6 +71,35 @@ test.describe('Phase 6 case studies', () => {
     await expect(
       page.getByAltText('Orbital Telemetry Console dashboard showing satellite health metrics'),
     ).toBeVisible()
+  })
+
+  test('project cards show outcome teasers and case study affordance', async ({ page }) => {
+    await page.goto('/#projects')
+
+    const orbitalCard = page
+      .getByRole('link', { name: 'View Orbital Telemetry Console' })
+      .locator('xpath=ancestor::article[1]')
+    await expect(orbitalCard.getByText('<2s', { exact: true })).toBeVisible()
+    await expect(orbitalCard.getByText('Anomaly detection latency')).toBeVisible()
+    await expect(orbitalCard.getByText('View case study')).toBeVisible()
+  })
+
+  test('projects section shows subtitle', async ({ page }) => {
+    await page.goto('/#projects')
+
+    await expect(
+      page.getByText('Mission-critical systems and operator-facing platforms.'),
+    ).toBeVisible()
+  })
+
+  test('projects nav is active on detail route', async ({ page }) => {
+    await page.goto('/projects/orbital-telemetry')
+
+    const projectsNav = page.getByRole('navigation', { name: 'Main' }).getByRole('link', {
+      name: 'Projects',
+      exact: true,
+    })
+    await expect(projectsNav).toHaveAttribute('aria-current', 'page')
   })
 
   test('flagship card spans wider grid on large viewports', async ({ page }) => {

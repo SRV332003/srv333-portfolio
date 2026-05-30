@@ -8,7 +8,7 @@ Renders the `#experience` timeline section from `portfolio.json` `experience` ar
 
 | File | Role |
 |------|------|
-| `ExperienceSection.tsx` | Timeline rail, frosted entry cards, custom bullets, role skills |
+| `ExperienceSection.tsx` | Shared timeline spine, present-role node styling, nebula wash, `experienceSection` intro, frosted cards |
 | `formatPeriod.ts` | `YYYY-MM` → `MMM YYYY` display formatting |
 | `index.ts` | Barrel export |
 

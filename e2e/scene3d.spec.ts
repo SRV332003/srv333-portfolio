@@ -35,6 +35,22 @@ test.describe('Scene3D visuals', () => {
     await expect(scene3dCanvases).toHaveCount(0)
   })
 
+  test('reduced-motion fallback orb uses hero planet glow token', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await page.goto('/')
+
+    const orb = page.locator('[data-scene3d-fallback="orb"]')
+    await expect(orb).toBeVisible()
+
+    await expect(orb).toHaveAttribute(
+      'style',
+      expect.stringContaining('var(--hero-planet-glow)'),
+    )
+
+    const background = await orb.evaluate((el) => getComputedStyle(el).background)
+    expect(background).toMatch(/radial-gradient/i)
+  })
+
   test('hero scene3d wrapper may contain canvas when motion is allowed', async ({
     page,
   }) => {

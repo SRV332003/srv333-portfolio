@@ -5,21 +5,40 @@
   --color-void: #050510;
   --color-nebula: #1a1035;
   --color-nebula-light: #2d1b4e;
+  --color-nebula-band: color-mix(in srgb, var(--color-nebula-light) 16%, var(--color-void));
   --color-star: #e8e6f0;
-  --color-star-dim: #9b95b0;
+  /* WCAG AA: ≥4.5:1 on void for normal text (was #9b95b0 ~3.8:1) */
+  --color-star-dim: #b8b3c9;
   --color-orbit: #6b5ce7;
   --color-accent: #00d4aa;
-  --color-accent-glow: rgba(0, 212, 170, 0.35);
+  --color-accent-glow: rgba(0, 212, 170, 0.28);
+  --color-eyebrow: color-mix(in srgb, var(--color-star-dim) 88%, var(--color-primary));
 
   /* Typography */
-  --font-display: 'Segoe UI', system-ui, sans-serif;
-  --font-body: 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Geist Variable', system-ui, sans-serif;
+  --font-body: system-ui, sans-serif;
+  --text-display: clamp(2.25rem, 5vw, 3.75rem);
+  --text-section: clamp(1.875rem, 3vw, 2.25rem);
+  --text-lead: 1.125rem;
+  --text-body: 1rem;
+  --text-small: 0.875rem;
 
   /* Spacing scale (reference) */
   --section-padding-y: 5rem;
 
   /* Effects */
-  --shadow-glow: 0 0 24px var(--color-accent-glow);
+  --shadow-glow: 0 0 20px var(--color-accent-glow);
+  --shadow-glow-hero: 0 0 16px color-mix(in srgb, var(--color-accent) 22%, transparent);
+  --hero-planet-glow: radial-gradient(
+      circle at 50% 45%,
+      color-mix(in srgb, var(--color-accent) 22%, transparent),
+      transparent 65%
+    ),
+    radial-gradient(
+      circle at 55% 55%,
+      color-mix(in srgb, var(--color-orbit) 18%, transparent),
+      transparent 60%
+    );
   --radius-cosmic: 0.75rem;
 }
 

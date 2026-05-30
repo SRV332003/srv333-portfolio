@@ -40,7 +40,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             className="mb-8 aspect-video w-full rounded-xl border border-border/50 object-cover"
           />
         ) : null}
-        <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+        <h1 className="text-section font-bold tracking-tight text-foreground">
           {project.title}
         </h1>
         {meta ? (

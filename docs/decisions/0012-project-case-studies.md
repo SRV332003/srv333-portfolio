@@ -28,11 +28,24 @@ Each project may include:
 
 **Narrative:** problem → role → outcomes → long-form `body[]`. Problem lives in `body[0]`; no separate `problem` field.
 
+**Section intro:** `projectsSection` (`title`, optional `subtitle`) drives `SectionHeading` on home grid.
+
 ### Home grid
 
-- **Featured:** `ring-accent/30` + subtle glow on cards; filter via All/Featured tabs (unchanged).
-- **Flagship:** `lg:col-span-2` list item; sort flagship first, then featured, in All tab.
-- Cards show thumbnail (`aspect-video`, lazy), domain · year meta, role, summary, tech.
+- **Featured:** `ring-accent/30` + subtle glow on cards; filter via All / Featured tabs.
+- **Featured tab label:** `Featured (N)` when count > 0.
+- **Flagship:** `lg:col-span-2` on 3-column grid; sort flagship first, then featured.
+- **Featured-only layout:** when ≤2 featured projects, `lg:grid-cols-2` and flagship does not double-span (avoids empty third column).
+- **Filter URL:** `/?filter=featured#projects` syncs tab via `useSearchParams` (`replace`); query must precede hash.
+- **Tabs UI:** `variant="line"` with primary underline on active trigger.
+- **Band wash:** `data-section-wash="projects"` radial gradients on band (ADR 0013).
+
+### Home cards (amended — post–Phase 7)
+
+- Thumbnail in overflow wrapper; `motion-safe` hover scale on image.
+- Up to **3 outcome teasers** per card (`value` + `label`), same content as detail strip.
+- Persistent **“View case study →”** affordance (stretched `Link` remains card hit target).
+- `FrostedPanel` with `p-6`; meta, role, summary, tech badges unchanged from Phase 6 baseline.
 
 ### Detail page
 
@@ -47,8 +60,8 @@ Placeholder images under `public/assets/projects/`; swap real screenshots before
 ## Consequences
 
 - Phase 10 SEO can reuse `getAllProjectSlugs()` and per-project `image` for OG later.
-- Phase 7 may unify card styling with experience cards; no token overhaul in Phase 6.
-- E2E asserts thumbnail, detail hero, outcomes, and meta on flagship project.
+- Phase 7 unified card surfaces via `FrostedPanel` and band washes (ADR 0013).
+- E2E: thumbnails, detail outcomes, card teasers, subtitle, filter query, tab panels (`e2e/projects.spec.ts`, `e2e/home.spec.ts`).
 
 ## References
 

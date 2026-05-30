@@ -38,21 +38,26 @@ At least one of `description`, `summary`, or `highlights` is required.
 
 Experience uses **bespoke marketing UI**, not shadcn `Card`:
 
-- Left column: accent dot + formatted date range on desktop; stacked on mobile.
-- Right column: frosted panel matching project cards (`bg-card/40`, border, blur, hover).
-- Custom accent bullet markers (not browser `list-disc`).
-- “Technologies” footer strip with shadcn `Badge variant="outline"` inside each card.
-- Gradient connector line between timeline dots (CSS, not shadcn `Separator`).
+- Section intro from `experienceSection` (`title`, optional `subtitle`); optional nebula radial wash on the band.
+- **Shared timeline spine**: one vertical gradient rail (`data-timeline-spine`) with dots centered on the rail; `end: "present"` uses primary node + “Current” label + subtle card ring.
+- Three-column desktop layout: rail · dates (`9.5rem`, right-aligned, `whitespace-nowrap` on period) · frosted card; mobile stacks date above card beside the rail.
+- Custom accent bullet markers (dot markers; not browser `list-disc`).
+- **Card padding:** `FrostedPanel` `p-6 md:p-7` (matches project cards).
+- “Technologies” footer strip with shadcn `Badge variant="outline"`; label uses primary token; `mt-8 pt-6` spacing.
+- Role and company render as **Role · Company** (company in accent).
 
-Role and company render as **Role · Company** on one line.
+Per-item connector spans replaced by the continuous spine (post–Phase 7 polish).
 
 ## Consequences
 
 - Schema change replaces free-text `period` with `start`/`end`; existing JSON must migrate.
 - Locale is fixed to `en-US` for month abbreviations; i18n would need a shared formatter change.
 - Experience cards are non-interactive (hover polish only)—no detail routes for jobs.
+- E2E: spine, subtitle, present role, date nowrap, card padding (`e2e/experience.spec.ts`).
 
 ## References
+
+- [ADR 0013](0013-visual-design-system.md) — band wash, FrostedPanel
 
 - [ADR 0004](0004-content-driven-ui.md) — content-driven copy
 - [ADR 0005](0005-shadcn-selective.md) — badge only; no shadcn Card

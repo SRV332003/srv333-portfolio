@@ -16,6 +16,7 @@ export function SceneCanvas({ children, className, camera }: SceneCanvasProps) {
   return (
     <Canvas
       className={className}
+      frameloop="always"
       dpr={getEffectiveDpr()}
       gl={{ alpha: true, antialias: true, powerPreference: 'high-performance' }}
       camera={{

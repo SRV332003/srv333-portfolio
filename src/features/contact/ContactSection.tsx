@@ -19,7 +19,11 @@ const contactFormSchema = z.object({
 type ContactFormData = z.infer<typeof contactFormSchema>
 type ContactFormErrors = Partial<Record<keyof ContactFormData, string>>
 
-export function ContactSection() {
+type ContactSectionProps = {
+  sectionVariant?: 'default' | 'band'
+}
+
+export function ContactSection({ sectionVariant = 'band' }: ContactSectionProps) {
   const { contact } = loadPortfolio()
   const [form, setForm] = useState<ContactFormData>({
     name: '',
@@ -55,8 +59,18 @@ export function ContactSection() {
   }
 
   return (
-    <Section id="contact" ariaLabel="Contact">
-      <Container className="max-w-xl">
+    <Section
+      id="contact"
+      ariaLabel="Contact"
+      variant={sectionVariant}
+      className="relative overflow-hidden"
+    >
+      <div
+        data-section-wash="contact"
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_100%,color-mix(in_srgb,var(--color-accent)_14%,transparent),transparent_55%),radial-gradient(ellipse_55%_45%_at_50%_0%,color-mix(in_srgb,var(--color-orbit)_12%,transparent),transparent_50%)]"
+      />
+      <Container className="relative max-w-xl">
         <SectionHeading title={contact.title} subtitle={contact.message} />
         <form onSubmit={handleSubmit} className="space-y-6" noValidate>
           <div className="space-y-2">

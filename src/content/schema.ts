@@ -93,6 +93,14 @@ export const experienceSchema = z
     },
   )
 
+const sectionIntroSchema = z.object({
+  title: z.string(),
+  subtitle: z.string().optional(),
+})
+
+export const projectsSectionSchema = sectionIntroSchema
+export const experienceSectionSchema = sectionIntroSchema
+
 export const skillGroupSchema = z.object({
   category: z.string(),
   items: z.array(z.string()),
@@ -110,7 +118,9 @@ export const portfolioSchema = z
     nav: z.array(navItemSchema),
     hero: heroContentSchema,
     about: aboutContentSchema,
+    projectsSection: projectsSectionSchema,
     projects: z.array(projectSchema),
+    experienceSection: experienceSectionSchema,
     experience: z.array(experienceSchema),
     skills: z.array(skillGroupSchema),
     contact: contactContentSchema,
@@ -133,6 +143,8 @@ export type SiteMeta = z.infer<typeof siteMetaSchema>
 export type NavItem = z.infer<typeof navItemSchema>
 export type HeroContent = z.infer<typeof heroContentSchema>
 export type AboutContent = z.infer<typeof aboutContentSchema>
+export type ProjectsSectionContent = z.infer<typeof projectsSectionSchema>
+export type ExperienceSectionContent = z.infer<typeof experienceSectionSchema>
 export type Project = z.infer<typeof projectSchema>
 export type ProjectOutcome = z.infer<typeof projectOutcomeSchema>
 export type Experience = z.infer<typeof experienceSchema>

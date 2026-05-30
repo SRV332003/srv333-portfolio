@@ -8,8 +8,8 @@ Home `#projects` grid with tab filter and `/projects/:slug` case-study detail pa
 
 | File | Role |
 |------|------|
-| `ProjectsSection.tsx` | Grid + tabs (All / Featured); flagship `lg:col-span-2`; sort flagship/featured first |
-| `ProjectCard.tsx` | Thumbnail, meta, role, stretched-link card to detail route |
+| `ProjectsSection.tsx` | Band + nebula wash (`data-section-wash="projects"`); grid + tabs (All / Featured with count); `/?filter=featured#projects` sync; compact 2-col when ≤2 featured; flagship `lg:col-span-2` on 3-col grid |
+| `ProjectCard.tsx` | Thumbnail (hover zoom), meta, outcome teasers (max 3), “View case study”, stretched-link to detail |
 | `ProjectDetail.tsx` | Hero image, meta row, outcomes strip, body, CTAs |
 | `ProjectOutcomesStrip.tsx` | Metrics grid (`value` + `label`) |
 | `ProjectDetailPage.tsx` | Route page with 404 handling (lazy route import only) |
