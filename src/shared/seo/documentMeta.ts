@@ -4,6 +4,10 @@ export type PageMeta = {
   ogImage?: string
   path?: string
   siteName?: string
+  author?: string
+  publishedTime?: string
+  modifiedTime?: string
+  type?: 'website' | 'article'
 }
 
 export function getSiteOrigin(): string {
@@ -38,6 +42,30 @@ function upsertMeta(
   element.setAttribute('content', content)
 }
 
+function setMeta(
+  attribute: 'name' | 'property',
+  key: string,
+  content: string | undefined,
+): void {
+  const selector = `meta[${attribute}="${key}"]`
+  const element = document.querySelector(selector)
+
+  if (!content) {
+    element?.remove()
+    return
+  }
+
+  if (element) {
+    element.setAttribute('content', content)
+    return
+  }
+
+  const next = document.createElement('meta')
+  next.setAttribute(attribute, key)
+  next.setAttribute('content', content)
+  document.head.appendChild(next)
+}
+
 function upsertLink(rel: string, href: string): void {
   let element = document.querySelector(`link[rel="${rel}"]`)
   if (!element) {
@@ -53,10 +81,14 @@ export function applyPageMeta(meta: PageMeta): void {
   upsertMeta('name', 'description', meta.description)
   upsertMeta('property', 'og:title', meta.title)
   upsertMeta('property', 'og:description', meta.description)
-  upsertMeta('property', 'og:type', 'website')
+  upsertMeta('property', 'og:type', meta.type ?? 'website')
   upsertMeta('name', 'twitter:card', 'summary_large_image')
   upsertMeta('name', 'twitter:title', meta.title)
   upsertMeta('name', 'twitter:description', meta.description)
+  setMeta('name', 'author', meta.author)
+  setMeta('property', 'article:author', meta.author)
+  setMeta('property', 'article:published_time', meta.publishedTime)
+  setMeta('property', 'article:modified_time', meta.modifiedTime)
 
   const canonicalPath = meta.path ?? '/'
   const canonicalUrl = absoluteUrl(canonicalPath)

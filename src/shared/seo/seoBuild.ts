@@ -62,6 +62,46 @@ export function buildHomeJsonLd(portfolio: Portfolio, origin: string): Record<st
   }
 }
 
+export function buildProjectJsonLd(
+  project: {
+    title: string
+    summary: string
+    slug: string
+    image?: string
+    year?: number
+  },
+  origin: string,
+  authorName: string,
+): Record<string, unknown> {
+  const base = siteBase(origin)
+  const projectUrl = `${base}/projects/${project.slug}`
+  const publishedTime = project.year ? `${project.year}-01-01T00:00:00.000Z` : undefined
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': `${projectUrl}#article`,
+    headline: project.title,
+    description: project.summary,
+    url: projectUrl,
+    image: project.image ? `${base}${project.image}` : undefined,
+    author: {
+      '@type': 'Person',
+      name: authorName,
+    },
+    publisher: {
+      '@type': 'Person',
+      name: authorName,
+    },
+    datePublished: publishedTime,
+    dateModified: publishedTime,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': projectUrl,
+    },
+  }
+}
+
 export function buildSitemapXml(origin: string, paths: string[]): string {
   const base = siteBase(origin)
   const lastmod = new Date().toISOString().slice(0, 10)
